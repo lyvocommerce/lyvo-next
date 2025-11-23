@@ -1,121 +1,141 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import WebApp from '@twa-dev/sdk'
+import { useEffect, useState, useRef } from 'react'
 import { TelegramUser } from '@/types/telegram'
+import type WebAppType from '@twa-dev/sdk'
 
 export default function Home() {
   const [user, setUser] = useState<TelegramUser | null>(null)
   const [isReady, setIsReady] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [platform, setPlatform] = useState<string>('')
+  const [version, setVersion] = useState<string>('')
+  const webAppRef = useRef<typeof WebAppType | null>(null)
 
   useEffect(() => {
-    // Initialize Telegram Web App
-    WebApp.ready()
-    WebApp.expand()
+    // Dynamically import WebApp to avoid SSR issues
+    import('@twa-dev/sdk').then(({ default: WebApp }) => {
+      // Store WebApp in ref for use in handlers
+      webAppRef.current = WebApp
+      
+      // Initialize Telegram Web App
+      WebApp.ready()
+      WebApp.expand()
 
-    // Get user data from Telegram Web App
-    const initData = WebApp.initData
-    const userData = WebApp.initDataUnsafe?.user
+      // Get user data from Telegram Web App
+      const initData = WebApp.initData
+      const userData = WebApp.initDataUnsafe?.user
 
-    if (userData) {
-      setUser({
-        id: userData.id,
-        firstName: userData.first_name,
-        lastName: userData.last_name || '',
-        username: userData.username || '',
-        languageCode: userData.language_code || '',
-        isPremium: userData.is_premium || false,
-        photoUrl: userData.photo_url || '',
-      })
-      setIsReady(true)
-    } else if (initData) {
-      // If we have initData but no user, try to validate via API
-      fetch('/api/auth/telegram', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ initData }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success && data.user) {
-            setUser({
-              id: data.user.id,
-              firstName: data.user.first_name,
-              lastName: data.user.last_name || '',
-              username: data.user.username || '',
-              languageCode: data.user.language_code || '',
-              isPremium: data.user.is_premium || false,
-              photoUrl: data.user.photo_url || '',
-            })
-            setIsReady(true)
-          } else {
-            setError(data.error || 'Authentication failed')
-          }
+      if (userData) {
+        setUser({
+          id: userData.id,
+          firstName: userData.first_name,
+          lastName: userData.last_name || '',
+          username: userData.username || '',
+          languageCode: userData.language_code || '',
+          isPremium: userData.is_premium || false,
+          photoUrl: userData.photo_url || '',
         })
-        .catch((err) => {
-          console.error('Auth error:', err)
-          setError('Authentication validation failed')
+        setIsReady(true)
+      } else if (initData) {
+        // If we have initData but no user, try to validate via API
+        fetch('/api/auth/telegram', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ initData }),
         })
-    } else {
-      setError('No initialization data found')
-    }
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success && data.user) {
+              setUser({
+                id: data.user.id,
+                firstName: data.user.first_name,
+                lastName: data.user.last_name || '',
+                username: data.user.username || '',
+                languageCode: data.user.language_code || '',
+                isPremium: data.user.is_premium || false,
+                photoUrl: data.user.photo_url || '',
+              })
+              setIsReady(true)
+            } else {
+              setError(data.error || 'Authentication failed')
+            }
+          })
+          .catch((err) => {
+            console.error('Auth error:', err)
+            setError('Authentication validation failed')
+          })
+      } else {
+        setError('No initialization data found')
+      }
 
-    // Set up Telegram theme colors
-    if (WebApp.themeParams) {
-      document.documentElement.style.setProperty(
-        '--tg-theme-bg-color',
-        WebApp.themeParams.bg_color || '#ffffff'
-      )
-      document.documentElement.style.setProperty(
-        '--tg-theme-text-color',
-        WebApp.themeParams.text_color || '#000000'
-      )
-      document.documentElement.style.setProperty(
-        '--tg-theme-hint-color',
-        WebApp.themeParams.hint_color || '#999999'
-      )
-      document.documentElement.style.setProperty(
-        '--tg-theme-link-color',
-        WebApp.themeParams.link_color || '#2481cc'
-      )
-      document.documentElement.style.setProperty(
-        '--tg-theme-button-color',
-        WebApp.themeParams.button_color || '#2481cc'
-      )
-      document.documentElement.style.setProperty(
-        '--tg-theme-button-text-color',
-        WebApp.themeParams.button_text_color || '#ffffff'
-      )
-      document.documentElement.style.setProperty(
-        '--tg-theme-secondary-bg-color',
-        WebApp.themeParams.secondary_bg_color || '#f1f1f1'
-      )
-    }
+      // Set up Telegram theme colors
+      if (WebApp.themeParams) {
+        document.documentElement.style.setProperty(
+          '--tg-theme-bg-color',
+          WebApp.themeParams.bg_color || '#ffffff'
+        )
+        document.documentElement.style.setProperty(
+          '--tg-theme-text-color',
+          WebApp.themeParams.text_color || '#000000'
+        )
+        document.documentElement.style.setProperty(
+          '--tg-theme-hint-color',
+          WebApp.themeParams.hint_color || '#999999'
+        )
+        document.documentElement.style.setProperty(
+          '--tg-theme-link-color',
+          WebApp.themeParams.link_color || '#2481cc'
+        )
+        document.documentElement.style.setProperty(
+          '--tg-theme-button-color',
+          WebApp.themeParams.button_color || '#2481cc'
+        )
+        document.documentElement.style.setProperty(
+          '--tg-theme-button-text-color',
+          WebApp.themeParams.button_text_color || '#ffffff'
+        )
+        document.documentElement.style.setProperty(
+          '--tg-theme-secondary-bg-color',
+          WebApp.themeParams.secondary_bg_color || '#f1f1f1'
+        )
+      }
 
-    // Handle back button
-    WebApp.BackButton.onClick(() => {
-      WebApp.BackButton.hide()
-      // Handle navigation or close
+      // Handle back button
+      WebApp.BackButton.onClick(() => {
+        WebApp.BackButton.hide()
+        // Handle navigation or close
+      })
+
+      // Set platform and version info
+      setPlatform(WebApp.platform || 'unknown')
+      setVersion(WebApp.version || 'unknown')
+
+      return () => {
+        WebApp.BackButton.offClick(() => {})
+      }
+    }).catch((err) => {
+      console.error('Failed to load Telegram Web App SDK:', err)
+      setError('Failed to initialize Telegram Web App')
     })
-
-    return () => {
-      WebApp.BackButton.offClick(() => {})
-    }
   }, [])
 
   const handleButtonClick = () => {
-    WebApp.showAlert('Button clicked!')
+    if (webAppRef.current) {
+      webAppRef.current.showAlert('Button clicked!')
+    }
   }
 
   const handleMainButtonClick = () => {
-    WebApp.showConfirm('Are you sure?', (confirmed: boolean) => {
-      if (confirmed) {
-        WebApp.showAlert('Confirmed!')
-      }
-    })
+    if (webAppRef.current) {
+      webAppRef.current.showConfirm('Are you sure?', (confirmed: boolean) => {
+        if (confirmed && webAppRef.current) {
+          webAppRef.current.showAlert('Confirmed!')
+        }
+      })
+    }
   }
 
   if (!isReady) {
@@ -194,10 +214,10 @@ export default function Home() {
         <div style={{ marginTop: '30px', padding: '15px', background: 'var(--tg-theme-secondary-bg-color)', borderRadius: '10px' }}>
           <h3 style={{ marginBottom: '10px' }}>Telegram Web App Info</h3>
           <p style={{ fontSize: '14px', color: 'var(--tg-theme-hint-color)' }}>
-            Platform: {WebApp.platform}
+            Platform: {platform}
           </p>
           <p style={{ fontSize: '14px', color: 'var(--tg-theme-hint-color)' }}>
-            Version: {WebApp.version}
+            Version: {version}
           </p>
         </div>
       </div>

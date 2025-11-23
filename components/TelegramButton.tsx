@@ -1,7 +1,5 @@
 'use client'
 
-import { WebApp } from '@twa-dev/sdk'
-
 interface TelegramButtonProps {
   text: string
   onClick: () => void

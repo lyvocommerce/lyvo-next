@@ -1,10 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import TelegramAuthProvider from '@/contexts/TelegramAuth/TelegramAuthProvider'
 
 export const metadata: Metadata = {
   title: 'LyvoShop Telegram App',
   description: 'Telegram Web App for LyvoShop',
-  viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable: false,
 }
 
 export default function RootLayout({
@@ -14,7 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TelegramAuthProvider testMode={false}>
+          {children}
+        </TelegramAuthProvider>
+      </body>
     </html>
   )
 }

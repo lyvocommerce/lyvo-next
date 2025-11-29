@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
+import PageTransition from "@/components/layout/PageTransition";
 
 export const metadata: Metadata = {
   title: "LyvoShop Telegram App",
@@ -25,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <TelegramAuthProvider testMode={testMode}>
-          {children}
+          <PageTransition>{children}</PageTransition>
         </TelegramAuthProvider>
       </body>
     </html>

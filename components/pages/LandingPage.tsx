@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import Button from '@/components/design/Button'
+import Link from "next/link";
+import Button from "@/components/design/Button";
 
 export default function LandingPage() {
   return (
@@ -17,6 +17,5 @@ export default function LandingPage() {
         </Link>
       </div>
     </main>
-  )
+  );
 }
-

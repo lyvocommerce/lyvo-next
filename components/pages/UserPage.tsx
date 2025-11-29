@@ -1,49 +1,71 @@
-'use client'
+"use client";
 
-import { useTelegramAuth } from '@/contexts/TelegramAuth/TelegramAuthContext'
-import Button from '@/components/design/Button'
+import { useTelegramAuth } from "@/contexts/TelegramAuth/TelegramAuthContext";
+import Button from "@/components/design/Button";
+import Link from "next/link";
 
 export default function UserPage() {
-  const { user, webApp, platform, version } = useTelegramAuth()
+  const { user, webApp, platform, version } = useTelegramAuth();
 
   const handleAlertButtonClick = () => {
     if (webApp) {
-      webApp.showAlert('Button clicked!')
+      webApp.showAlert("Button clicked!");
     }
-  }
+  };
 
   const handleConfirmButtonClick = () => {
     if (webApp) {
-      webApp.showConfirm('Are you sure?', (confirmed: boolean) => {
+      webApp.showConfirm("Are you sure?", (confirmed: boolean) => {
         if (confirmed && webApp) {
-          webApp.showAlert('Confirmed!')
+          webApp.showAlert("Confirmed!");
         }
-      })
+      });
     }
-  }
+  };
 
   if (!user) {
     return (
       <main className="p-5 text-center">
         <p className="text-tg-text">No user data found</p>
       </main>
-    )
+    );
   }
 
   return (
     <main className="p-5 min-h-screen bg-tg-bg text-tg-text">
       <div className="mb-8">
+        <Link
+          href="/"
+          className="inline-block mb-4 text-tg-link hover:underline"
+        >
+          &lt; Go back
+        </Link>
+
         <h1 className="mb-5 text-2xl font-bold text-tg-text">
           Welcome to LyvoShop!
         </h1>
-        
+
         {user && (
           <div className="bg-tg-secondary p-4 rounded-lg mb-5">
-            <h2 className="mb-2.5 text-lg font-semibold text-tg-text">User Info</h2>
-            <p className="text-tg-text"><strong>Name:</strong> {user.firstName} {user.lastName}</p>
-            {user.username && <p className="text-tg-text"><strong>Username:</strong> @{user.username}</p>}
-            <p className="text-tg-text"><strong>ID:</strong> {user.id}</p>
-            {user.isPremium && <p className="text-tg-text"><strong>Premium:</strong> ✓</p>}
+            <h2 className="mb-2.5 text-lg font-semibold text-tg-text">
+              User Info
+            </h2>
+            <p className="text-tg-text">
+              <strong>Name:</strong> {user.firstName} {user.lastName}
+            </p>
+            {user.username && (
+              <p className="text-tg-text">
+                <strong>Username:</strong> @{user.username}
+              </p>
+            )}
+            <p className="text-tg-text">
+              <strong>ID:</strong> {user.id}
+            </p>
+            {user.isPremium && (
+              <p className="text-tg-text">
+                <strong>Premium:</strong> ✓
+              </p>
+            )}
           </div>
         )}
 
@@ -58,16 +80,13 @@ export default function UserPage() {
         </div>
 
         <div className="mt-8 p-4 bg-tg-secondary rounded-lg">
-          <h3 className="mb-2.5 text-tg-text font-semibold">Telegram Web App Info</h3>
-          <p className="text-sm text-tg-hint">
-            Platform: {platform}
-          </p>
-          <p className="text-sm text-tg-hint">
-            Version: {version}
-          </p>
+          <h3 className="mb-2.5 text-tg-text font-semibold">
+            Telegram Web App Info
+          </h3>
+          <p className="text-sm text-tg-hint">Platform: {platform}</p>
+          <p className="text-sm text-tg-hint">Version: {version}</p>
         </div>
       </div>
     </main>
-  )
+  );
 }
-

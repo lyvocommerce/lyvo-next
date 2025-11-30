@@ -27,7 +27,14 @@ export default function LandingPage() {
 
   const handleClose = () => {
     if (webApp) {
-      webApp.close();
+      webApp.showConfirm(
+        "Are you sure you want to close the app?",
+        (confirmed: boolean) => {
+          if (confirmed) {
+            webApp.close();
+          }
+        }
+      );
     }
   };
 

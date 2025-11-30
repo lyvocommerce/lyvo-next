@@ -7,7 +7,7 @@ import { FaUser } from "react-icons/fa";
 import { ProductCard } from "@/components/design";
 import { useProducts } from "@/contexts/Products/ProductsContext";
 import { useTelegramAuth } from "@/contexts/TelegramAuth/TelegramAuthContext";
-import FiltersAndSearchBar from "@/components/design/FiltersAndSearchBar";
+import FiltersAndSearchBar from "@/components/layout/FiltersAndSearchBar";
 import SearchModal from "@/components/layout/SearchModal";
 import FiltersModal from "@/components/layout/FiltersModal";
 

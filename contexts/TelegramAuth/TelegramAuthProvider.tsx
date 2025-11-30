@@ -58,8 +58,8 @@ export default function TelegramAuthProvider({
         WebApp.ready();
         WebApp.expand();
 
-        // Disable closing confirmation to prevent swipe-down-to-close
-        WebApp.disableClosingConfirmation();
+        // Enable closing confirmation to show prompt when user tries to close
+        WebApp.enableClosingConfirmation();
 
         // Lock vertical swipes to prevent closing the app
         WebApp.isVerticalSwipesEnabled = false;

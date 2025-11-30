@@ -21,17 +21,17 @@ export default function ProductCard({ product }: ProductCardProps) {
             sizes="(max-width: 768px) 50vw, 33vw"
           />
         </div>
-        <div className="p-4">
-          <h3 className="text-tg-text font-semibold text-sm line-clamp-2 mb-2">
+        <div className="p-3 bg-white">
+          <h3 className="text-gray-800 font-semibold text-xs line-clamp-2 mb-2">
             {product.title}
           </h3>
           <div className="flex items-center justify-between">
-            <span className="text-tg-text font-bold text-lg">
+            <span className="text-gray-900 font-bold text-base">
               ${product.price.toFixed(2)}
             </span>
             <div className="flex items-center gap-1">
-              <span className="text-yellow-500">★</span>
-              <span className="text-tg-hint text-sm">
+              <span className="text-yellow-500 text-sm">★</span>
+              <span className="text-gray-600 text-xs">
                 {product.rating.rate}
               </span>
             </div>

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
 import ProductsProvider from "@/contexts/Products/ProductsProvider";
-import PageTransition from "@/components/layout/PageTransition";
+import PageTransition from "@/components/utils/PageTransition";
 
 export const metadata: Metadata = {
   title: "LyvoShop Telegram App",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTelegramAuth } from "@/contexts/TelegramAuth/TelegramAuthContext";
-import Button from "@/components/design/Button";
+import { Button } from "../design";
 import Link from "next/link";
 
 export default function UserPage() {

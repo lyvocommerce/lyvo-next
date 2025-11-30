@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
+import ProductsProvider from "@/contexts/Products/ProductsProvider";
 import PageTransition from "@/components/layout/PageTransition";
 
 export const metadata: Metadata = {
@@ -26,7 +27,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <TelegramAuthProvider testMode={testMode}>
-          <PageTransition>{children}</PageTransition>
+          <ProductsProvider>
+            <PageTransition>{children}</PageTransition>
+          </ProductsProvider>
         </TelegramAuthProvider>
       </body>
     </html>

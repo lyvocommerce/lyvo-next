@@ -28,9 +28,9 @@ export default function PageTransition({ children }: PageTransitionProps) {
       animate={{ x: 0, opacity: 1 }}
       transition={{
         type: "spring",
-        stiffness: 200,
-        damping: 25,
-        duration: 0.6,
+        stiffness: 150,
+        damping: 20,
+        duration: 0.4,
       }}
       style={{ width: "100%" }}
     >

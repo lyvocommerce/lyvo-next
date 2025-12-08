@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
-import ProductsProvider from "@/contexts/Products/ProductsProvider";
-import PageTransition from "@/components/utils/PageTransition";
+import ConditionalProviders from "@/contexts/ConditionalProviders";
 
 export const metadata: Metadata = {
   title: "LyvoShop Telegram App",
@@ -21,16 +19,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Read testMode from environment variable (default to false if not set)
-  const testMode = process.env.NEXT_PUBLIC_TELEGRAM_TEST_MODE === "true";
   return (
     <html lang="en">
       <body>
-        <TelegramAuthProvider testMode={testMode}>
-          <ProductsProvider>
-            <PageTransition>{children}</PageTransition>
-          </ProductsProvider>
-        </TelegramAuthProvider>
+        <ConditionalProviders>{children}</ConditionalProviders>
       </body>
     </html>
   );

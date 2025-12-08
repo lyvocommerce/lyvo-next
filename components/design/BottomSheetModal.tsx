@@ -19,7 +19,7 @@ export default function BottomSheetModal({
   children,
   fullHeight = false,
 }: BottomSheetModalProps) {
-  const height = fullHeight ? "92vh" : "30vh";
+  const height = fullHeight ? "100vh" : "30vh";
   const showHeader = !fullHeight;
 
   return (

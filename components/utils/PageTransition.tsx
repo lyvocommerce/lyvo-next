@@ -27,10 +27,9 @@ export default function PageTransition({ children }: PageTransitionProps) {
       initial={{ x: direction * 300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{
-        type: "spring",
-        stiffness: 150,
-        damping: 20,
-        duration: 0.4,
+        type: "tween",
+        ease: "easeOut",
+        duration: 0.2,
       }}
       style={{ width: "100%" }}
     >

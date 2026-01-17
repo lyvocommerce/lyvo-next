@@ -53,7 +53,7 @@ export default function LandingPage() {
           {/* Center - Title and subtitle */}
           <div className="flex-1 text-center">
             <h1 className="text-lg font-bold text-tg-text leading-tight">
-              LyvoShop
+              LyvoShop TEST
             </h1>
             <p className="text-xs text-tg-hint">Smart shopping</p>
           </div>

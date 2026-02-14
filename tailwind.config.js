@@ -8,6 +8,25 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          "SF Pro Display",
+          "SF Pro Text",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+      },
+      fontSize: {
+        "product-title": [
+          "0.8125rem", /* 13px */
+          { lineHeight: "1rem", letterSpacing: "-0.006em" }, /* 16px, -0.08px */
+        ],
+      },
       colors: {
         // Telegram theme colors using CSS variables
         'tg-bg': 'var(--tg-theme-bg-color, #ffffff)',

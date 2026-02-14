@@ -11,7 +11,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link href={`/product/${product.id}`}>
-      <div className="bg-tg-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+      <div className="bg-tg-secondary rounded-lg overflow-hidden cursor-pointer">
         <div className="relative aspect-square bg-white">
           <Image
             src={product.image}
@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
         <div className="p-3 bg-white">
-          <h3 className="text-gray-800 font-semibold text-xs line-clamp-2 mb-2">
+          <h3 className="text-gray-800 font-normal text-product-title line-clamp-2 mb-2">
             {product.title}
           </h3>
           <div className="flex items-center justify-between">

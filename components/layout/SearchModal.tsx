@@ -1,6 +1,7 @@
 "use client";
 
-import { IoSearch } from "react-icons/io5";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Search01Icon } from "@hugeicons/core-free-icons";
 import { useState } from "react";
 import BottomSheetModal from "../design/BottomSheetModal";
 
@@ -23,7 +24,8 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             placeholder="Search for products..."
             className="w-full px-4 py-3 pl-12 bg-tg-secondary text-tg-text rounded-full border border-tg-hint/20 focus:outline-none focus:border-tg-link transition-colors"
           />
-          <IoSearch
+          <HugeiconsIcon
+            icon={Search01Icon}
             size={20}
             className="absolute left-4 top-1/2 -translate-y-1/2 text-tg-hint"
           />

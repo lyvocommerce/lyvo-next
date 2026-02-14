@@ -14,7 +14,7 @@ export default function GlassButton({
   ...props
 }: GlassButtonProps) {
   const baseClasses =
-    "bg-white/10 backdrop-blur-md border border-white/40 text-black font-semibold hover:bg-white/20 transition-all shadow-lg rounded-full";
+    "bg-white/10 backdrop-blur-md border border-white/40 text-black font-semibold hover:bg-white/20 transition-all rounded-full text-[17px]";
   const variantClasses = variant === "icon" ? "py-3 px-3" : "py-3 px-6";
 
   return (

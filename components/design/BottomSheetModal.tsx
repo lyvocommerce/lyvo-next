@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { IoClose } from "react-icons/io5";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Cancel01Icon } from "@hugeicons/core-free-icons";
 import { ReactNode } from "react";
 
 interface BottomSheetModalProps {
@@ -61,7 +62,7 @@ export default function BottomSheetModal({
                     onClick={onClose}
                     className="p-1 hover:bg-tg-secondary rounded-full transition-colors"
                   >
-                    <IoClose size={24} className="text-tg-text" />
+                    <HugeiconsIcon icon={Cancel01Icon} size={24} className="text-tg-text" />
                   </button>
                 </div>
               </>

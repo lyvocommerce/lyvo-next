@@ -105,17 +105,17 @@ export default function ProductDetailPage() {
         <div className="max-w-4xl mx-auto px-5 pb-10">
           <div className="flex gap-3 justify-center items-center">
             <GlassButton onClick={() => router.back()}>
-              Go back
+              Back
             </GlassButton>
             <button
               type="button"
-              className="flex-1 max-w-[240px] py-3 px-6 bg-[#03A770]/50 backdrop-blur-md border border-[#03A770]/50 text-white font-semibold hover:bg-[#03A770]/60 transition-all rounded-full text-[17px]"
+              className="flex-1 max-w-[240px] py-3 px-6 bg-[#03A770]/75 backdrop-blur-md border border-[#03A770]/50 text-white font-semibold hover:bg-[#03A770]/60 transition-all rounded-full text-[17px]"
               style={{
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
               }}
             >
-              Add to Cart
+              Shop Now
             </button>
           </div>
         </div>

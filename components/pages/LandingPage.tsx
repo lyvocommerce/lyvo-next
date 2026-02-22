@@ -6,6 +6,7 @@ import { useProducts } from "@/contexts/Products/ProductsContext";
 import FiltersAndSearchBar from "@/components/layout/FiltersAndSearchBar";
 import SearchModal from "@/components/layout/SearchModal";
 import FiltersModal from "@/components/layout/FiltersModal";
+import CategoryTiles from "@/components/layout/CategoryTiles";
 
 export default function LandingPage() {
   const { products, isLoading, error } = useProducts();
@@ -23,6 +24,8 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text px-3 py-3 pb-24">
       <div className="max-w-4xl mx-auto">
+        <CategoryTiles />
+
         {isLoading && (
           <div className="text-center py-12">
             <p className="text-tg-hint">Loading products...</p>

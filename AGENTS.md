@@ -11,6 +11,7 @@ LyvoShop is a Next.js 16 (App Router) Telegram Mini App — an e-commerce catalo
 - **Dev server:** `pnpm dev` (port 3000)
 - **Telegram test mode:** Append `?testMode=true` to any URL, or set `NEXT_PUBLIC_TELEGRAM_TEST_MODE=true` in `.env.local`. This bypasses Telegram authentication with mock user data.
 - **Database:** The `DATABASE_URL` environment secret points to a remote Neon PostgreSQL instance. Prisma reads this from the shell environment (not `.env.local`). Use `npx prisma db push` to sync schema and `pnpm prisma:seed` to populate categories.
+- **Admin panel:** Set `ADMIN_PASSWORD` in `.env.local` to protect `/admin`. Unauthenticated visits to `/admin` or `/admin/*` redirect to `/admin/login`. See `.env.example` for the variable.
 
 ### Key scripts (see `package.json`)
 

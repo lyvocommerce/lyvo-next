@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { verifySessionCookie } from "@/lib/admin-auth";
+import { verifySessionCookieEdge } from "@/lib/admin-auth-edge";
 
 const ADMIN_LOGIN = "/admin/login";
 
@@ -8,7 +8,7 @@ function isAdminAuthRoute(pathname: string): boolean {
   return pathname === "/api/admin/auth/login" || pathname === "/api/admin/auth/logout";
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow admin login page and auth API routes without session
@@ -19,7 +19,7 @@ export function middleware(request: NextRequest) {
   // Protect /admin/* (UI)
   if (pathname.startsWith("/admin")) {
     const cookieHeader = request.headers.get("cookie");
-    if (!verifySessionCookie(cookieHeader)) {
+    if (!(await verifySessionCookieEdge(cookieHeader))) {
       const login = new URL(ADMIN_LOGIN, request.url);
       return NextResponse.redirect(login);
     }
@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
   // Protect /api/admin/* (except auth)
   if (pathname.startsWith("/api/admin")) {
     const cookieHeader = request.headers.get("cookie");
-    if (!verifySessionCookie(cookieHeader)) {
+    if (!(await verifySessionCookieEdge(cookieHeader))) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
     return NextResponse.next();

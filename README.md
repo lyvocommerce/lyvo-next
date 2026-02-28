@@ -101,3 +101,4 @@ The app uses:
 - Never expose your bot secret in client-side code
 - Use environment variables for sensitive data
 
+test ci run

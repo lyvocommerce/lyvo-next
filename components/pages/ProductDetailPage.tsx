@@ -45,7 +45,7 @@ export default function ProductDetailPage() {
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text pb-24">
       {/* Fixed image - always at top of viewport, content scrolls over it */}
-      <div className="fixed top-0 left-0 right-0 z-0 h-[50vh] min-h-[280px] bg-[#E6EAF1]">
+      <div className="fixed top-0 left-0 right-0 z-0 h-[50vh] min-h-[280px] bg-tg-secondary">
         <div className="relative w-full h-full">
           <Image
             src={productImageSrc(product.image)}
@@ -62,7 +62,7 @@ export default function ProductDetailPage() {
       <div className="h-[50vh] min-h-[280px]" aria-hidden />
 
       {/* Scrollable content - slides up from bottom, scrolls over the image */}
-      <div className="relative z-10 bg-white rounded-t-[20px] px-5 pt-6 pb-8">
+      <div className="relative z-10 bg-tg-secondary rounded-t-[20px] px-5 pt-6 pb-8">
         <div className="max-w-4xl mx-auto">
           {product.category && (
             <div className="mb-2">

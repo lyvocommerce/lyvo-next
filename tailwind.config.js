@@ -40,6 +40,7 @@ module.exports = {
       backgroundColor: {
         'tg-bg': 'var(--tg-theme-bg-color, #ffffff)',
         'tg-secondary': 'var(--tg-theme-secondary-bg-color, #f1f1f1)',
+        'tg-section-bg': 'var(--tg-theme-secondary-bg-color, #f1f1f1)',
         'tg-button': 'var(--tg-theme-button-color, #2481cc)',
       },
       textColor: {

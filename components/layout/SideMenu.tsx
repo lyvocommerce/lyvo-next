@@ -26,7 +26,9 @@ export default function SideMenu() {
     getChildrenCategories,
     getCategoryById,
   } = useCategoriesContext();
-  const { isOpen, closeMenu } = useSideMenu();
+  const sideMenuContext = useSideMenu();
+  if (!sideMenuContext) return null;
+  const { isOpen, closeMenu } = sideMenuContext;
 
   // Stack of category ids: top = current level parent. [] = root level.
   const [categoryStack, setCategoryStack] = useState<number[]>([]);

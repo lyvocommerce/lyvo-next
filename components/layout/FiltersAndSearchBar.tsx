@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { FilterHorizontalIcon, UserIcon, SearchIcon, Hamburger01Icon } from "@hugeicons/core-free-icons";
+import { FilterHorizontalIcon, UserIcon, SearchIcon, Menu01Icon } from "@hugeicons/core-free-icons";
 import GlassButton from "@/components/design/GlassButton";
 
 interface FiltersAndSearchBarProps {
@@ -33,7 +33,7 @@ export default function FiltersAndSearchBar({
               className="flex items-center justify-center"
               aria-label="Open menu"
             >
-              <HugeiconsIcon icon={Hamburger01Icon} size={25} />
+              <HugeiconsIcon icon={Menu01Icon} size={25} />
             </GlassButton>
           )}
           <Link

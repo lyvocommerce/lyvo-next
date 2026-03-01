@@ -18,7 +18,8 @@ import { useCategoriesContext } from "@/contexts/Categories/CategoriesProvider";
 import { useSideMenu } from "@/contexts/SideMenu/SideMenuContext";
 import type { Category } from "@prisma/client";
 
-const GRID_GAP = 16;
+const GRID_COLUMN_GAP = 8;
+const GRID_ROW_GAP = 24;
 
 export default function SideMenu() {
   const pathname = usePathname();
@@ -156,14 +157,21 @@ export default function SideMenu() {
           {/* Content: only vertical scroll inside menu */}
           <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-contain">
             {categoryStack.length === 0 ? (
-              /* First level: grid of tiles, 3 columns, 16px gap */
+              /* First level: container 16px from edges; between buttons 8px horizontal, 24px vertical */
               <nav
-                className="p-4"
-                style={{ padding: GRID_GAP }}
+                style={{
+                  paddingTop: 24,
+                  paddingBottom: 24,
+                  paddingLeft: 16,
+                  paddingRight: 16,
+                }}
               >
                 <div
-                  className="grid grid-cols-3 gap-4"
-                  style={{ gap: GRID_GAP }}
+                  className="grid grid-cols-3"
+                  style={{
+                    columnGap: GRID_COLUMN_GAP,
+                    rowGap: GRID_ROW_GAP,
+                  }}
                 >
                   {/* Главная */}
                   <Link
@@ -256,7 +264,7 @@ export default function SideMenu() {
                 </div>
               </nav>
             ) : (
-              /* Sublevels: list — with slide-in animation */
+              /* Sublevels: list — same top offset as level 1 (24px), 8px horizontal; slide-in animation */
               <motion.div
                 key={currentParentId}
                 initial={{ x: "20%" }}
@@ -265,10 +273,11 @@ export default function SideMenu() {
                 className="h-full"
               >
                 <ul
-                  className="py-2 px-4"
                   style={{
-                    paddingLeft: "max(1rem, env(safe-area-inset-left, 0px))",
-                    paddingRight: "max(1rem, env(safe-area-inset-right, 0px))",
+                    paddingTop: 24,
+                    paddingBottom: 24,
+                    paddingLeft: 16,
+                    paddingRight: 16,
                   }}
                 >
                   {currentCategories.map((cat) => {

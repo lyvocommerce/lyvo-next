@@ -108,11 +108,13 @@ export default function SideMenu() {
           className="fixed inset-0 z-40 flex flex-col bg-white"
           style={safePad}
         >
-          {/* Header: Safe Area top; title centered on same horizontal line as native Telegram buttons */}
+          {/* Header: 80px total height (Safe Area + bar); no top border; buttons start below */}
           <header
-            className="shrink-0 relative flex items-center justify-between min-h-[56px] border-b border-gray-200 px-4"
+            className="shrink-0 relative flex items-center justify-between px-4"
             style={{
               paddingTop: "env(safe-area-inset-top, 0px)",
+              height: "80px",
+              minHeight: "80px",
             }}
           >
             <div className="flex items-center justify-start min-w-[40px] z-10">
@@ -130,7 +132,7 @@ export default function SideMenu() {
             <span
               className="fixed left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none z-0 px-12"
               style={{
-                top: "env(safe-area-inset-top, 0px)",
+                top: "calc(env(safe-area-inset-top, 0px) - 2px)",
                 height: "56px",
                 lineHeight: "56px",
               }}

@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
 import TelegramBackButton from "@/components/TelegramAuth/TelegramBackButton";
 import ProductsProvider from "@/contexts/Products/ProductsProvider";
+import { SideMenuProvider } from "@/contexts/SideMenu/SideMenuContext";
+import SideMenu from "@/components/layout/SideMenu";
 import PageTransition from "@/components/utils/PageTransition";
 import ContentSafeArea from "@/components/utils/ContentSafeArea";
 
@@ -28,12 +30,15 @@ export default function ConditionalProviders({
   // All other pages use Telegram auth and product providers
   return (
     <TelegramAuthProvider testMode={testMode}>
-      <TelegramBackButton />
-      <ProductsProvider>
+      <SideMenuProvider>
+        <TelegramBackButton />
+        <SideMenu />
+        <ProductsProvider>
         <PageTransition>
           <ContentSafeArea>{children}</ContentSafeArea>
         </PageTransition>
       </ProductsProvider>
+      </SideMenuProvider>
     </TelegramAuthProvider>
   );
 }

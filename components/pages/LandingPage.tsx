@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ProductCard } from "@/components/design";
 import { useProducts } from "@/contexts/Products/ProductsContext";
+import { useSideMenu } from "@/contexts/SideMenu/SideMenuContext";
 import FiltersAndSearchBar from "@/components/layout/FiltersAndSearchBar";
 import SearchModal from "@/components/layout/SearchModal";
 import FiltersModal from "@/components/layout/FiltersModal";
@@ -10,6 +11,7 @@ import CategoryTiles from "@/components/layout/CategoryTiles";
 
 export default function LandingPage() {
   const { products, isLoading, error } = useProducts();
+  const { openMenu } = useSideMenu();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
@@ -51,7 +53,11 @@ export default function LandingPage() {
         )}
       </div>
 
-      <FiltersAndSearchBar onSearch={handleSearch} onFilters={handleFilters} />
+      <FiltersAndSearchBar
+        onSearch={handleSearch}
+        onFilters={handleFilters}
+        onMenu={openMenu}
+      />
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}

@@ -22,24 +22,28 @@ export default function LandingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-tg-bg text-tg-text px-3 py-3 pb-24">
+    <main className="min-h-screen bg-tg-bg text-tg-text py-3 pb-24">
       <div className="max-w-4xl mx-auto">
-        <CategoryTiles />
+        {/* Остальные компоненты: 16px от края */}
+        <div className="px-4">
+          <CategoryTiles />
+        </div>
 
         {isLoading && (
-          <div className="text-center py-12">
+          <div className="px-4 text-center py-12">
             <p className="text-tg-hint">Loading products...</p>
           </div>
         )}
 
         {error && (
-          <div className="text-center py-12">
+          <div className="px-4 text-center py-12">
             <p className="text-red-500">{error}</p>
           </div>
         )}
 
+        {/* Сетка карточек товаров: 0px от края экрана */}
         {!isLoading && !error && (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-x-1 gap-y-4">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

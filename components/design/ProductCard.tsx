@@ -13,7 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link href={`/product/${product.id}`}>
       <div className="rounded-[16px] overflow-hidden cursor-pointer">
-        <div className="relative aspect-square bg-[#F5F7FA] rounded-[16px]">
+        <div className="relative w-full min-h-[252px] h-[252px] bg-[#F5F7FA] rounded-[16px]">
           <Image
             src={productImageSrc(product.image)}
             alt={product.title}

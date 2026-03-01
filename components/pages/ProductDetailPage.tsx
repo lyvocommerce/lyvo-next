@@ -46,7 +46,7 @@ export default function ProductDetailPage() {
 
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text pb-24">
-      {/* Fixed image - always at top of viewport, content scrolls over it */}
+      {/* Fixed image - at top; content panel has translateZ(0) so it scrolls over image in WebView */}
       <div className="fixed top-0 left-0 right-0 z-0 h-[50vh] min-h-[280px] bg-[#F5F7FA]">
         <div className="relative w-full h-full">
           <Image
@@ -63,8 +63,11 @@ export default function ProductDetailPage() {
       {/* Spacer: content starts visually below the image */}
       <div className="h-[50vh] min-h-[280px]" aria-hidden />
 
-      {/* Scrollable content - slides up from bottom, scrolls over the image */}
-      <div className="relative z-10 bg-white rounded-t-[20px] px-5 pt-6 pb-8">
+      {/* Scrollable content - own layer so it always scrolls over the image in Telegram WebView */}
+      <div
+        className="relative z-10 bg-white rounded-t-[20px] px-5 pt-6 pb-8"
+        style={{ transform: "translateZ(0)" }}
+      >
         <div className="max-w-4xl mx-auto">
           {product.category && (
             <div className="mb-2">

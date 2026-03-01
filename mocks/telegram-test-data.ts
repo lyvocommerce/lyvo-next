@@ -32,6 +32,7 @@ export const DEFAULT_TELEGRAM_THEME = {
 export function applyDefaultTelegramTheme(): void {
   if (typeof document === 'undefined') return
 
+  document.documentElement.setAttribute('data-telegram-theme', 'light')
   document.documentElement.style.setProperty('--tg-theme-bg-color', DEFAULT_TELEGRAM_THEME.bgColor)
   document.documentElement.style.setProperty('--tg-theme-text-color', DEFAULT_TELEGRAM_THEME.textColor)
   document.documentElement.style.setProperty('--tg-theme-hint-color', DEFAULT_TELEGRAM_THEME.hintColor)

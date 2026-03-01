@@ -46,6 +46,20 @@ body {
   );
 }
 
+/* Dark theme only: product image and description use theme colors (light theme unchanged) */
+[data-telegram-theme="dark"] .product-detail-image-bg {
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+}
+[data-telegram-theme="dark"] .product-detail-content-bg {
+  background-color: var(--tg-theme-bg-color) !important;
+}
+[data-telegram-theme="dark"] .product-card-image-bg {
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+}
+[data-telegram-theme="dark"] .product-card-content-bg {
+  background-color: var(--tg-theme-bg-color) !important;
+}
+
 /* Custom shadow override */
 @layer utilities {
   .shadow-lg {

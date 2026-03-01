@@ -95,7 +95,7 @@ export default function SideMenu() {
   };
 
   const listItemBase =
-    "flex items-center justify-between w-full px-4 py-3 text-left text-tg-text font-medium transition-colors bg-gray-50 hover:bg-gray-100";
+    "side-menu-list-item flex items-center justify-between w-full px-4 py-3 text-left text-tg-text font-medium transition-colors bg-gray-50 hover:bg-gray-100";
   const listItemActive = "bg-gray-100 text-tg-link";
 
   return (
@@ -106,7 +106,7 @@ export default function SideMenu() {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ type: "spring", damping: 35, stiffness: 300 }}
-          className="fixed inset-0 z-40 flex flex-col bg-white"
+          className="side-menu-bg fixed inset-0 z-40 flex flex-col bg-white"
           style={safePad}
         >
           {/* Header: 80px total height (Safe Area + bar); no top border; buttons start below */}
@@ -180,7 +180,7 @@ export default function SideMenu() {
                     className="flex flex-col items-start w-full"
                   >
                     <div
-                      className="w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden"
+                      className="side-menu-tile-bg w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden"
                     >
                       <HugeiconsIcon
                         icon={Home01Icon}
@@ -203,7 +203,7 @@ export default function SideMenu() {
                       getChildrenCategories(cat.id).length > 0;
                     const content = (
                       <>
-                        <div className="w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden">
+                        <div className="side-menu-tile-bg w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden">
                           <HugeiconsIcon
                             icon={Folder01Icon}
                             size={40}
@@ -246,7 +246,7 @@ export default function SideMenu() {
                     onClick={closeMenu}
                     className="flex flex-col items-start w-full"
                   >
-                    <div className="w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden">
+                    <div className="side-menu-tile-bg w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden">
                       <HugeiconsIcon
                         icon={UserIcon}
                         size={40}

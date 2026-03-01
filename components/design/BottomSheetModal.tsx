@@ -142,13 +142,13 @@ export default function BottomSheetModal({
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 35, stiffness: 300 }}
             ref={containerRef}
-            className="fixed bottom-0 left-0 right-0 bg-tg-bg rounded-t-3xl z-50"
+            className="bottom-sheet-modal fixed bottom-0 left-0 right-0 bg-tg-bg rounded-t-3xl z-50"
             style={{ height }}
           >
             {showHeader && (
               <>
                 <div className="flex justify-center pt-2 pb-1">
-                  <div className="w-12 h-1 bg-gray-300 rounded-full" />
+                  <div className="bottom-sheet-handle w-12 h-1 bg-gray-300 rounded-full" />
                 </div>
 
                 <div className="flex items-center justify-between px-5 pb-1 border-b border-tg-hint/10">

@@ -60,6 +60,41 @@ body {
   background-color: var(--tg-theme-bg-color) !important;
 }
 
+/* Dark theme: navigation menu (SideMenu) */
+[data-telegram-theme="dark"] .side-menu-bg {
+  background-color: var(--tg-theme-bg-color) !important;
+}
+[data-telegram-theme="dark"] .side-menu-tile-bg {
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+}
+[data-telegram-theme="dark"] .side-menu-list-item {
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+}
+[data-telegram-theme="dark"] .side-menu-list-item:hover {
+  filter: brightness(0.92);
+}
+[data-telegram-theme="dark"] .side-menu-list-item.bg-gray-100 {
+  background-color: var(--tg-theme-hint-color) !important;
+  filter: none;
+}
+
+/* Dark theme: search & filters modals (BottomSheet handle) */
+[data-telegram-theme="dark"] .bottom-sheet-handle {
+  background-color: var(--tg-theme-hint-color) !important;
+}
+
+/* Dark theme: bottom bar (menu, account, filters, search) */
+[data-telegram-theme="dark"] .filters-and-search-bar a,
+[data-telegram-theme="dark"] .filters-and-search-bar button {
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+  border-color: var(--tg-theme-hint-color) !important;
+  color: var(--tg-theme-text-color) !important;
+}
+[data-telegram-theme="dark"] .filters-and-search-bar a:hover,
+[data-telegram-theme="dark"] .filters-and-search-bar button:hover {
+  filter: brightness(1.1);
+}
+
 /* Custom shadow override */
 @layer utilities {
   .shadow-lg {

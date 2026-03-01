@@ -21,7 +21,7 @@ export default function FiltersAndSearchBar({
 
   return (
     <div
-      className="fixed left-0 right-0"
+      className="filters-and-search-bar fixed left-0 right-0"
       style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1rem)" }}
     >
       <div className="max-w-4xl mx-auto px-5">

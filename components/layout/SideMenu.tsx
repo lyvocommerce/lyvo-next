@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Cancel01Icon,
-  ArrowLeft01Icon,
+  ArrowLeft02Icon,
   ArrowRight01Icon,
   Home01Icon,
   UserIcon,
@@ -51,6 +51,28 @@ export default function SideMenu() {
     if (!isOpen) setCategoryStack([]);
   }, [isOpen, setCategoryStack]);
 
+  // Lock body scroll when menu is open; only the menu content scrolls
+  useEffect(() => {
+    if (!isOpen) return;
+    const scrollY = window.scrollY ?? window.pageYOffset;
+    const body = document.body;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.overflow = "hidden";
+    body.style.width = "100%";
+    return () => {
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.overflow = "";
+      body.style.width = "";
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
+
   const handleCategoryClick = (cat: Category) => {
     const children = getChildrenCategories(cat.id);
     if (children.length > 0) {
@@ -64,6 +86,7 @@ export default function SideMenu() {
     setCategoryStack((prev) => (prev.length > 0 ? prev.slice(0, -1) : []));
   };
 
+  // Safe area: header row aligns with native Telegram buttons (same level); tiles start below header
   const safePad = {
     paddingTop: "env(safe-area-inset-top, 0px)",
     paddingBottom: "env(safe-area-inset-bottom, 0px)",
@@ -86,39 +109,42 @@ export default function SideMenu() {
           className="fixed inset-0 z-40 flex flex-col bg-white"
           style={safePad}
         >
-          {/* Header: Back (when in sublevel) + Title + Close (web only) */}
-          <div className="shrink-0 flex items-center justify-between min-h-[56px] border-b border-gray-200">
-            <div className="flex items-center gap-2 flex-1 min-w-0">
+          {/* Header: title centered with native Telegram buttons; Back / Close on sides */}
+          <div className="shrink-0 relative flex items-center justify-between min-h-[56px] border-b border-gray-200 px-4">
+            <div className="flex items-center justify-start min-w-[40px] z-10">
               {categoryStack.length > 0 ? (
                 <button
                   type="button"
                   onClick={handleBackInMenu}
-                  className="p-2 -ml-2 rounded-lg hover:bg-gray-100 transition-colors text-tg-text shrink-0"
+                  className="p-2 -ml-2 rounded-lg hover:bg-gray-100 transition-colors text-tg-text"
                   aria-label="Back"
                 >
-                  <HugeiconsIcon icon={ArrowLeft01Icon} size={24} />
+                  <HugeiconsIcon icon={ArrowLeft02Icon} size={24} />
                 </button>
-              ) : (
-                <span className="w-10 shrink-0" />
-              )}
-              <span className="text-tg-text font-semibold truncate">
-                {currentParent ? currentParent.name : "Меню"}
-              </span>
+              ) : null}
             </div>
-            {!isMiniApp && (
-              <button
-                type="button"
-                onClick={closeMenu}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-tg-text shrink-0"
-                aria-label="Close menu"
-              >
-                <HugeiconsIcon icon={Cancel01Icon} size={24} />
-              </button>
-            )}
+            <span
+              className="absolute left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none px-12"
+              style={{ marginTop: "1px" }}
+            >
+              {currentParent ? currentParent.name : "Меню"}
+            </span>
+            <div className="flex items-center justify-end min-w-[40px] z-10">
+              {!isMiniApp && (
+                <button
+                  type="button"
+                  onClick={closeMenu}
+                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-tg-text"
+                  aria-label="Close menu"
+                >
+                  <HugeiconsIcon icon={Cancel01Icon} size={24} />
+                </button>
+              )}
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="flex-1 overflow-y-auto min-h-0">
+          {/* Content: only vertical scroll inside menu */}
+          <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-contain">
             {categoryStack.length === 0 ? (
               /* First level: grid of tiles, 3 columns, 16px gap */
               <nav

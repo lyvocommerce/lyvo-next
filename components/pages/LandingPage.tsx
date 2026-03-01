@@ -11,7 +11,7 @@ import CategoryTiles from "@/components/layout/CategoryTiles";
 
 export default function LandingPage() {
   const { products, isLoading, error } = useProducts();
-  const { openMenu } = useSideMenu();
+  const sideMenu = useSideMenu();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
@@ -56,7 +56,7 @@ export default function LandingPage() {
       <FiltersAndSearchBar
         onSearch={handleSearch}
         onFilters={handleFilters}
-        onMenu={openMenu}
+        onMenu={sideMenu?.openMenu}
       />
       <SearchModal
         isOpen={isSearchOpen}

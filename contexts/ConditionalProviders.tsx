@@ -5,6 +5,7 @@ import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
 import TelegramBackButton from "@/components/TelegramAuth/TelegramBackButton";
 import ProductsProvider from "@/contexts/Products/ProductsProvider";
 import PageTransition from "@/components/utils/PageTransition";
+import ContentSafeArea from "@/components/utils/ContentSafeArea";
 
 interface ConditionalProvidersProps {
   children: React.ReactNode;
@@ -29,7 +30,9 @@ export default function ConditionalProviders({
     <TelegramAuthProvider testMode={testMode}>
       <TelegramBackButton />
       <ProductsProvider>
-        <PageTransition>{children}</PageTransition>
+        <PageTransition>
+          <ContentSafeArea>{children}</ContentSafeArea>
+        </PageTransition>
       </ProductsProvider>
     </TelegramAuthProvider>
   );

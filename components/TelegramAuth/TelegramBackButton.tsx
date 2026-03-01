@@ -18,11 +18,11 @@ export default function TelegramBackButton() {
 
   useEffect(() => {
     if (sideMenu?.isOpen) {
-      handlerRef.current = sideMenu.closeMenu;
+      handlerRef.current = sideMenu.goBackInMenu;
     } else {
       handlerRef.current = () => router.back();
     }
-  }, [router, sideMenu?.isOpen, sideMenu?.closeMenu]);
+  }, [router, sideMenu?.isOpen, sideMenu?.goBackInMenu]);
 
   useEffect(() => {
     if (!isMiniApp || !webApp) return;

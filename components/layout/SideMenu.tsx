@@ -86,9 +86,8 @@ export default function SideMenu() {
     setCategoryStack((prev) => (prev.length > 0 ? prev.slice(0, -1) : []));
   };
 
-  // Safe area: header row aligns with native Telegram buttons (same level); tiles start below header
+  // Safe area: bottom and sides on aside; top safe area and title alignment in header
   const safePad = {
-    paddingTop: "env(safe-area-inset-top, 0px)",
     paddingBottom: "env(safe-area-inset-bottom, 0px)",
     paddingLeft: "env(safe-area-inset-left, 0px)",
     paddingRight: "env(safe-area-inset-right, 0px)",
@@ -109,8 +108,13 @@ export default function SideMenu() {
           className="fixed inset-0 z-40 flex flex-col bg-white"
           style={safePad}
         >
-          {/* Header: title centered with native Telegram buttons; Back / Close on sides */}
-          <div className="shrink-0 relative flex items-center justify-between min-h-[56px] border-b border-gray-200 px-4">
+          {/* Header: Safe Area top; title centered on same horizontal line as native Telegram buttons */}
+          <header
+            className="shrink-0 relative flex items-center justify-between min-h-[56px] border-b border-gray-200 px-4"
+            style={{
+              paddingTop: "env(safe-area-inset-top, 0px)",
+            }}
+          >
             <div className="flex items-center justify-start min-w-[40px] z-10">
               {categoryStack.length > 0 ? (
                 <button
@@ -124,8 +128,12 @@ export default function SideMenu() {
               ) : null}
             </div>
             <span
-              className="absolute left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none px-12"
-              style={{ marginTop: "1px" }}
+              className="fixed left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none z-0 px-12"
+              style={{
+                top: "env(safe-area-inset-top, 0px)",
+                height: "56px",
+                lineHeight: "56px",
+              }}
             >
               {currentParent ? currentParent.name : "Меню"}
             </span>
@@ -141,7 +149,7 @@ export default function SideMenu() {
                 </button>
               )}
             </div>
-          </div>
+          </header>
 
           {/* Content: only vertical scroll inside menu */}
           <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-contain">

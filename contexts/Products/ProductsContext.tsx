@@ -7,7 +7,7 @@ interface ProductsContextType {
   products: Product[];
   isLoading: boolean;
   error: string | null;
-  getProductById: (id: number) => Product | undefined;
+  getProductById: (id: number | string) => Product | undefined;
 }
 
 export const ProductsContext = createContext<ProductsContextType | undefined>(

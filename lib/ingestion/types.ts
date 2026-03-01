@@ -16,4 +16,6 @@ export type NormalizedProduct = {
   merchant_id: string;
   category: string | null;
   lang: string | null;
+  rating_rate?: number | null;
+  rating_count?: number | null;
 };

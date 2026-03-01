@@ -58,3 +58,15 @@ export async function PATCH(request: NextRequest, { params }: Params) {
     return NextResponse.json({ error: msg }, { status: 400 });
   }
 }
+
+export async function DELETE(_request: NextRequest, { params }: Params) {
+  const { id } = await params;
+  try {
+    await prisma.merchants.delete({
+      where: { id },
+    });
+    return new NextResponse(null, { status: 204 });
+  } catch {
+    return NextResponse.json({ error: "Merchant not found" }, { status: 404 });
+  }
+}

@@ -75,38 +75,75 @@ export async function loadCatalogForMerchant(merchantId: string): Promise<{
     return { ok: true, ingested: 0 };
   }
 
-  await prisma.$transaction(async (tx) => {
-    await tx.products.deleteMany({ where: { merchant_id: merchantId } });
-    for (const p of rows) {
-      await tx.products.upsert({
-        where: { id: p.id },
-        create: {
-          id: p.id,
-          title: p.title,
-          description: p.description,
-          url: p.url,
-          image_url: p.image_url,
-          price_min: p.price_min,
-          price_max: p.price_max,
-          currency: p.currency,
-          merchant_id: p.merchant_id,
-          category: p.category,
-          lang: p.lang,
-        },
-        update: {
-          title: p.title,
-          description: p.description,
-          url: p.url,
-          image_url: p.image_url,
-          price_min: p.price_min,
-          price_max: p.price_max,
-          currency: p.currency,
-          category: p.category,
-          lang: p.lang,
-        },
-      });
-    }
-  });
-
+  await ingestProducts(merchantId, rows);
   return { ok: true, ingested: rows.length };
+}
+
+/** Default transaction timeout for ingest (ms). Single upsert can be ~150–200ms over network; 60s allows hundreds of products. */
+const INGEST_TRANSACTION_TIMEOUT_MS = 60_000;
+
+/** Persist normalized products for a merchant (replaces existing products for that merchant). */
+export async function ingestProducts(
+  merchantId: string,
+  rows: NormalizedProduct[]
+): Promise<void> {
+  if (rows.length === 0) return;
+  await prisma.$transaction(
+    async (tx) => {
+      await tx.products.deleteMany({ where: { merchant_id: merchantId } });
+      for (const p of rows) {
+        await tx.products.upsert({
+          where: { id: p.id },
+          create: {
+            id: p.id,
+            title: p.title,
+            description: p.description,
+            url: p.url,
+            image_url: p.image_url,
+            price_min: p.price_min,
+            price_max: p.price_max,
+            currency: p.currency,
+            merchants: { connect: { id: p.merchant_id } },
+            category: p.category,
+            lang: p.lang,
+            rating_rate: p.rating_rate ?? undefined,
+            rating_count: p.rating_count ?? undefined,
+          },
+          update: {
+            title: p.title,
+            description: p.description,
+            url: p.url,
+            image_url: p.image_url,
+            price_min: p.price_min,
+            price_max: p.price_max,
+            currency: p.currency,
+            category: p.category,
+            lang: p.lang,
+            rating_rate: p.rating_rate ?? undefined,
+            rating_count: p.rating_count ?? undefined,
+          },
+        });
+      }
+    },
+    { timeout: INGEST_TRANSACTION_TIMEOUT_MS }
+  );
+}
+
+/**
+ * Parse raw JSON (from file or response) into normalized products.
+ * Supports: array (FakeStore) or object with .products array (DummyJSON).
+ */
+export function parseCatalogFromRawJson(
+  raw: unknown,
+  merchantId: string,
+  productBaseUrl: string
+): NormalizedProduct[] {
+  const base = productBaseUrl.replace(/\/$/, "");
+  if (Array.isArray(raw)) {
+    return parseFakeStoreResponse(raw, merchantId, base);
+  }
+  if (raw && typeof raw === "object" && "products" in raw && Array.isArray((raw as { products: unknown }).products)) {
+    return parseDummyJsonResponse(raw, merchantId, base);
+  }
+  return [];
 }

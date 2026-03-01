@@ -8,6 +8,40 @@ interface ProductsProviderProps {
   children: React.ReactNode;
 }
 
+/** Catalog API product shape (Prisma / DB). Decimals may serialize as string. */
+type CatalogProduct = {
+  id: string;
+  title: string;
+  description: string | null;
+  url: string;
+  image_url: string | null;
+  price_min?: number | string | null;
+  price_max?: number | string | null;
+  currency: string | null;
+  merchant_id: string | null;
+  category: string | null;
+  lang: string | null;
+  rating_rate?: number | null;
+  rating_count?: number | null;
+  created_at: string | null;
+};
+
+function mapCatalogToProduct(row: CatalogProduct): Product {
+  const price = row.price_min ?? row.price_max ?? 0;
+  const priceNum = typeof price === "number" ? price : Number(price) || 0;
+  const rate = row.rating_rate != null ? Number(row.rating_rate) : 0;
+  const count = row.rating_count != null ? Number(row.rating_count) : 0;
+  return {
+    id: row.id,
+    title: row.title,
+    price: priceNum,
+    description: row.description ?? "",
+    category: row.category ?? "",
+    image: row.image_url ?? "",
+    rating: { rate, count },
+  };
+}
+
 export default function ProductsProvider({ children }: ProductsProviderProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -17,14 +51,15 @@ export default function ProductsProvider({ children }: ProductsProviderProps) {
     async function fetchProducts() {
       try {
         setIsLoading(true);
-        const response = await fetch("https://fakestoreapi.com/products");
+        const response = await fetch("/api/catalog/products?limit=100&page=1");
+        const data = await response.json().catch(() => ({}));
 
         if (!response.ok) {
-          throw new Error("Failed to fetch products");
+          const msg = typeof data?.error === "string" ? data.error : "Failed to fetch products";
+          throw new Error(msg);
         }
-
-        const data = await response.json();
-        setProducts(data);
+        const list = Array.isArray(data.products) ? data.products : [];
+        setProducts(list.map((row: CatalogProduct) => mapCatalogToProduct(row)));
         setError(null);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -39,8 +74,9 @@ export default function ProductsProvider({ children }: ProductsProviderProps) {
     fetchProducts();
   }, []);
 
-  const getProductById = (id: number): Product | undefined => {
-    return products.find((product) => product.id === id);
+  const getProductById = (id: number | string): Product | undefined => {
+    const key = String(id);
+    return products.find((product) => String(product.id) === key);
   };
 
   const value = {

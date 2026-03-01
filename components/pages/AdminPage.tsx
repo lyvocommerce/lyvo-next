@@ -27,12 +27,15 @@ export default function AdminPage() {
   const [loadingHealth, setLoadingHealth] = useState(true);
   const [loadingMerchants, setLoadingMerchants] = useState(true);
   const [ingesting, setIngesting] = useState<string | null>(null);
+  const [deletingMerchantId, setDeletingMerchantId] = useState<string | null>(null);
   const [message, setMessage] = useState("");
-  const [addStoreId, setAddStoreId] = useState("");
-  const [addStoreName, setAddStoreName] = useState("");
-  const [addStoreFeedUrl, setAddStoreFeedUrl] = useState("");
+  const [newStoreName, setNewStoreName] = useState("");
+  const [newStoreUrl, setNewStoreUrl] = useState("");
+  const [newStoreFile, setNewStoreFile] = useState<File | null>(null);
   const [addingStore, setAddingStore] = useState(false);
   const [logoutLoading, setLogoutLoading] = useState(false);
+  const [uploadLog, setUploadLog] = useState<string | null>(null);
+  const [uploadLogSuccess, setUploadLogSuccess] = useState<boolean | null>(null);
 
   useEffect(() => {
     fetch("/api/admin/health")
@@ -72,43 +75,109 @@ export default function AdminPage() {
     }
   };
 
-  const handleAddStore = async (e: React.FormEvent) => {
+  function formatUploadLog(data: Record<string, unknown>, status: number): string {
+    const log = data.log as Record<string, unknown> | undefined;
+    const lines: string[] = [
+      "=== Upload result ===",
+      `HTTP status: ${status}`,
+      `Step: ${log?.step ?? "unknown"}`,
+    ];
+    if (data.error) lines.push(`Error: ${String(data.error)}`);
+    if (log?.fileSizeKB != null) lines.push(`File size: ${log.fileSizeKB} KB`);
+    if (log?.format) lines.push(`Format: ${String(log.format)}`);
+    if (log?.parsedCount != null) lines.push(`Parsed products: ${log.parsedCount}`);
+    if (log?.merchantId) lines.push(`Store ID: ${String(log.merchantId)}`);
+    if (log?.storeName) lines.push(`Store name: ${String(log.storeName)}`);
+    if (log?.ingested != null) lines.push(`Ingested: ${log.ingested}`);
+    if (log?.durationMs != null) lines.push(`Duration: ${log.durationMs} ms`);
+    if (log?.errorStack) {
+      lines.push("");
+      lines.push("Stack trace (copy this for support/agents):");
+      lines.push(String(log.errorStack));
+    }
+    return lines.join("\n");
+  }
+
+  const handleAddStoreWithCatalog = async (e: React.FormEvent) => {
     e.preventDefault();
-    const id = addStoreId.trim();
-    const name = addStoreName.trim();
-    const feedUrl = addStoreFeedUrl.trim();
-    if (!id || !name) {
-      setMessage("ID and name are required");
+    const name = newStoreName.trim();
+    if (!name) {
+      setMessage("Store name is required");
+      return;
+    }
+    if (!newStoreFile) {
+      setMessage("Please select a JSON file.");
       return;
     }
     setAddingStore(true);
     setMessage("");
+    setUploadLog(null);
+    setUploadLogSuccess(null);
     try {
-      const res = await fetch("/api/admin/merchants", {
+      const formData = new FormData();
+      formData.set("name", name);
+      formData.set("homeUrl", newStoreUrl.trim());
+      formData.set("file", newStoreFile);
+      const res = await fetch("/api/admin/stores/with-catalog", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id,
-          name,
-          connection_type: "url",
-          connection_params: feedUrl ? { feedUrl } : undefined,
-        }),
+        body: formData,
       });
       const data = await res.json().catch(() => ({}));
-      if (res.ok) {
-        setAddStoreId("");
-        setAddStoreName("");
-        setAddStoreFeedUrl("");
-        setMessage(`Store "${name}" created`);
+      const logText = formatUploadLog(
+        { ...data, error: data.error ?? (res.ok ? null : "Request failed") },
+        res.status
+      );
+      setUploadLog(logText);
+      setUploadLogSuccess(res.ok && !!data.ok);
+
+      if (res.ok && data.ok) {
+        setNewStoreName("");
+        setNewStoreUrl("");
+        setNewStoreFile(null);
+        setMessage(`Store "${data.name ?? name}" added with ${data.ingested ?? 0} products`);
         const list = await fetch("/api/admin/merchants").then((r) => r.json());
         setMerchants(list);
       } else {
-        setMessage(data.error ?? "Create failed");
+        setMessage(data.error ?? "Failed to add store");
+      }
+    } catch (err) {
+      const errMsg = err instanceof Error ? err.message : "Request failed";
+      setMessage(errMsg);
+      setUploadLog(
+        `=== Upload result ===\nHTTP status: (network error)\nError: ${errMsg}\n\nCopy this and share with support/agents to fix load functions.`
+      );
+      setUploadLogSuccess(false);
+    } finally {
+      setAddingStore(false);
+    }
+  };
+
+  const copyUploadLog = () => {
+    if (!uploadLog) return;
+    navigator.clipboard.writeText(uploadLog).then(() => setMessage("Log copied to clipboard"));
+  };
+
+  const handleDeleteStore = async (merchantId: string, merchantName: string) => {
+    if (!confirm(`Delete store "${merchantName}" and all its products? This cannot be undone.`)) {
+      return;
+    }
+    setDeletingMerchantId(merchantId);
+    setMessage("");
+    try {
+      const res = await fetch(`/api/admin/merchants/${encodeURIComponent(merchantId)}`, {
+        method: "DELETE",
+      });
+      if (res.ok || res.status === 204) {
+        setMessage(`Store "${merchantName}" deleted`);
+        setMerchants((prev) => prev.filter((m) => m.id !== merchantId));
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setMessage(data.error ?? "Delete failed");
       }
     } catch {
       setMessage("Request failed");
     } finally {
-      setAddingStore(false);
+      setDeletingMerchantId(null);
     }
   };
 
@@ -169,13 +238,22 @@ export default function AdminPage() {
                   <span>
                     {m.name} ({m.id}) — {m._count.products} products
                   </span>
-                  <Button
-                    variant="secondary"
-                    onClick={() => loadCatalog(m.id)}
-                    disabled={ingesting !== null}
-                  >
-                    {ingesting === m.id ? "Loading…" : "Load catalog"}
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="secondary"
+                      onClick={() => loadCatalog(m.id)}
+                      disabled={ingesting !== null}
+                    >
+                      {ingesting === m.id ? "Loading…" : "Load catalog"}
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      onClick={() => handleDeleteStore(m.id, m.name)}
+                      disabled={deletingMerchantId !== null}
+                    >
+                      {deletingMerchantId === m.id ? "Deleting…" : "Delete"}
+                    </Button>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -183,52 +261,82 @@ export default function AdminPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-lg font-semibold mb-2">Add store</h2>
-          <form onSubmit={handleAddStore} className="space-y-3">
+          <h2 className="text-lg font-semibold mb-2">Add new store</h2>
+          <p className="text-sm text-tg-hint mb-3">
+            Enter the store name, its URL, and upload a JSON catalog (FakeStore array or DummyJSON with <code className="bg-tg-secondary px-1 rounded">products</code> array). A new store will be created and products imported.
+          </p>
+          <form onSubmit={handleAddStoreWithCatalog} className="space-y-3">
             <div>
-              <label htmlFor="store-id" className="block text-sm mb-1">
-                ID
+              <label htmlFor="new-store-name" className="block text-sm mb-1">
+                Store name
               </label>
               <input
-                id="store-id"
+                id="new-store-name"
                 type="text"
-                value={addStoreId}
-                onChange={(e) => setAddStoreId(e.target.value)}
+                value={newStoreName}
+                onChange={(e) => setNewStoreName(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg border border-tg-hint bg-tg-secondary text-tg-text"
-                placeholder="e.g. mystore"
+                placeholder="e.g. My Shop"
               />
             </div>
             <div>
-              <label htmlFor="store-name" className="block text-sm mb-1">
-                Name
+              <label htmlFor="new-store-url" className="block text-sm mb-1">
+                Store URL
               </label>
               <input
-                id="store-name"
-                type="text"
-                value={addStoreName}
-                onChange={(e) => setAddStoreName(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg border border-tg-hint bg-tg-secondary text-tg-text"
-                placeholder="Store display name"
-              />
-            </div>
-            <div>
-              <label htmlFor="store-feed" className="block text-sm mb-1">
-                Feed URL (optional)
-              </label>
-              <input
-                id="store-feed"
+                id="new-store-url"
                 type="url"
-                value={addStoreFeedUrl}
-                onChange={(e) => setAddStoreFeedUrl(e.target.value)}
+                value={newStoreUrl}
+                onChange={(e) => setNewStoreUrl(e.target.value)}
                 className="w-full px-4 py-2 rounded-lg border border-tg-hint bg-tg-secondary text-tg-text"
                 placeholder="https://..."
               />
             </div>
-            <Button type="submit" disabled={addingStore}>
-              {addingStore ? "Adding…" : "Add store"}
+            <div>
+              <label htmlFor="new-store-file" className="block text-sm mb-1">
+                JSON file
+              </label>
+              <input
+                id="new-store-file"
+                type="file"
+                accept=".json,application/json"
+                onChange={(e) => setNewStoreFile(e.target.files?.[0] ?? null)}
+                className="w-full px-4 py-2 rounded-lg border border-tg-hint bg-tg-secondary text-tg-text"
+              />
+            </div>
+            <Button type="submit" disabled={addingStore || !newStoreName.trim() || !newStoreFile}>
+              {addingStore ? "Adding…" : "Add store and import catalog"}
             </Button>
           </form>
         </section>
+
+        {uploadLog && (
+          <section className="mb-8">
+            <h2 className="text-lg font-semibold mb-2">Upload log</h2>
+            <p className="text-sm text-tg-hint mb-2">
+              What happened during the last file load. If there were errors, copy this and share with support or an agent to fix the load functions.
+            </p>
+            <pre
+              className={`w-full p-4 rounded-lg border text-sm overflow-x-auto whitespace-pre-wrap font-mono ${
+                uploadLogSuccess === true
+                  ? "bg-green-950/20 border-green-700/50 text-green-200"
+                  : uploadLogSuccess === false
+                    ? "bg-red-950/20 border-red-700/50 text-red-200"
+                    : "bg-tg-secondary border-tg-hint/30 text-tg-text"
+              }`}
+            >
+              {uploadLog}
+            </pre>
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={copyUploadLog}
+              className="mt-2"
+            >
+              Copy log
+            </Button>
+          </section>
+        )}
 
         <div className="mb-6">
           <Button variant="secondary" fullWidth onClick={() => router.push("/")}>

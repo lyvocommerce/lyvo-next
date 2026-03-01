@@ -11,7 +11,7 @@ export default function ProductDetailPage() {
   const router = useRouter();
   const { getProductById, isLoading } = useProducts();
 
-  const productId = Number(params.id);
+  const productId = typeof params.id === "string" ? params.id : String(params.id);
   const product = getProductById(productId);
 
   if (isLoading) {

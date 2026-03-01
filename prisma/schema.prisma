@@ -29,28 +29,32 @@ model Category {
 }
 
 model merchants {
-  id         String     @id
-  name       String
-  logo_url   String?
-  country    String?
-  home_url   String?
-  created_at DateTime?  @default(now()) @db.Timestamptz(6)
-  products   products[]
+  id                String     @id
+  name              String
+  logo_url          String?
+  country           String?
+  home_url          String?
+  connection_type   String?    @default("url")
+  connection_params Json?
+  created_at        DateTime?  @default(now()) @db.Timestamptz(6)
+  products          products[]
 }
 
 /// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
 model products {
-  id          String     @id
-  title       String
-  description String?
-  url         String
-  image_url   String?
-  price_min   Decimal?   @db.Decimal(12, 2)
-  price_max   Decimal?   @db.Decimal(12, 2)
-  currency    String?    @default("EUR")
-  merchant_id String?
-  category    String?
-  lang        String?
-  created_at  DateTime?  @default(now()) @db.Timestamptz(6)
-  merchants   merchants? @relation(fields: [merchant_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id           String     @id
+  title        String
+  description  String?
+  url          String
+  image_url    String?
+  price_min    Decimal?   @db.Decimal(12, 2)
+  price_max    Decimal?   @db.Decimal(12, 2)
+  currency     String?    @default("EUR")
+  merchant_id  String?
+  category     String?
+  lang         String?
+  rating_rate  Float?
+  rating_count Int?
+  created_at   DateTime?  @default(now()) @db.Timestamptz(6)
+  merchants    merchants? @relation(fields: [merchant_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }

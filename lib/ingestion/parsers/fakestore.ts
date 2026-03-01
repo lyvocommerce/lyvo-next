@@ -7,6 +7,7 @@ type FakeStoreItem = {
   description: string;
   category: string;
   image: string;
+  rating?: { rate?: number; count?: number };
 };
 
 export function parseFakeStoreResponse(
@@ -18,6 +19,7 @@ export function parseFakeStoreResponse(
   const base = productBaseUrl.replace(/\/$/, "");
   return data.map((item: FakeStoreItem) => {
     const id = String(item.id);
+    const rating = item.rating;
     return {
       id: `${merchantId}-${id}`,
       title: item.title ?? "",
@@ -30,6 +32,8 @@ export function parseFakeStoreResponse(
       merchant_id: merchantId,
       category: item.category ?? null,
       lang: null,
+      rating_rate: typeof rating?.rate === "number" ? rating.rate : null,
+      rating_count: typeof rating?.count === "number" ? rating.count : null,
     };
   });
 }

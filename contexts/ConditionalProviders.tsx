@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
+import TelegramBackButton from "@/components/TelegramAuth/TelegramBackButton";
 import ProductsProvider from "@/contexts/Products/ProductsProvider";
 import PageTransition from "@/components/utils/PageTransition";
 
@@ -26,6 +27,7 @@ export default function ConditionalProviders({
   // All other pages use Telegram auth and product providers
   return (
     <TelegramAuthProvider testMode={testMode}>
+      <TelegramBackButton />
       <ProductsProvider>
         <PageTransition>{children}</PageTransition>
       </ProductsProvider>

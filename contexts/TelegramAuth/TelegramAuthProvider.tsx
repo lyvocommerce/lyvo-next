@@ -121,12 +121,6 @@ export default function TelegramAuthProvider({
         // Set up Telegram theme colors
         applyTelegramTheme(WebApp.themeParams);
 
-        // Handle back button
-        WebApp.BackButton.onClick(() => {
-          WebApp.BackButton.hide();
-          // Handle navigation or close
-        });
-
         // Set platform and version info
         setPlatform(WebApp.platform || "unknown");
         setVersion(WebApp.version || "unknown");
@@ -137,12 +131,6 @@ export default function TelegramAuthProvider({
         setIsLoading(false);
       });
 
-    // Cleanup function
-    return () => {
-      if (!testMode && webAppRef.current) {
-        webAppRef.current.BackButton.offClick(() => {});
-      }
-    };
   }, [testMode]);
 
   const value = {

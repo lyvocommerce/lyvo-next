@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { ingestProducts, parseCatalogFromRawJson } from "@/lib/ingestion/load-catalog";
+import { addAllowedHostsFromImageUrls } from "@/lib/image-allowed-hosts";
+import { ingestProducts, parseCatalogFromRawJson, resolveCategoriesForProducts } from "@/lib/ingestion/load-catalog";
 
 export async function POST(request: NextRequest) {
   let formData: FormData;
@@ -54,6 +55,9 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
+
+  await addAllowedHostsFromImageUrls(rows.map((r) => r.image_url));
+  await resolveCategoriesForProducts(rows);
 
   try {
     await ingestProducts(merchantId, rows);

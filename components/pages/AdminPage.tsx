@@ -20,6 +20,8 @@ type Merchant = {
   _count: { products: number };
 };
 
+type AllowedImageHostRow = { id: number; hostname: string };
+
 export default function AdminPage() {
   const router = useRouter();
   const [health, setHealth] = useState<Health | null>(null);
@@ -31,11 +33,17 @@ export default function AdminPage() {
   const [message, setMessage] = useState("");
   const [newStoreName, setNewStoreName] = useState("");
   const [newStoreUrl, setNewStoreUrl] = useState("");
+  const [newStoreCurrency, setNewStoreCurrency] = useState("auto");
   const [newStoreFile, setNewStoreFile] = useState<File | null>(null);
   const [addingStore, setAddingStore] = useState(false);
   const [logoutLoading, setLogoutLoading] = useState(false);
   const [uploadLog, setUploadLog] = useState<string | null>(null);
   const [uploadLogSuccess, setUploadLogSuccess] = useState<boolean | null>(null);
+  const [allowedHosts, setAllowedHosts] = useState<AllowedImageHostRow[]>([]);
+  const [loadingAllowedHosts, setLoadingAllowedHosts] = useState(true);
+  const [newHostInput, setNewHostInput] = useState("");
+  const [addingHost, setAddingHost] = useState(false);
+  const [deletingHostId, setDeletingHostId] = useState<number | null>(null);
 
   useEffect(() => {
     fetch("/api/admin/health")
@@ -51,6 +59,14 @@ export default function AdminPage() {
       .then(setMerchants)
       .catch(() => setMerchants([]))
       .finally(() => setLoadingMerchants(false));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/admin/allowed-image-hosts")
+      .then((r) => r.json())
+      .then(setAllowedHosts)
+      .catch(() => setAllowedHosts([]))
+      .finally(() => setLoadingAllowedHosts(false));
   }, []);
 
   const loadCatalog = async (merchantId: string) => {
@@ -88,6 +104,8 @@ export default function AdminPage() {
     if (log?.parsedCount != null) lines.push(`Parsed products: ${log.parsedCount}`);
     if (log?.merchantId) lines.push(`Store ID: ${String(log.merchantId)}`);
     if (log?.storeName) lines.push(`Store name: ${String(log.storeName)}`);
+    if (log?.currency) lines.push(`Currency: ${String(log.currency)}`);
+    if (log?.imageDomainsAdded?.length) lines.push(`Image domains added: ${(log.imageDomainsAdded as string[]).join(", ")}`);
     if (log?.ingested != null) lines.push(`Ingested: ${log.ingested}`);
     if (log?.durationMs != null) lines.push(`Duration: ${log.durationMs} ms`);
     if (log?.errorStack) {
@@ -117,6 +135,7 @@ export default function AdminPage() {
       const formData = new FormData();
       formData.set("name", name);
       formData.set("homeUrl", newStoreUrl.trim());
+      formData.set("currency", newStoreCurrency);
       formData.set("file", newStoreFile);
       const res = await fetch("/api/admin/stores/with-catalog", {
         method: "POST",
@@ -133,6 +152,7 @@ export default function AdminPage() {
       if (res.ok && data.ok) {
         setNewStoreName("");
         setNewStoreUrl("");
+        setNewStoreCurrency("auto");
         setNewStoreFile(null);
         setMessage(`Store "${data.name ?? name}" added with ${data.ingested ?? 0} products`);
         const list = await fetch("/api/admin/merchants").then((r) => r.json());
@@ -155,6 +175,55 @@ export default function AdminPage() {
   const copyUploadLog = () => {
     if (!uploadLog) return;
     navigator.clipboard.writeText(uploadLog).then(() => setMessage("Log copied to clipboard"));
+  };
+
+  const handleAddAllowedHost = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const host = newHostInput.trim();
+    if (!host) {
+      setMessage("Enter a domain (e.g. media.fds.fi or https://cdn.example.com)");
+      return;
+    }
+    setAddingHost(true);
+    setMessage("");
+    try {
+      const res = await fetch("/api/admin/allowed-image-hosts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ hostname: host }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.id) {
+        setAllowedHosts((prev) => [...prev, { id: data.id, hostname: data.hostname }].sort((a, b) => a.hostname.localeCompare(b.hostname)));
+        setNewHostInput("");
+        setMessage(`Domain ${data.hostname} added`);
+      } else {
+        setMessage(data.error ?? "Failed to add");
+      }
+    } catch {
+      setMessage("Request failed");
+    } finally {
+      setAddingHost(false);
+    }
+  };
+
+  const handleRemoveAllowedHost = async (id: number) => {
+    setDeletingHostId(id);
+    setMessage("");
+    try {
+      const res = await fetch(`/api/admin/allowed-image-hosts/${id}`, { method: "DELETE" });
+      if (res.ok || res.status === 204) {
+        setAllowedHosts((prev) => prev.filter((h) => h.id !== id));
+        setMessage("Domain removed");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setMessage(data.error ?? "Delete failed");
+      }
+    } catch {
+      setMessage("Request failed");
+    } finally {
+      setDeletingHostId(null);
+    }
   };
 
   const handleDeleteStore = async (merchantId: string, merchantName: string) => {
@@ -261,6 +330,51 @@ export default function AdminPage() {
         </section>
 
         <section className="mb-8">
+          <h2 className="text-lg font-semibold mb-2">Allowed image domains</h2>
+          <p className="text-sm text-tg-hint mb-3">
+            Domains from this list (and from store URLs above) can load product images. Add CDN or image hostnames here (e.g. media.fds.fi, static.insales-cdn.com).
+          </p>
+          {loadingAllowedHosts ? (
+            <p className="text-tg-hint">Loading…</p>
+          ) : (
+            <>
+              <ul className="space-y-2 mb-4">
+                {allowedHosts.map((h) => (
+                  <li
+                    key={h.id}
+                    className="flex items-center justify-between gap-2 py-2 border-b border-tg-hint/30"
+                  >
+                    <span className="font-mono text-sm">{h.hostname}</span>
+                    <Button
+                      variant="secondary"
+                      onClick={() => handleRemoveAllowedHost(h.id)}
+                      disabled={deletingHostId !== null}
+                    >
+                      {deletingHostId === h.id ? "Removing…" : "Remove"}
+                    </Button>
+                  </li>
+                ))}
+                {allowedHosts.length === 0 && (
+                  <li className="text-tg-hint text-sm py-2">No domains yet. Add one below.</li>
+                )}
+              </ul>
+              <form onSubmit={handleAddAllowedHost} className="flex gap-2 flex-wrap items-center">
+                <input
+                  type="text"
+                  value={newHostInput}
+                  onChange={(e) => setNewHostInput(e.target.value)}
+                  placeholder="media.fds.fi or https://cdn.example.com"
+                  className="flex-1 min-w-[200px] px-4 py-2 rounded-lg border border-tg-hint bg-tg-secondary text-tg-text"
+                />
+                <Button type="submit" disabled={addingHost || !newHostInput.trim()}>
+                  {addingHost ? "Adding…" : "Add domain"}
+                </Button>
+              </form>
+            </>
+          )}
+        </section>
+
+        <section className="mb-8">
           <h2 className="text-lg font-semibold mb-2">Add new store</h2>
           <p className="text-sm text-tg-hint mb-3">
             Enter the store name, its URL, and upload a JSON catalog (FakeStore array or DummyJSON with <code className="bg-tg-secondary px-1 rounded">products</code> array). A new store will be created and products imported.
@@ -291,6 +405,25 @@ export default function AdminPage() {
                 className="w-full px-4 py-2 rounded-lg border border-tg-hint bg-tg-secondary text-tg-text"
                 placeholder="https://..."
               />
+            </div>
+            <div>
+              <label htmlFor="new-store-currency" className="block text-sm mb-1">
+                Currency
+              </label>
+              <select
+                id="new-store-currency"
+                value={newStoreCurrency}
+                onChange={(e) => setNewStoreCurrency(e.target.value)}
+                className="w-full px-4 py-2 rounded-lg border border-tg-hint bg-tg-secondary text-tg-text"
+              >
+                <option value="auto">Auto (from file or EUR)</option>
+                <option value="EUR">EUR (Euro)</option>
+                <option value="USD">USD (US Dollar)</option>
+                <option value="UAH">UAH (Hryvnia)</option>
+                <option value="RUB">RUB (Ruble)</option>
+                <option value="GBP">GBP (Pound)</option>
+                <option value="PLN">PLN (Złoty)</option>
+              </select>
             </div>
             <div>
               <label htmlFor="new-store-file" className="block text-sm mb-1">

@@ -16,6 +16,18 @@ export async function getAllCategories(): Promise<Category[]> {
 }
 
 /**
+ * Return set of active category slugs for resolving product categories during ingest.
+ * Products are stored with category = one of these slugs or null.
+ */
+export async function getActiveCategorySlugs(): Promise<Set<string>> {
+  const rows = await prisma.category.findMany({
+    where: { isActive: true },
+    select: { slug: true },
+  });
+  return new Set(rows.map((r) => r.slug));
+}
+
+/**
  * Build a hierarchical tree structure from flat category list
  */
 export function buildCategoryTree(
@@ -123,4 +135,19 @@ export function getCategoriesTreeSync(
   categories: Category[],
 ): CategoryWithChildren[] {
   return buildCategoryTree(categories);
+}
+
+/**
+ * Fetch products that belong to a category (products.category = slug).
+ * Used on category pages to show products assigned during ingest.
+ */
+export async function getProductsByCategorySlug(
+  slug: string,
+  limit = 50
+) {
+  return prisma.products.findMany({
+    where: { category: slug },
+    orderBy: { created_at: "desc" },
+    take: limit,
+  });
 }

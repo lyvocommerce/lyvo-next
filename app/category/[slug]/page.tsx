@@ -1,6 +1,8 @@
-import { getCategoryBySlug, getCategoryChildren } from "@/lib/categories";
+import { getCategoryBySlug, getCategoryChildren, getProductsByCategorySlug } from "@/lib/categories";
+import { mapDbProductToProduct } from "@/lib/catalog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import ProductCard from "@/components/design/ProductCard";
 
 interface CategoryPageProps {
   params: Promise<{
@@ -16,7 +18,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  const children = await getCategoryChildren(category.id);
+  const [children, dbProducts] = await Promise.all([
+    getCategoryChildren(category.id),
+    getProductsByCategorySlug(slug),
+  ]);
+  const products = dbProducts.map(mapDbProductToProduct);
 
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text px-4 py-6">
@@ -35,11 +41,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           )}
         </div>
 
-        {/* Subcategories List */}
-        {children.length > 0 ? (
-          <div className="space-y-3">
+        {/* Subcategories */}
+        {children.length > 0 && (
+          <div className="space-y-3 mb-10">
             <h2 className="text-lg font-semibold text-tg-subtitle mb-4">
-              Categories
+              Subcategories
             </h2>
             {children.map((child) => (
               <Link
@@ -73,9 +79,25 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               </Link>
             ))}
           </div>
-        ) : (
+        )}
+
+        {/* Products in this category */}
+        {products.length > 0 && (
+          <div>
+            <h2 className="text-lg font-semibold text-tg-subtitle mb-4">
+              Products
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {children.length === 0 && products.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-tg-hint">No subcategories available</p>
+            <p className="text-tg-hint">No subcategories or products in this category yet.</p>
           </div>
         )}
       </div>

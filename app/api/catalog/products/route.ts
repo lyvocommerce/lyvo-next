@@ -7,9 +7,12 @@ export async function GET(request: NextRequest) {
     const page = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10));
     const limit = Math.min(100, Math.max(1, parseInt(searchParams.get("limit") ?? "20", 10)));
     const merchantId = searchParams.get("merchant_id") ?? undefined;
+    const categorySlug = searchParams.get("category_slug") ?? undefined;
 
     const skip = (page - 1) * limit;
-    const where = merchantId ? { merchant_id: merchantId } : {};
+    const where: { merchant_id?: string; category?: string } = {};
+    if (merchantId) where.merchant_id = merchantId;
+    if (categorySlug) where.category = categorySlug;
 
     const [products, total] = await Promise.all([
       prisma.products.findMany({

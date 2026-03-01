@@ -35,6 +35,7 @@ function mapCatalogToProduct(row: CatalogProduct): Product {
     id: row.id,
     title: row.title,
     price: priceNum,
+    currency: row.currency ?? null,
     description: row.description ?? "",
     category: row.category ?? "",
     image: row.image_url ?? "",

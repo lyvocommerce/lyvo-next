@@ -1,6 +1,7 @@
 "use client";
 
 import { Product } from "@/types/product";
+import { formatPrice, productImageSrc } from "@/lib/format";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="bg-tg-secondary rounded-lg overflow-hidden cursor-pointer">
         <div className="relative aspect-square bg-white">
           <Image
-            src={product.image}
+            src={productImageSrc(product.image)}
             alt={product.title}
             fill
             className="object-contain p-4"
@@ -27,7 +28,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </h3>
           <div className="flex items-center justify-between">
             <span className="text-gray-900 font-bold text-base">
-              ${product.price.toFixed(2)}
+              {formatPrice(product.price, product.currency)}
             </span>
             <div className="flex items-center gap-1">
               <span className="text-yellow-500 text-sm">★</span>

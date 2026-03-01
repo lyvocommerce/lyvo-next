@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { ingestProducts, parseCatalogFromRawJson } from "@/lib/ingestion/load-catalog";
+import { addAllowedHostsFromImageUrls } from "@/lib/image-allowed-hosts";
+import { ingestProducts, parseCatalogFromRawJson, resolveCategoriesForProducts } from "@/lib/ingestion/load-catalog";
 
 function slugFromName(name: string): string {
   const base = name
@@ -30,6 +31,8 @@ export async function POST(request: NextRequest) {
     merchantId?: string;
     storeName?: string;
     homeUrl?: string;
+    currency?: string;
+    imageDomainsAdded?: string[];
     ingested?: number;
     durationMs?: number;
     error?: string;
@@ -53,6 +56,7 @@ export async function POST(request: NextRequest) {
 
   const name = (formData.get("name") as string | null)?.trim();
   const homeUrl = (formData.get("homeUrl") as string | null)?.trim();
+  const currency = (formData.get("currency") as string | null)?.trim() || undefined;
   const file = formData.get("file") as File | null;
 
   if (!name) {
@@ -72,6 +76,7 @@ export async function POST(request: NextRequest) {
   log.fileSizeKB = Math.round((file.size / 1024) * 10) / 10;
   log.storeName = name;
   log.homeUrl = homeUrl || undefined;
+  log.currency = currency || "auto";
 
   const productBaseUrl = homeUrl && homeUrl.length > 0 ? homeUrl.replace(/\/$/, "") : "https://example.com";
   let merchantId = slugFromName(name);
@@ -98,7 +103,7 @@ export async function POST(request: NextRequest) {
   }
 
   log.format = detectFormat(raw);
-  const rows = parseCatalogFromRawJson(raw, merchantId, productBaseUrl);
+  const rows = parseCatalogFromRawJson(raw, merchantId, productBaseUrl, currency);
   log.parsedCount = rows.length;
 
   if (rows.length === 0) {
@@ -110,6 +115,10 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
+
+  const imageDomainsAdded = await addAllowedHostsFromImageUrls(rows.map((r) => r.image_url));
+  log.imageDomainsAdded = imageDomainsAdded.length > 0 ? imageDomainsAdded : undefined;
+  await resolveCategoriesForProducts(rows);
 
   try {
     await prisma.merchants.create({

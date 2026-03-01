@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
+import { getActiveCategorySlugs } from "@/lib/categories";
 import type { NormalizedProduct } from "./types";
+import { resolveCategory } from "./resolve-category";
 import { parseFakeStoreResponse } from "./parsers/fakestore";
 import { parseDummyJsonResponse } from "./parsers/dummyjson";
 
@@ -75,8 +77,22 @@ export async function loadCatalogForMerchant(merchantId: string): Promise<{
     return { ok: true, ingested: 0 };
   }
 
+  await resolveCategoriesForProducts(rows);
   await ingestProducts(merchantId, rows);
   return { ok: true, ingested: rows.length };
+}
+
+/**
+ * Resolve each product's category to a valid Category.slug from DB (or null).
+ * Mutates rows in place. Call before ingestProducts so only valid slugs are persisted.
+ */
+export async function resolveCategoriesForProducts(
+  rows: NormalizedProduct[]
+): Promise<void> {
+  const validSlugs = await getActiveCategorySlugs();
+  for (const row of rows) {
+    row.category = resolveCategory(row.category, validSlugs);
+  }
 }
 
 /** Default transaction timeout for ingest (ms). Single upsert can be ~150–200ms over network; 60s allows hundreds of products. */
@@ -132,18 +148,20 @@ export async function ingestProducts(
 /**
  * Parse raw JSON (from file or response) into normalized products.
  * Supports: array (FakeStore) or object with .products array (DummyJSON).
+ * @param currency - Optional. "auto" or empty = try from JSON (root or per-product), else use this (e.g. "EUR", "USD").
  */
 export function parseCatalogFromRawJson(
   raw: unknown,
   merchantId: string,
-  productBaseUrl: string
+  productBaseUrl: string,
+  currency?: string
 ): NormalizedProduct[] {
   const base = productBaseUrl.replace(/\/$/, "");
   if (Array.isArray(raw)) {
-    return parseFakeStoreResponse(raw, merchantId, base);
+    return parseFakeStoreResponse(raw, merchantId, base, currency);
   }
   if (raw && typeof raw === "object" && "products" in raw && Array.isArray((raw as { products: unknown }).products)) {
-    return parseDummyJsonResponse(raw, merchantId, base);
+    return parseDummyJsonResponse(raw, merchantId, base, currency);
   }
   return [];
 }

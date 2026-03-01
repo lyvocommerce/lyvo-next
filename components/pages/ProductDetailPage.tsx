@@ -1,6 +1,8 @@
 "use client";
 
 import { useProducts } from "@/contexts/Products/ProductsContext";
+import { useCategoriesContext } from "@/contexts/Categories/CategoriesProvider";
+import { formatPrice, productImageSrc } from "@/lib/format";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "@/components/design/Button";
@@ -10,6 +12,7 @@ export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
   const { getProductById, isLoading } = useProducts();
+  const { getCategoryBySlug } = useCategoriesContext();
 
   const productId = typeof params.id === "string" ? params.id : String(params.id);
   const product = getProductById(productId);
@@ -45,7 +48,7 @@ export default function ProductDetailPage() {
       <div className="fixed top-0 left-0 right-0 z-0 h-[50vh] min-h-[280px] bg-[#E6EAF1]">
         <div className="relative w-full h-full">
           <Image
-            src={product.image}
+            src={productImageSrc(product.image)}
             alt={product.title}
             fill
             className="object-contain p-6"
@@ -61,11 +64,13 @@ export default function ProductDetailPage() {
       {/* Scrollable content - slides up from bottom, scrolls over the image */}
       <div className="relative z-10 bg-white rounded-t-[20px] px-5 pt-6 pb-8">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-2">
-            <span className="inline-block px-3 py-1 bg-tg-secondary text-tg-hint text-xs rounded-full">
-              {product.category}
-            </span>
-          </div>
+          {product.category && (
+            <div className="mb-2">
+              <span className="inline-block px-3 py-1 bg-tg-secondary text-tg-hint text-xs rounded-full">
+                {getCategoryBySlug(product.category)?.name ?? product.category}
+              </span>
+            </div>
+          )}
 
           <h1 className="text-2xl font-bold text-tg-text mb-4">
             {product.title}
@@ -85,7 +90,7 @@ export default function ProductDetailPage() {
 
           <div className="mb-6">
             <span className="text-3xl font-bold text-tg-text">
-              ${product.price.toFixed(2)}
+              {formatPrice(product.price, product.currency)}
             </span>
           </div>
 

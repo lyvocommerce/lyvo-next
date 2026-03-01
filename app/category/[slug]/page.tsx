@@ -3,6 +3,7 @@ import { mapDbProductToProduct } from "@/lib/catalog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProductCard from "@/components/design/ProductCard";
+import BackToHomeLink from "@/components/utils/BackToHomeLink";
 
 interface CategoryPageProps {
   params: Promise<{
@@ -27,8 +28,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text px-4 py-6">
       <div className="max-w-4xl mx-auto">
-        {/* Header — back only via Telegram native Back button */}
+        {/* Header — in browser: Back to Home link; in Mini App: Telegram native Back only */}
         <div className="mb-6">
+          <BackToHomeLink />
           <h1 className="text-3xl font-bold text-tg-text">{category.name}</h1>
           {category.description && (
             <p className="text-tg-hint mt-2">{category.description}</p>

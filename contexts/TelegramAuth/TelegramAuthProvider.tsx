@@ -133,15 +133,19 @@ export default function TelegramAuthProvider({
 
   }, [testMode]);
 
+  const webApp = webAppRef.current;
+  const isMiniApp = !testMode && !!webApp;
+
   const value = {
     user,
     isReady,
     isLoading,
     error,
-    webApp: webAppRef.current,
+    webApp,
     platform,
     version,
     testMode,
+    isMiniApp,
   };
 
   // Show loading state while authenticating

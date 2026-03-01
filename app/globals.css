@@ -36,13 +36,13 @@ body {
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif;
   /* Top offset so content is not covered by Telegram native header; safe-area for notch/island per device */
-  --tg-content-offset-top: 56px;
+  --tg-content-offset-top: 80px;
 }
 
 /* Content area below Telegram header: safe-area-inset-top (device notch/status) + header height */
 .telegram-content-safe-top {
   padding-top: calc(
-    env(safe-area-inset-top, 0px) + var(--tg-content-offset-top, 56px)
+    env(safe-area-inset-top, 0px) + var(--tg-content-offset-top, 80px)
   );
 }
 

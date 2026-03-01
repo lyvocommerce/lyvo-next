@@ -7,12 +7,14 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "@/components/design/Button";
 import GlassButton from "@/components/design/GlassButton";
+import { useTelegramAuth } from "@/contexts/TelegramAuth/TelegramAuthContext";
 
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
   const { getProductById, isLoading } = useProducts();
   const { getCategoryBySlug } = useCategoriesContext();
+  const { isMiniApp } = useTelegramAuth();
 
   const productId = typeof params.id === "string" ? params.id : String(params.id);
   const product = getProductById(productId);
@@ -109,9 +111,9 @@ export default function ProductDetailPage() {
       <div className="fixed bottom-0 left-0 right-0 z-20">
         <div className="max-w-4xl mx-auto px-5 pb-10">
           <div className="flex gap-3 justify-center items-center">
-            <GlassButton onClick={() => router.back()}>
-              Back
-            </GlassButton>
+            {!isMiniApp && (
+              <GlassButton onClick={() => router.back()}>Back</GlassButton>
+            )}
             <button
               type="button"
               className="flex-1 max-w-[240px] py-3 px-6 bg-[#03A770]/75 backdrop-blur-md border border-[#03A770]/50 text-white font-semibold hover:bg-[#03A770]/60 transition-all rounded-full text-[17px]"

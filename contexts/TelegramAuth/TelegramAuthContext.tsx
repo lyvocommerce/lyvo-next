@@ -13,6 +13,8 @@ interface TelegramAuthContextType {
   platform: string
   version: string
   testMode: boolean
+  /** True when running inside Telegram Mini App; false in browser (or testMode) */
+  isMiniApp: boolean
 }
 
 const TelegramAuthContext = createContext<TelegramAuthContextType | undefined>(undefined)

@@ -11,7 +11,7 @@ import { useTelegramAuth } from "@/contexts/TelegramAuth/TelegramAuthContext";
 export default function TelegramBackButton() {
   const pathname = usePathname();
   const router = useRouter();
-  const { webApp, testMode } = useTelegramAuth();
+  const { webApp, isMiniApp } = useTelegramAuth();
   const handlerRef = useRef<() => void>(() => router.back());
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function TelegramBackButton() {
   }, [router]);
 
   useEffect(() => {
-    if (!webApp || testMode) return;
+    if (!isMiniApp || !webApp) return;
 
     const handler = () => handlerRef.current();
 
@@ -35,7 +35,7 @@ export default function TelegramBackButton() {
       webApp.BackButton.offClick(handler);
       webApp.BackButton.hide();
     };
-  }, [pathname, webApp, testMode]);
+  }, [pathname, webApp, isMiniApp]);
 
   return null;
 }

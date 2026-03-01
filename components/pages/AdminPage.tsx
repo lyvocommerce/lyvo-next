@@ -105,7 +105,8 @@ export default function AdminPage() {
     if (log?.merchantId) lines.push(`Store ID: ${String(log.merchantId)}`);
     if (log?.storeName) lines.push(`Store name: ${String(log.storeName)}`);
     if (log?.currency) lines.push(`Currency: ${String(log.currency)}`);
-    if (log?.imageDomainsAdded?.length) lines.push(`Image domains added: ${(log.imageDomainsAdded as string[]).join(", ")}`);
+    if (Array.isArray(log?.imageDomainsAdded) && log.imageDomainsAdded.length)
+      lines.push(`Image domains added: ${log.imageDomainsAdded.join(", ")}`);
     if (log?.ingested != null) lines.push(`Ingested: ${log.ingested}`);
     if (log?.durationMs != null) lines.push(`Duration: ${log.durationMs} ms`);
     if (log?.errorStack) {

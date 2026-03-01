@@ -23,11 +23,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           />
         </div>
         <div className="p-3 bg-white rounded-b-[16px] rounded-t-[16px]">
-          <h3 className="text-tg-text font-normal text-product-title line-clamp-2 mb-2">
+          <h3 className="text-tg-text text-[13px] font-normal leading-[16px] tracking-[-0.08px] line-clamp-2 mb-2">
             {product.title}
           </h3>
           <div className="flex items-center justify-between">
-            <span className="text-tg-text font-bold text-base">
+            <span className="text-tg-text text-[13px] font-bold leading-[16px] tracking-[-0.08px]">
               {formatPrice(product.price, product.currency)}
             </span>
             <div className="flex items-center gap-1">

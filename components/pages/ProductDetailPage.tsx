@@ -47,7 +47,7 @@ export default function ProductDetailPage() {
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text pb-24">
       {/* Fixed image - always at top of viewport, content scrolls over it */}
-      <div className="fixed top-0 left-0 right-0 z-0 h-[50vh] min-h-[280px] bg-tg-secondary">
+      <div className="fixed top-0 left-0 right-0 z-0 h-[50vh] min-h-[280px] bg-[#F5F7FA]">
         <div className="relative w-full h-full">
           <Image
             src={productImageSrc(product.image)}
@@ -64,7 +64,7 @@ export default function ProductDetailPage() {
       <div className="h-[50vh] min-h-[280px]" aria-hidden />
 
       {/* Scrollable content - slides up from bottom, scrolls over the image */}
-      <div className="relative z-10 bg-tg-secondary rounded-t-[20px] px-5 pt-6 pb-8">
+      <div className="relative z-10 bg-white rounded-t-[20px] px-5 pt-6 pb-8">
         <div className="max-w-4xl mx-auto">
           {product.category && (
             <div className="mb-2">
@@ -74,7 +74,7 @@ export default function ProductDetailPage() {
             </div>
           )}
 
-          <h1 className="text-2xl font-bold text-tg-text mb-4">
+          <h1 className="text-tg-text font-sans text-[13px] font-normal leading-[16px] tracking-[-0.08px] mb-4">
             {product.title}
           </h1>
 
@@ -91,7 +91,7 @@ export default function ProductDetailPage() {
           </div>
 
           <div className="mb-6">
-            <span className="text-3xl font-bold text-tg-text">
+            <span className="text-tg-text text-[13px] font-bold leading-[16px] tracking-[-0.08px]">
               {formatPrice(product.price, product.currency)}
             </span>
           </div>

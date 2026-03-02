@@ -138,17 +138,19 @@ export default function SideMenu() {
 
             {/* Center: title */}
             {isMiniApp ? (
-              // In Telegram Mini App: align title with native header line (full-width across viewport)
-              <span
-                className="fixed left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none z-0 px-12"
-                style={{
-                  top: "calc(env(safe-area-inset-top, 0px) - 2px)",
-                  height: "56px",
-                  lineHeight: "56px",
-                }}
-              >
-                {currentParent ? currentParent.name : "Меню"}
-              </span>
+              // In Telegram Mini App: show title only on nested levels; hide "Меню" on level 1
+              currentParent ? (
+                <span
+                  className="fixed left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none z-0 px-12"
+                  style={{
+                    top: "calc(env(safe-area-inset-top, 0px) - 2px)",
+                    height: "56px",
+                    lineHeight: "56px",
+                  }}
+                >
+                  {currentParent.name}
+                </span>
+              ) : null
             ) : (
               // In web version: center title within the side menu header only
               <span className="flex-1 text-center text-tg-text font-semibold truncate px-4">

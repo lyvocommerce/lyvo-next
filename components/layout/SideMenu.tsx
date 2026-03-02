@@ -106,7 +106,11 @@ export default function SideMenu() {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ type: "spring", damping: 35, stiffness: 300 }}
-          className="side-menu-bg fixed inset-0 z-40 flex flex-col bg-white"
+          className={
+            isMiniApp
+              ? "side-menu-bg fixed inset-0 z-40 flex flex-col bg-white"
+              : "side-menu-bg fixed inset-0 md:inset-y-0 md:left-0 md:right-auto md:w-[360px] md:max-w-[80vw] z-40 flex flex-col bg-white"
+          }
           style={safePad}
         >
           {/* Header: 80px total height (Safe Area + bar); no top border; buttons start below */}
@@ -118,8 +122,9 @@ export default function SideMenu() {
               minHeight: "80px",
             }}
           >
+            {/* Left: Back button (web only, not in Telegram Mini App) */}
             <div className="flex items-center justify-start min-w-[40px] z-10">
-              {categoryStack.length > 0 ? (
+              {!isMiniApp && categoryStack.length > 0 ? (
                 <button
                   type="button"
                   onClick={handleBackInMenu}
@@ -130,16 +135,28 @@ export default function SideMenu() {
                 </button>
               ) : null}
             </div>
-            <span
-              className="fixed left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none z-0 px-12"
-              style={{
-                top: "calc(env(safe-area-inset-top, 0px) - 2px)",
-                height: "56px",
-                lineHeight: "56px",
-              }}
-            >
-              {currentParent ? currentParent.name : "Меню"}
-            </span>
+
+            {/* Center: title */}
+            {isMiniApp ? (
+              // In Telegram Mini App: align title with native header line (full-width across viewport)
+              <span
+                className="fixed left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none z-0 px-12"
+                style={{
+                  top: "calc(env(safe-area-inset-top, 0px) - 2px)",
+                  height: "56px",
+                  lineHeight: "56px",
+                }}
+              >
+                {currentParent ? currentParent.name : "Меню"}
+              </span>
+            ) : (
+              // In web version: center title within the side menu header only
+              <span className="flex-1 text-center text-tg-text font-semibold truncate px-4">
+                {currentParent ? currentParent.name : "Меню"}
+              </span>
+            )}
+
+            {/* Right: Close button (web only) */}
             <div className="flex items-center justify-end min-w-[40px] z-10">
               {!isMiniApp && (
                 <button

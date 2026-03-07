@@ -1,0 +1,6752 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-03-07T11:33:45.397Z",
+  "groups": [
+    {
+      "code": "clothes",
+      "terms": [
+        {
+          "term": "clothes",
+          "lang": "en"
+        },
+        {
+          "term": "vaatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "vaate",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "shoes",
+      "terms": [
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "kengät",
+          "lang": "fi"
+        },
+        {
+          "term": "kengat",
+          "lang": "fi"
+        },
+        {
+          "term": "kenkä",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "bags-accessories",
+      "terms": [
+        {
+          "term": "bags & accessories",
+          "lang": "en"
+        },
+        {
+          "term": "bags accessories",
+          "lang": "en"
+        },
+        {
+          "term": "bags",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        },
+        {
+          "term": "laukut",
+          "lang": "fi"
+        },
+        {
+          "term": "asusteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "jewelry-watches",
+      "terms": [
+        {
+          "term": "jewelry & watches",
+          "lang": "en"
+        },
+        {
+          "term": "jewelry watches",
+          "lang": "en"
+        },
+        {
+          "term": "jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "watches",
+          "lang": "en"
+        },
+        {
+          "term": "korut",
+          "lang": "fi"
+        },
+        {
+          "term": "kellot",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "beauty-wellness",
+      "terms": [
+        {
+          "term": "beauty & wellness",
+          "lang": "en"
+        },
+        {
+          "term": "beauty wellness",
+          "lang": "en"
+        },
+        {
+          "term": "beauty",
+          "lang": "en"
+        },
+        {
+          "term": "wellness",
+          "lang": "en"
+        },
+        {
+          "term": "kauneus",
+          "lang": "fi"
+        },
+        {
+          "term": "hyvinvointi",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "health-pharmacy",
+      "terms": [
+        {
+          "term": "health & pharmacy",
+          "lang": "en"
+        },
+        {
+          "term": "health pharmacy",
+          "lang": "en"
+        },
+        {
+          "term": "health",
+          "lang": "en"
+        },
+        {
+          "term": "pharmacy",
+          "lang": "en"
+        },
+        {
+          "term": "terveys",
+          "lang": "fi"
+        },
+        {
+          "term": "apteekki",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "electronics",
+      "terms": [
+        {
+          "term": "electronics",
+          "lang": "en"
+        },
+        {
+          "term": "elektroniikka",
+          "lang": "fi"
+        },
+        {
+          "term": "sähkö",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "home-appliances",
+      "terms": [
+        {
+          "term": "home appliances",
+          "lang": "en"
+        },
+        {
+          "term": "home",
+          "lang": "en"
+        },
+        {
+          "term": "appliances",
+          "lang": "en"
+        },
+        {
+          "term": "kotielektroniikka",
+          "lang": "fi"
+        },
+        {
+          "term": "kodinkoneet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "home-garden",
+      "terms": [
+        {
+          "term": "home & garden",
+          "lang": "en"
+        },
+        {
+          "term": "home garden",
+          "lang": "en"
+        },
+        {
+          "term": "home",
+          "lang": "en"
+        },
+        {
+          "term": "garden",
+          "lang": "en"
+        },
+        {
+          "term": "koti",
+          "lang": "fi"
+        },
+        {
+          "term": "puutarha",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "furniture",
+      "terms": [
+        {
+          "term": "furniture",
+          "lang": "en"
+        },
+        {
+          "term": "kalusteet",
+          "lang": "fi"
+        },
+        {
+          "term": "huonekalut",
+          "lang": "fi"
+        },
+        {
+          "term": "kaluste",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "building-renovation",
+      "terms": [
+        {
+          "term": "building & renovation",
+          "lang": "en"
+        },
+        {
+          "term": "building renovation",
+          "lang": "en"
+        },
+        {
+          "term": "building",
+          "lang": "en"
+        },
+        {
+          "term": "renovation",
+          "lang": "en"
+        },
+        {
+          "term": "rakennus",
+          "lang": "fi"
+        },
+        {
+          "term": "remontti",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "car-accessories",
+      "terms": [
+        {
+          "term": "car accessories",
+          "lang": "en"
+        },
+        {
+          "term": "car",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        },
+        {
+          "term": "autotarvikkeet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "food-groceries",
+      "terms": [
+        {
+          "term": "food & groceries",
+          "lang": "en"
+        },
+        {
+          "term": "food groceries",
+          "lang": "en"
+        },
+        {
+          "term": "food",
+          "lang": "en"
+        },
+        {
+          "term": "groceries",
+          "lang": "en"
+        },
+        {
+          "term": "ruoka",
+          "lang": "fi"
+        },
+        {
+          "term": "ruuat",
+          "lang": "fi"
+        },
+        {
+          "term": "päivittäistavarat",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "pet-supplies",
+      "terms": [
+        {
+          "term": "pet supplies",
+          "lang": "en"
+        },
+        {
+          "term": "pet",
+          "lang": "en"
+        },
+        {
+          "term": "supplies",
+          "lang": "en"
+        },
+        {
+          "term": "lemmikkitarvikkeet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "kids-products",
+      "terms": [
+        {
+          "term": "kids’ products",
+          "lang": "en"
+        },
+        {
+          "term": "kids products",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        },
+        {
+          "term": "lasten tuotteet",
+          "lang": "fi"
+        },
+        {
+          "term": "lapset",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "sports-outdoor",
+      "terms": [
+        {
+          "term": "sports & outdoor",
+          "lang": "en"
+        },
+        {
+          "term": "sports outdoor",
+          "lang": "en"
+        },
+        {
+          "term": "sports",
+          "lang": "en"
+        },
+        {
+          "term": "outdoor",
+          "lang": "en"
+        },
+        {
+          "term": "urheilu",
+          "lang": "fi"
+        },
+        {
+          "term": "ulkoilu",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "books",
+      "terms": [
+        {
+          "term": "books",
+          "lang": "en"
+        },
+        {
+          "term": "kirjat",
+          "lang": "fi"
+        },
+        {
+          "term": "kirja",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "hobbies-crafts",
+      "terms": [
+        {
+          "term": "hobbies & crafts",
+          "lang": "en"
+        },
+        {
+          "term": "hobbies crafts",
+          "lang": "en"
+        },
+        {
+          "term": "hobbies",
+          "lang": "en"
+        },
+        {
+          "term": "crafts",
+          "lang": "en"
+        },
+        {
+          "term": "harrastukset",
+          "lang": "fi"
+        },
+        {
+          "term": "käsityö",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "office-study",
+      "terms": [
+        {
+          "term": "office & study",
+          "lang": "en"
+        },
+        {
+          "term": "office study",
+          "lang": "en"
+        },
+        {
+          "term": "office",
+          "lang": "en"
+        },
+        {
+          "term": "study",
+          "lang": "en"
+        },
+        {
+          "term": "toimisto",
+          "lang": "fi"
+        },
+        {
+          "term": "opiskelu",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "cleaning-household",
+      "terms": [
+        {
+          "term": "cleaning & household",
+          "lang": "en"
+        },
+        {
+          "term": "cleaning household",
+          "lang": "en"
+        },
+        {
+          "term": "cleaning",
+          "lang": "en"
+        },
+        {
+          "term": "household",
+          "lang": "en"
+        },
+        {
+          "term": "siivous",
+          "lang": "fi"
+        },
+        {
+          "term": "kotitalous",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "digital-products",
+      "terms": [
+        {
+          "term": "digital products",
+          "lang": "en"
+        },
+        {
+          "term": "digital",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        },
+        {
+          "term": "digituotteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "gift-cards",
+      "terms": [
+        {
+          "term": "gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        },
+        {
+          "term": "lahjakortit",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "drawing-painting",
+      "terms": [
+        {
+          "term": "drawing & painting",
+          "lang": "en"
+        },
+        {
+          "term": "drawing painting",
+          "lang": "en"
+        },
+        {
+          "term": "drawing",
+          "lang": "en"
+        },
+        {
+          "term": "painting",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "womens-accessories",
+      "terms": [
+        {
+          "term": "women’s accessories",
+          "lang": "en"
+        },
+        {
+          "term": "womens accessories",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "subscriptions-digital-services",
+      "terms": [
+        {
+          "term": "subscriptions & digital services",
+          "lang": "en"
+        },
+        {
+          "term": "subscriptions digital services",
+          "lang": "en"
+        },
+        {
+          "term": "subscriptions",
+          "lang": "en"
+        },
+        {
+          "term": "digital",
+          "lang": "en"
+        },
+        {
+          "term": "services",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "car-spare-parts",
+      "terms": [
+        {
+          "term": "car spare parts",
+          "lang": "en"
+        },
+        {
+          "term": "car",
+          "lang": "en"
+        },
+        {
+          "term": "spare",
+          "lang": "en"
+        },
+        {
+          "term": "parts",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "jewelry",
+      "terms": [
+        {
+          "term": "jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "korut",
+          "lang": "fi"
+        },
+        {
+          "term": "koru",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "fiction",
+      "terms": [
+        {
+          "term": "fiction",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "paper-products",
+      "terms": [
+        {
+          "term": "paper products",
+          "lang": "en"
+        },
+        {
+          "term": "paper",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "home-decor-textiles",
+      "terms": [
+        {
+          "term": "home decor & textiles",
+          "lang": "en"
+        },
+        {
+          "term": "home decor textiles",
+          "lang": "en"
+        },
+        {
+          "term": "home",
+          "lang": "en"
+        },
+        {
+          "term": "decor",
+          "lang": "en"
+        },
+        {
+          "term": "textiles",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "living-room",
+      "terms": [
+        {
+          "term": "living room",
+          "lang": "en"
+        },
+        {
+          "term": "living",
+          "lang": "en"
+        },
+        {
+          "term": "room",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "general-gift-cards",
+      "terms": [
+        {
+          "term": "general gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "general",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "skincare",
+      "terms": [
+        {
+          "term": "skincare",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cleaning-agents",
+      "terms": [
+        {
+          "term": "cleaning agents",
+          "lang": "en"
+        },
+        {
+          "term": "cleaning",
+          "lang": "en"
+        },
+        {
+          "term": "agents",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fitness-training",
+      "terms": [
+        {
+          "term": "fitness & training",
+          "lang": "en"
+        },
+        {
+          "term": "fitness training",
+          "lang": "en"
+        },
+        {
+          "term": "fitness",
+          "lang": "en"
+        },
+        {
+          "term": "training",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "large-appliances",
+      "terms": [
+        {
+          "term": "large appliances",
+          "lang": "en"
+        },
+        {
+          "term": "large",
+          "lang": "en"
+        },
+        {
+          "term": "appliances",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "womens-shoes",
+      "terms": [
+        {
+          "term": "women's shoes",
+          "lang": "en"
+        },
+        {
+          "term": "womens shoes",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "naisten kengät",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "medicines",
+      "terms": [
+        {
+          "term": "medicines",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "dogs",
+      "terms": [
+        {
+          "term": "dogs",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "phones-smart-devices",
+      "terms": [
+        {
+          "term": "phones & smart devices",
+          "lang": "en"
+        },
+        {
+          "term": "phones smart devices",
+          "lang": "en"
+        },
+        {
+          "term": "phones",
+          "lang": "en"
+        },
+        {
+          "term": "smart",
+          "lang": "en"
+        },
+        {
+          "term": "devices",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "babies-toddlers",
+      "terms": [
+        {
+          "term": "babies & toddlers",
+          "lang": "en"
+        },
+        {
+          "term": "babies toddlers",
+          "lang": "en"
+        },
+        {
+          "term": "babies",
+          "lang": "en"
+        },
+        {
+          "term": "toddlers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "building-materials",
+      "terms": [
+        {
+          "term": "building materials",
+          "lang": "en"
+        },
+        {
+          "term": "building",
+          "lang": "en"
+        },
+        {
+          "term": "materials",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "womens-clothing",
+      "terms": [
+        {
+          "term": "women's clothing",
+          "lang": "en"
+        },
+        {
+          "term": "womens clothing",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        },
+        {
+          "term": "clothing",
+          "lang": "en"
+        },
+        {
+          "term": "naisten vaatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "naistenvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "fruit-vegetables",
+      "terms": [
+        {
+          "term": "fruit & vegetables",
+          "lang": "en"
+        },
+        {
+          "term": "fruit vegetables",
+          "lang": "en"
+        },
+        {
+          "term": "fruit",
+          "lang": "en"
+        },
+        {
+          "term": "vegetables",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cats",
+      "terms": [
+        {
+          "term": "cats",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "small-appliances",
+      "terms": [
+        {
+          "term": "small appliances",
+          "lang": "en"
+        },
+        {
+          "term": "small",
+          "lang": "en"
+        },
+        {
+          "term": "appliances",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "category-gift-cards",
+      "terms": [
+        {
+          "term": "gift cards by category",
+          "lang": "en"
+        },
+        {
+          "term": "category gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "category",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "lighting",
+      "terms": [
+        {
+          "term": "lighting",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "bedroom",
+      "terms": [
+        {
+          "term": "bedroom",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "meat-fish",
+      "terms": [
+        {
+          "term": "meat & fish",
+          "lang": "en"
+        },
+        {
+          "term": "meat fish",
+          "lang": "en"
+        },
+        {
+          "term": "meat",
+          "lang": "en"
+        },
+        {
+          "term": "fish",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tools",
+      "terms": [
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tyres-rims",
+      "terms": [
+        {
+          "term": "tyres & rims",
+          "lang": "en"
+        },
+        {
+          "term": "tyres rims",
+          "lang": "en"
+        },
+        {
+          "term": "tyres",
+          "lang": "en"
+        },
+        {
+          "term": "rims",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-accessories",
+      "terms": [
+        {
+          "term": "men’s accessories",
+          "lang": "en"
+        },
+        {
+          "term": "mens accessories",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "handicrafts-sewing",
+      "terms": [
+        {
+          "term": "handicrafts & sewing",
+          "lang": "en"
+        },
+        {
+          "term": "handicrafts sewing",
+          "lang": "en"
+        },
+        {
+          "term": "handicrafts",
+          "lang": "en"
+        },
+        {
+          "term": "sewing",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "software-licenses",
+      "terms": [
+        {
+          "term": "software & licenses",
+          "lang": "en"
+        },
+        {
+          "term": "software licenses",
+          "lang": "en"
+        },
+        {
+          "term": "software",
+          "lang": "en"
+        },
+        {
+          "term": "licenses",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-clothing",
+      "terms": [
+        {
+          "term": "men's clothing",
+          "lang": "en"
+        },
+        {
+          "term": "mens clothing",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        },
+        {
+          "term": "clothing",
+          "lang": "en"
+        },
+        {
+          "term": "miesten vaatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "miestenvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "non-fiction",
+      "terms": [
+        {
+          "term": "non-fiction",
+          "lang": "en"
+        },
+        {
+          "term": "non fiction",
+          "lang": "en"
+        },
+        {
+          "term": "non",
+          "lang": "en"
+        },
+        {
+          "term": "fiction",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "watches",
+      "terms": [
+        {
+          "term": "watches",
+          "lang": "en"
+        },
+        {
+          "term": "kellot",
+          "lang": "fi"
+        },
+        {
+          "term": "kello",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "haircare",
+      "terms": [
+        {
+          "term": "haircare",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "laundry-care",
+      "terms": [
+        {
+          "term": "laundry care",
+          "lang": "en"
+        },
+        {
+          "term": "laundry",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "running",
+      "terms": [
+        {
+          "term": "running",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-shoes",
+      "terms": [
+        {
+          "term": "men's shoes",
+          "lang": "en"
+        },
+        {
+          "term": "mens shoes",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "miesten kengät",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "vitamins-supplements",
+      "terms": [
+        {
+          "term": "vitamins & supplements",
+          "lang": "en"
+        },
+        {
+          "term": "vitamins supplements",
+          "lang": "en"
+        },
+        {
+          "term": "vitamins",
+          "lang": "en"
+        },
+        {
+          "term": "supplements",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-products-clothing",
+      "terms": [
+        {
+          "term": "kids’ clothing",
+          "lang": "en"
+        },
+        {
+          "term": "kids products clothing",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        },
+        {
+          "term": "clothing",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "computers-tablets",
+      "terms": [
+        {
+          "term": "computers & tablets",
+          "lang": "en"
+        },
+        {
+          "term": "computers tablets",
+          "lang": "en"
+        },
+        {
+          "term": "computers",
+          "lang": "en"
+        },
+        {
+          "term": "tablets",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "writing-instruments",
+      "terms": [
+        {
+          "term": "writing instruments",
+          "lang": "en"
+        },
+        {
+          "term": "writing",
+          "lang": "en"
+        },
+        {
+          "term": "instruments",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "makeup",
+      "terms": [
+        {
+          "term": "makeup",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-accessories",
+      "terms": [
+        {
+          "term": "kids’ accessories",
+          "lang": "en"
+        },
+        {
+          "term": "kids accessories",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "furniture-kitchen-dining",
+      "terms": [
+        {
+          "term": "kitchen & dining",
+          "lang": "en"
+        },
+        {
+          "term": "furniture kitchen dining",
+          "lang": "en"
+        },
+        {
+          "term": "furniture",
+          "lang": "en"
+        },
+        {
+          "term": "kitchen",
+          "lang": "en"
+        },
+        {
+          "term": "dining",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fashion-jewelry",
+      "terms": [
+        {
+          "term": "fashion jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "fashion",
+          "lang": "en"
+        },
+        {
+          "term": "jewelry",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "dairy-products",
+      "terms": [
+        {
+          "term": "dairy products",
+          "lang": "en"
+        },
+        {
+          "term": "dairy",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cleaning-tools",
+      "terms": [
+        {
+          "term": "cleaning tools",
+          "lang": "en"
+        },
+        {
+          "term": "cleaning",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-clothing",
+      "terms": [
+        {
+          "term": "kids' clothing",
+          "lang": "en"
+        },
+        {
+          "term": "kids clothing",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "clothing",
+          "lang": "en"
+        },
+        {
+          "term": "lasten vaatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "lapsivaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "kitchen-dining",
+      "terms": [
+        {
+          "term": "kitchen & dining",
+          "lang": "en"
+        },
+        {
+          "term": "kitchen dining",
+          "lang": "en"
+        },
+        {
+          "term": "kitchen",
+          "lang": "en"
+        },
+        {
+          "term": "dining",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "electrical-supplies",
+      "terms": [
+        {
+          "term": "electrical supplies",
+          "lang": "en"
+        },
+        {
+          "term": "electrical",
+          "lang": "en"
+        },
+        {
+          "term": "supplies",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "small-animals",
+      "terms": [
+        {
+          "term": "small animals",
+          "lang": "en"
+        },
+        {
+          "term": "small",
+          "lang": "en"
+        },
+        {
+          "term": "animals",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "experience-gift-cards",
+      "terms": [
+        {
+          "term": "experiences & services",
+          "lang": "en"
+        },
+        {
+          "term": "experience gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "experience",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "toys-games",
+      "terms": [
+        {
+          "term": "toys & games",
+          "lang": "en"
+        },
+        {
+          "term": "toys games",
+          "lang": "en"
+        },
+        {
+          "term": "toys",
+          "lang": "en"
+        },
+        {
+          "term": "games",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "crafts-diy",
+      "terms": [
+        {
+          "term": "crafts & diy",
+          "lang": "en"
+        },
+        {
+          "term": "crafts diy",
+          "lang": "en"
+        },
+        {
+          "term": "crafts",
+          "lang": "en"
+        },
+        {
+          "term": "diy",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "audio-video",
+      "terms": [
+        {
+          "term": "audio & video",
+          "lang": "en"
+        },
+        {
+          "term": "audio video",
+          "lang": "en"
+        },
+        {
+          "term": "audio",
+          "lang": "en"
+        },
+        {
+          "term": "video",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-shoes",
+      "terms": [
+        {
+          "term": "kids' shoes",
+          "lang": "en"
+        },
+        {
+          "term": "kids shoes",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "lasten kengät",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "digital-content",
+      "terms": [
+        {
+          "term": "digital content",
+          "lang": "en"
+        },
+        {
+          "term": "digital",
+          "lang": "en"
+        },
+        {
+          "term": "content",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "hygiene-products",
+      "terms": [
+        {
+          "term": "hygiene products",
+          "lang": "en"
+        },
+        {
+          "term": "hygiene",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kitchen-appliances",
+      "terms": [
+        {
+          "term": "kitchen appliances",
+          "lang": "en"
+        },
+        {
+          "term": "kitchen",
+          "lang": "en"
+        },
+        {
+          "term": "appliances",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "car-electronics",
+      "terms": [
+        {
+          "term": "car electronics",
+          "lang": "en"
+        },
+        {
+          "term": "car",
+          "lang": "en"
+        },
+        {
+          "term": "electronics",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "filing-organization",
+      "terms": [
+        {
+          "term": "filing & organization",
+          "lang": "en"
+        },
+        {
+          "term": "filing organization",
+          "lang": "en"
+        },
+        {
+          "term": "filing",
+          "lang": "en"
+        },
+        {
+          "term": "organization",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "textbooks",
+      "terms": [
+        {
+          "term": "textbooks",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cycling",
+      "terms": [
+        {
+          "term": "cycling",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-room-products",
+      "terms": [
+        {
+          "term": "kids’ room",
+          "lang": "en"
+        },
+        {
+          "term": "kids room products",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "room",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "photography-video",
+      "terms": [
+        {
+          "term": "photography & video",
+          "lang": "en"
+        },
+        {
+          "term": "photography video",
+          "lang": "en"
+        },
+        {
+          "term": "photography",
+          "lang": "en"
+        },
+        {
+          "term": "video",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "backpacks-bags",
+      "terms": [
+        {
+          "term": "backpacks & bags",
+          "lang": "en"
+        },
+        {
+          "term": "backpacks bags",
+          "lang": "en"
+        },
+        {
+          "term": "backpacks",
+          "lang": "en"
+        },
+        {
+          "term": "bags",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "online-courses-training",
+      "terms": [
+        {
+          "term": "online courses & training",
+          "lang": "en"
+        },
+        {
+          "term": "online courses training",
+          "lang": "en"
+        },
+        {
+          "term": "online",
+          "lang": "en"
+        },
+        {
+          "term": "courses",
+          "lang": "en"
+        },
+        {
+          "term": "training",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "childrens-books",
+      "terms": [
+        {
+          "term": "children’s books",
+          "lang": "en"
+        },
+        {
+          "term": "childrens books",
+          "lang": "en"
+        },
+        {
+          "term": "childrens",
+          "lang": "en"
+        },
+        {
+          "term": "books",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "bathroom",
+      "terms": [
+        {
+          "term": "bathroom",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cleaning-appliances",
+      "terms": [
+        {
+          "term": "cleaning appliances",
+          "lang": "en"
+        },
+        {
+          "term": "cleaning",
+          "lang": "en"
+        },
+        {
+          "term": "appliances",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-jewelry",
+      "terms": [
+        {
+          "term": "kids’ jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "kids jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "jewelry",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "disinfection-hygiene",
+      "terms": [
+        {
+          "term": "disinfection & hygiene",
+          "lang": "en"
+        },
+        {
+          "term": "disinfection hygiene",
+          "lang": "en"
+        },
+        {
+          "term": "disinfection",
+          "lang": "en"
+        },
+        {
+          "term": "hygiene",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "underwear-nightwear",
+      "terms": [
+        {
+          "term": "underwear & nightwear",
+          "lang": "en"
+        },
+        {
+          "term": "underwear nightwear",
+          "lang": "en"
+        },
+        {
+          "term": "underwear",
+          "lang": "en"
+        },
+        {
+          "term": "nightwear",
+          "lang": "en"
+        },
+        {
+          "term": "alusvaatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "yövaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "fragrances-scents",
+      "terms": [
+        {
+          "term": "fragrances & scents",
+          "lang": "en"
+        },
+        {
+          "term": "fragrances scents",
+          "lang": "en"
+        },
+        {
+          "term": "fragrances",
+          "lang": "en"
+        },
+        {
+          "term": "scents",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "winter-sports",
+      "terms": [
+        {
+          "term": "winter sports",
+          "lang": "en"
+        },
+        {
+          "term": "winter",
+          "lang": "en"
+        },
+        {
+          "term": "sports",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "games-puzzles",
+      "terms": [
+        {
+          "term": "games & puzzles",
+          "lang": "en"
+        },
+        {
+          "term": "games puzzles",
+          "lang": "en"
+        },
+        {
+          "term": "games",
+          "lang": "en"
+        },
+        {
+          "term": "puzzles",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "birds",
+      "terms": [
+        {
+          "term": "birds",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "medical-devices",
+      "terms": [
+        {
+          "term": "medical devices",
+          "lang": "en"
+        },
+        {
+          "term": "medical",
+          "lang": "en"
+        },
+        {
+          "term": "devices",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sports-shoes",
+      "terms": [
+        {
+          "term": "sports shoes",
+          "lang": "en"
+        },
+        {
+          "term": "sports",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "urheilukengät",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "printing-supplies",
+      "terms": [
+        {
+          "term": "printing & supplies",
+          "lang": "en"
+        },
+        {
+          "term": "printing supplies",
+          "lang": "en"
+        },
+        {
+          "term": "printing",
+          "lang": "en"
+        },
+        {
+          "term": "supplies",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "business-gift-cards",
+      "terms": [
+        {
+          "term": "business gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "business",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "plumbing-pipes",
+      "terms": [
+        {
+          "term": "plumbing & pipes",
+          "lang": "en"
+        },
+        {
+          "term": "plumbing pipes",
+          "lang": "en"
+        },
+        {
+          "term": "plumbing",
+          "lang": "en"
+        },
+        {
+          "term": "pipes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "car-care-chemicals",
+      "terms": [
+        {
+          "term": "car care & chemicals",
+          "lang": "en"
+        },
+        {
+          "term": "car care chemicals",
+          "lang": "en"
+        },
+        {
+          "term": "car",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        },
+        {
+          "term": "chemicals",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-room",
+      "terms": [
+        {
+          "term": "kids’ room",
+          "lang": "en"
+        },
+        {
+          "term": "kids room",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "room",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "bread-bakery",
+      "terms": [
+        {
+          "term": "bread & bakery",
+          "lang": "en"
+        },
+        {
+          "term": "bread bakery",
+          "lang": "en"
+        },
+        {
+          "term": "bread",
+          "lang": "en"
+        },
+        {
+          "term": "bakery",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "childcare-safety",
+      "terms": [
+        {
+          "term": "childcare & safety",
+          "lang": "en"
+        },
+        {
+          "term": "childcare safety",
+          "lang": "en"
+        },
+        {
+          "term": "childcare",
+          "lang": "en"
+        },
+        {
+          "term": "safety",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "slippers-indoor-shoes",
+      "terms": [
+        {
+          "term": "slippers & indoor shoes",
+          "lang": "en"
+        },
+        {
+          "term": "slippers indoor shoes",
+          "lang": "en"
+        },
+        {
+          "term": "slippers",
+          "lang": "en"
+        },
+        {
+          "term": "indoor",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "tossut",
+          "lang": "fi"
+        },
+        {
+          "term": "sisäkäyttö",
+          "lang": "fi"
+        },
+        {
+          "term": "sisakaytto",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "accessory-jewelry",
+      "terms": [
+        {
+          "term": "accessory jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "accessory",
+          "lang": "en"
+        },
+        {
+          "term": "jewelry",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "air-climate",
+      "terms": [
+        {
+          "term": "air & climate",
+          "lang": "en"
+        },
+        {
+          "term": "air climate",
+          "lang": "en"
+        },
+        {
+          "term": "air",
+          "lang": "en"
+        },
+        {
+          "term": "climate",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "office-electronics",
+      "terms": [
+        {
+          "term": "office electronics",
+          "lang": "en"
+        },
+        {
+          "term": "office",
+          "lang": "en"
+        },
+        {
+          "term": "electronics",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "garden-outdoor",
+      "terms": [
+        {
+          "term": "garden & outdoor",
+          "lang": "en"
+        },
+        {
+          "term": "garden outdoor",
+          "lang": "en"
+        },
+        {
+          "term": "garden",
+          "lang": "en"
+        },
+        {
+          "term": "outdoor",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "water-sports",
+      "terms": [
+        {
+          "term": "water sports",
+          "lang": "en"
+        },
+        {
+          "term": "water",
+          "lang": "en"
+        },
+        {
+          "term": "sports",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "heating-ventilation",
+      "terms": [
+        {
+          "term": "heating & ventilation",
+          "lang": "en"
+        },
+        {
+          "term": "heating ventilation",
+          "lang": "en"
+        },
+        {
+          "term": "heating",
+          "lang": "en"
+        },
+        {
+          "term": "ventilation",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "smart-home-security",
+      "terms": [
+        {
+          "term": "smart home & security",
+          "lang": "en"
+        },
+        {
+          "term": "smart home security",
+          "lang": "en"
+        },
+        {
+          "term": "smart",
+          "lang": "en"
+        },
+        {
+          "term": "home",
+          "lang": "en"
+        },
+        {
+          "term": "security",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "office-furniture",
+      "terms": [
+        {
+          "term": "office furniture",
+          "lang": "en"
+        },
+        {
+          "term": "office",
+          "lang": "en"
+        },
+        {
+          "term": "furniture",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sportswear",
+      "terms": [
+        {
+          "term": "sportswear",
+          "lang": "en"
+        },
+        {
+          "term": "urheiluvatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "urheiluvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "eco-cleaning",
+      "terms": [
+        {
+          "term": "eco cleaning",
+          "lang": "en"
+        },
+        {
+          "term": "eco",
+          "lang": "en"
+        },
+        {
+          "term": "cleaning",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "instruments-music",
+      "terms": [
+        {
+          "term": "instruments & music",
+          "lang": "en"
+        },
+        {
+          "term": "instruments music",
+          "lang": "en"
+        },
+        {
+          "term": "instruments",
+          "lang": "en"
+        },
+        {
+          "term": "music",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "car-tools-equipment",
+      "terms": [
+        {
+          "term": "tools & equipment",
+          "lang": "en"
+        },
+        {
+          "term": "car tools equipment",
+          "lang": "en"
+        },
+        {
+          "term": "car",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        },
+        {
+          "term": "equipment",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "comics-manga",
+      "terms": [
+        {
+          "term": "comics & manga",
+          "lang": "en"
+        },
+        {
+          "term": "comics manga",
+          "lang": "en"
+        },
+        {
+          "term": "comics",
+          "lang": "en"
+        },
+        {
+          "term": "manga",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "travel-accessories",
+      "terms": [
+        {
+          "term": "travel accessories",
+          "lang": "en"
+        },
+        {
+          "term": "travel",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "orthopedics-rehab",
+      "terms": [
+        {
+          "term": "orthopedics & rehab",
+          "lang": "en"
+        },
+        {
+          "term": "orthopedics rehab",
+          "lang": "en"
+        },
+        {
+          "term": "orthopedics",
+          "lang": "en"
+        },
+        {
+          "term": "rehab",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fish-aquariums",
+      "terms": [
+        {
+          "term": "fish & aquariums",
+          "lang": "en"
+        },
+        {
+          "term": "fish aquariums",
+          "lang": "en"
+        },
+        {
+          "term": "fish",
+          "lang": "en"
+        },
+        {
+          "term": "aquariums",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "nails-tools",
+      "terms": [
+        {
+          "term": "nails & tools",
+          "lang": "en"
+        },
+        {
+          "term": "nails tools",
+          "lang": "en"
+        },
+        {
+          "term": "nails",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "dry-goods",
+      "terms": [
+        {
+          "term": "dry goods",
+          "lang": "en"
+        },
+        {
+          "term": "dry",
+          "lang": "en"
+        },
+        {
+          "term": "goods",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "pet-pharmacy",
+      "terms": [
+        {
+          "term": "pet pharmacy",
+          "lang": "en"
+        },
+        {
+          "term": "pet",
+          "lang": "en"
+        },
+        {
+          "term": "pharmacy",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "motorcycle-accessories",
+      "terms": [
+        {
+          "term": "motorcycle accessories",
+          "lang": "en"
+        },
+        {
+          "term": "motorcycle",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "business-supplies",
+      "terms": [
+        {
+          "term": "business supplies",
+          "lang": "en"
+        },
+        {
+          "term": "business",
+          "lang": "en"
+        },
+        {
+          "term": "supplies",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "school-learning",
+      "terms": [
+        {
+          "term": "school & learning",
+          "lang": "en"
+        },
+        {
+          "term": "school learning",
+          "lang": "en"
+        },
+        {
+          "term": "school",
+          "lang": "en"
+        },
+        {
+          "term": "learning",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "electronics-accessories",
+      "terms": [
+        {
+          "term": "accessories & cables",
+          "lang": "en"
+        },
+        {
+          "term": "electronics accessories",
+          "lang": "en"
+        },
+        {
+          "term": "electronics",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "vision-optics",
+      "terms": [
+        {
+          "term": "vision & optics",
+          "lang": "en"
+        },
+        {
+          "term": "vision optics",
+          "lang": "en"
+        },
+        {
+          "term": "vision",
+          "lang": "en"
+        },
+        {
+          "term": "optics",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "magazines-periodicals",
+      "terms": [
+        {
+          "term": "magazines & periodicals",
+          "lang": "en"
+        },
+        {
+          "term": "magazines periodicals",
+          "lang": "en"
+        },
+        {
+          "term": "magazines",
+          "lang": "en"
+        },
+        {
+          "term": "periodicals",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "shoe-care-accessories",
+      "terms": [
+        {
+          "term": "shoe care & accessories",
+          "lang": "en"
+        },
+        {
+          "term": "shoe care accessories",
+          "lang": "en"
+        },
+        {
+          "term": "shoe",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        },
+        {
+          "term": "kengänhoito",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "sauna",
+      "terms": [
+        {
+          "term": "sauna",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "outerwear",
+      "terms": [
+        {
+          "term": "outerwear",
+          "lang": "en"
+        },
+        {
+          "term": "ulkotakit",
+          "lang": "fi"
+        },
+        {
+          "term": "ulkopuolella",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "storage-furniture",
+      "terms": [
+        {
+          "term": "storage furniture",
+          "lang": "en"
+        },
+        {
+          "term": "storage",
+          "lang": "en"
+        },
+        {
+          "term": "furniture",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "accessory-essentials",
+      "terms": [
+        {
+          "term": "accessory essentials",
+          "lang": "en"
+        },
+        {
+          "term": "accessory",
+          "lang": "en"
+        },
+        {
+          "term": "essentials",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "camping-hiking",
+      "terms": [
+        {
+          "term": "camping & hiking",
+          "lang": "en"
+        },
+        {
+          "term": "camping hiking",
+          "lang": "en"
+        },
+        {
+          "term": "camping",
+          "lang": "en"
+        },
+        {
+          "term": "hiking",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "frozen-ready-meals",
+      "terms": [
+        {
+          "term": "frozen & ready meals",
+          "lang": "en"
+        },
+        {
+          "term": "frozen ready meals",
+          "lang": "en"
+        },
+        {
+          "term": "frozen",
+          "lang": "en"
+        },
+        {
+          "term": "ready",
+          "lang": "en"
+        },
+        {
+          "term": "meals",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tech-hobbies",
+      "terms": [
+        {
+          "term": "tech hobbies",
+          "lang": "en"
+        },
+        {
+          "term": "tech",
+          "lang": "en"
+        },
+        {
+          "term": "hobbies",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "safety-protection",
+      "terms": [
+        {
+          "term": "safety & protection",
+          "lang": "en"
+        },
+        {
+          "term": "safety protection",
+          "lang": "en"
+        },
+        {
+          "term": "safety",
+          "lang": "en"
+        },
+        {
+          "term": "protection",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "wellness-devices",
+      "terms": [
+        {
+          "term": "wellness devices",
+          "lang": "en"
+        },
+        {
+          "term": "wellness",
+          "lang": "en"
+        },
+        {
+          "term": "devices",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "ebooks-audiobooks",
+      "terms": [
+        {
+          "term": "e-books & audiobooks",
+          "lang": "en"
+        },
+        {
+          "term": "ebooks audiobooks",
+          "lang": "en"
+        },
+        {
+          "term": "ebooks",
+          "lang": "en"
+        },
+        {
+          "term": "audiobooks",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "professional-use",
+      "terms": [
+        {
+          "term": "professional use",
+          "lang": "en"
+        },
+        {
+          "term": "professional",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "saunas-accessories",
+      "terms": [
+        {
+          "term": "saunas & accessories",
+          "lang": "en"
+        },
+        {
+          "term": "saunas accessories",
+          "lang": "en"
+        },
+        {
+          "term": "saunas",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sports-nutrition",
+      "terms": [
+        {
+          "term": "sports nutrition",
+          "lang": "en"
+        },
+        {
+          "term": "sports",
+          "lang": "en"
+        },
+        {
+          "term": "nutrition",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "snacks-treats",
+      "terms": [
+        {
+          "term": "snacks & treats",
+          "lang": "en"
+        },
+        {
+          "term": "snacks treats",
+          "lang": "en"
+        },
+        {
+          "term": "snacks",
+          "lang": "en"
+        },
+        {
+          "term": "treats",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "home-essentials",
+      "terms": [
+        {
+          "term": "home essentials",
+          "lang": "en"
+        },
+        {
+          "term": "home",
+          "lang": "en"
+        },
+        {
+          "term": "essentials",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "outdoor-furniture",
+      "terms": [
+        {
+          "term": "outdoor furniture",
+          "lang": "en"
+        },
+        {
+          "term": "outdoor",
+          "lang": "en"
+        },
+        {
+          "term": "furniture",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "drinks",
+      "terms": [
+        {
+          "term": "drinks",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "pillows-rugs",
+      "terms": [
+        {
+          "term": "pillows & rugs",
+          "lang": "en"
+        },
+        {
+          "term": "pillows rugs",
+          "lang": "en"
+        },
+        {
+          "term": "pillows",
+          "lang": "en"
+        },
+        {
+          "term": "rugs",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "dresses",
+      "terms": [
+        {
+          "term": "dresses",
+          "lang": "en"
+        },
+        {
+          "term": "mekot",
+          "lang": "fi"
+        },
+        {
+          "term": "mekko",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "shirts",
+      "terms": [
+        {
+          "term": "shirts",
+          "lang": "en"
+        },
+        {
+          "term": "paidat",
+          "lang": "fi"
+        },
+        {
+          "term": "paita",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "baby-clothing",
+      "terms": [
+        {
+          "term": "baby clothing",
+          "lang": "en"
+        },
+        {
+          "term": "baby",
+          "lang": "en"
+        },
+        {
+          "term": "clothing",
+          "lang": "en"
+        },
+        {
+          "term": "vauvavaatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "tavaroita vauvoille",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "underwear",
+      "terms": [
+        {
+          "term": "underwear",
+          "lang": "en"
+        },
+        {
+          "term": "alusvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "training-apparel",
+      "terms": [
+        {
+          "term": "training apparel",
+          "lang": "en"
+        },
+        {
+          "term": "training",
+          "lang": "en"
+        },
+        {
+          "term": "apparel",
+          "lang": "en"
+        },
+        {
+          "term": "harjoitusvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "jackets-parkas",
+      "terms": [
+        {
+          "term": "jackets & parkas",
+          "lang": "en"
+        },
+        {
+          "term": "jackets parkas",
+          "lang": "en"
+        },
+        {
+          "term": "jackets",
+          "lang": "en"
+        },
+        {
+          "term": "parkas",
+          "lang": "en"
+        },
+        {
+          "term": "takki",
+          "lang": "fi"
+        },
+        {
+          "term": "takkit",
+          "lang": "fi"
+        },
+        {
+          "term": "parkat",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "womens-sneakers",
+      "terms": [
+        {
+          "term": "sneakers",
+          "lang": "en"
+        },
+        {
+          "term": "womens sneakers",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-casual-shoes",
+      "terms": [
+        {
+          "term": "casual shoes",
+          "lang": "en"
+        },
+        {
+          "term": "mens casual shoes",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        },
+        {
+          "term": "casual",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-school-shoes",
+      "terms": [
+        {
+          "term": "school shoes",
+          "lang": "en"
+        },
+        {
+          "term": "kids school shoes",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "school",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "running-shoes",
+      "terms": [
+        {
+          "term": "running shoes",
+          "lang": "en"
+        },
+        {
+          "term": "running",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "juoksukengät",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "slippers",
+      "terms": [
+        {
+          "term": "slippers",
+          "lang": "en"
+        },
+        {
+          "term": "tossut",
+          "lang": "fi"
+        },
+        {
+          "term": "tossu",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "insoles",
+      "terms": [
+        {
+          "term": "insoles",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "handbags",
+      "terms": [
+        {
+          "term": "handbags",
+          "lang": "en"
+        },
+        {
+          "term": "käsilaukut",
+          "lang": "fi"
+        },
+        {
+          "term": "käsilaukku",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "briefcases",
+      "terms": [
+        {
+          "term": "briefcases",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-school-backpacks",
+      "terms": [
+        {
+          "term": "school backpacks",
+          "lang": "en"
+        },
+        {
+          "term": "kids school backpacks",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "school",
+          "lang": "en"
+        },
+        {
+          "term": "backpacks",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "backpacks",
+      "terms": [
+        {
+          "term": "backpacks",
+          "lang": "en"
+        },
+        {
+          "term": "reput",
+          "lang": "fi"
+        },
+        {
+          "term": "reppu",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "suitcases",
+      "terms": [
+        {
+          "term": "suitcases",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sunglasses",
+      "terms": [
+        {
+          "term": "sunglasses",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "rings",
+      "terms": [
+        {
+          "term": "rings",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "wristwatches",
+      "terms": [
+        {
+          "term": "wristwatches",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fashion-jewelry-sets",
+      "terms": [
+        {
+          "term": "fashion jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "fashion jewelry sets",
+          "lang": "en"
+        },
+        {
+          "term": "fashion",
+          "lang": "en"
+        },
+        {
+          "term": "jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "sets",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-bracelets",
+      "terms": [
+        {
+          "term": "kids’ bracelets",
+          "lang": "en"
+        },
+        {
+          "term": "kids bracelets",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "bracelets",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "brooches",
+      "terms": [
+        {
+          "term": "brooches",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "face-care",
+      "terms": [
+        {
+          "term": "face care",
+          "lang": "en"
+        },
+        {
+          "term": "face",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "shampoo-conditioner",
+      "terms": [
+        {
+          "term": "shampoo & conditioner",
+          "lang": "en"
+        },
+        {
+          "term": "shampoo conditioner",
+          "lang": "en"
+        },
+        {
+          "term": "shampoo",
+          "lang": "en"
+        },
+        {
+          "term": "conditioner",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "face-makeup",
+      "terms": [
+        {
+          "term": "face makeup",
+          "lang": "en"
+        },
+        {
+          "term": "face",
+          "lang": "en"
+        },
+        {
+          "term": "makeup",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "perfumes",
+      "terms": [
+        {
+          "term": "perfumes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "nail-polishes",
+      "terms": [
+        {
+          "term": "nail polishes",
+          "lang": "en"
+        },
+        {
+          "term": "nail",
+          "lang": "en"
+        },
+        {
+          "term": "polishes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "massage-devices",
+      "terms": [
+        {
+          "term": "massage devices",
+          "lang": "en"
+        },
+        {
+          "term": "massage",
+          "lang": "en"
+        },
+        {
+          "term": "devices",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "salon-equipment",
+      "terms": [
+        {
+          "term": "salon equipment",
+          "lang": "en"
+        },
+        {
+          "term": "salon",
+          "lang": "en"
+        },
+        {
+          "term": "equipment",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "otc-medicines",
+      "terms": [
+        {
+          "term": "over-the-counter medicines",
+          "lang": "en"
+        },
+        {
+          "term": "otc medicines",
+          "lang": "en"
+        },
+        {
+          "term": "otc",
+          "lang": "en"
+        },
+        {
+          "term": "medicines",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "vitamins",
+      "terms": [
+        {
+          "term": "vitamins",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "oral-care",
+      "terms": [
+        {
+          "term": "oral care",
+          "lang": "en"
+        },
+        {
+          "term": "oral",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "meters",
+      "terms": [
+        {
+          "term": "meters",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "support-products",
+      "terms": [
+        {
+          "term": "support products",
+          "lang": "en"
+        },
+        {
+          "term": "support",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "eyeglasses",
+      "terms": [
+        {
+          "term": "eyeglasses",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "smartphones",
+      "terms": [
+        {
+          "term": "smartphones",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "laptops",
+      "terms": [
+        {
+          "term": "laptops",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "headphones",
+      "terms": [
+        {
+          "term": "headphones",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cameras",
+      "terms": [
+        {
+          "term": "cameras",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sensors",
+      "terms": [
+        {
+          "term": "sensors",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cables",
+      "terms": [
+        {
+          "term": "cables",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "refrigerators",
+      "terms": [
+        {
+          "term": "refrigerators",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "coffee-makers",
+      "terms": [
+        {
+          "term": "coffee makers",
+          "lang": "en"
+        },
+        {
+          "term": "coffee",
+          "lang": "en"
+        },
+        {
+          "term": "makers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "blenders",
+      "terms": [
+        {
+          "term": "blenders",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "vacuums",
+      "terms": [
+        {
+          "term": "vacuums",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "air-purifiers",
+      "terms": [
+        {
+          "term": "air purifiers",
+          "lang": "en"
+        },
+        {
+          "term": "air",
+          "lang": "en"
+        },
+        {
+          "term": "purifiers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "ceiling-lights",
+      "terms": [
+        {
+          "term": "ceiling lights",
+          "lang": "en"
+        },
+        {
+          "term": "ceiling",
+          "lang": "en"
+        },
+        {
+          "term": "lights",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tableware",
+      "terms": [
+        {
+          "term": "tableware",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "bathroom-accessories",
+      "terms": [
+        {
+          "term": "bathroom accessories",
+          "lang": "en"
+        },
+        {
+          "term": "bathroom",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "garden-tools",
+      "terms": [
+        {
+          "term": "garden tools",
+          "lang": "en"
+        },
+        {
+          "term": "garden",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sauna-accessories",
+      "terms": [
+        {
+          "term": "sauna accessories",
+          "lang": "en"
+        },
+        {
+          "term": "sauna",
+          "lang": "en"
+        },
+        {
+          "term": "accessories",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "storage",
+      "terms": [
+        {
+          "term": "storage",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sofas",
+      "terms": [
+        {
+          "term": "sofas",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "beds",
+      "terms": [
+        {
+          "term": "beds",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tables",
+      "terms": [
+        {
+          "term": "tables",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-beds",
+      "terms": [
+        {
+          "term": "kids’ beds",
+          "lang": "en"
+        },
+        {
+          "term": "kids beds",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "beds",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "desks",
+      "terms": [
+        {
+          "term": "desks",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "shelves",
+      "terms": [
+        {
+          "term": "shelves",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "terrace-furniture",
+      "terms": [
+        {
+          "term": "terrace furniture",
+          "lang": "en"
+        },
+        {
+          "term": "terrace",
+          "lang": "en"
+        },
+        {
+          "term": "furniture",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "timber",
+      "terms": [
+        {
+          "term": "timber",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "power-tools",
+      "terms": [
+        {
+          "term": "power tools",
+          "lang": "en"
+        },
+        {
+          "term": "power",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "electrical-cables",
+      "terms": [
+        {
+          "term": "cables",
+          "lang": "en"
+        },
+        {
+          "term": "electrical cables",
+          "lang": "en"
+        },
+        {
+          "term": "electrical",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "pipe-parts",
+      "terms": [
+        {
+          "term": "pipe parts",
+          "lang": "en"
+        },
+        {
+          "term": "pipe",
+          "lang": "en"
+        },
+        {
+          "term": "parts",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "heaters",
+      "terms": [
+        {
+          "term": "heaters",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "safety-gloves",
+      "terms": [
+        {
+          "term": "safety gloves",
+          "lang": "en"
+        },
+        {
+          "term": "safety",
+          "lang": "en"
+        },
+        {
+          "term": "gloves",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sauna-heaters",
+      "terms": [
+        {
+          "term": "sauna heaters",
+          "lang": "en"
+        },
+        {
+          "term": "sauna",
+          "lang": "en"
+        },
+        {
+          "term": "heaters",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "engine-parts",
+      "terms": [
+        {
+          "term": "engine parts",
+          "lang": "en"
+        },
+        {
+          "term": "engine",
+          "lang": "en"
+        },
+        {
+          "term": "parts",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "summer-tyres",
+      "terms": [
+        {
+          "term": "summer tyres",
+          "lang": "en"
+        },
+        {
+          "term": "summer",
+          "lang": "en"
+        },
+        {
+          "term": "tyres",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "navigation-devices",
+      "terms": [
+        {
+          "term": "navigation devices",
+          "lang": "en"
+        },
+        {
+          "term": "navigation",
+          "lang": "en"
+        },
+        {
+          "term": "devices",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "car-wash",
+      "terms": [
+        {
+          "term": "car wash",
+          "lang": "en"
+        },
+        {
+          "term": "car",
+          "lang": "en"
+        },
+        {
+          "term": "wash",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "car-jacks",
+      "terms": [
+        {
+          "term": "jacks",
+          "lang": "en"
+        },
+        {
+          "term": "car jacks",
+          "lang": "en"
+        },
+        {
+          "term": "car",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "helmets",
+      "terms": [
+        {
+          "term": "helmets",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fresh-produce",
+      "terms": [
+        {
+          "term": "fresh produce",
+          "lang": "en"
+        },
+        {
+          "term": "fresh",
+          "lang": "en"
+        },
+        {
+          "term": "produce",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fresh-meat",
+      "terms": [
+        {
+          "term": "fresh meat",
+          "lang": "en"
+        },
+        {
+          "term": "fresh",
+          "lang": "en"
+        },
+        {
+          "term": "meat",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "milk",
+      "terms": [
+        {
+          "term": "milk",
+          "lang": "en"
+        },
+        {
+          "term": "maito",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "bread",
+      "terms": [
+        {
+          "term": "bread",
+          "lang": "en"
+        },
+        {
+          "term": "leipä",
+          "lang": "fi"
+        },
+        {
+          "term": "leipa",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "pasta",
+      "terms": [
+        {
+          "term": "pasta",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "frozen-foods",
+      "terms": [
+        {
+          "term": "frozen foods",
+          "lang": "en"
+        },
+        {
+          "term": "frozen",
+          "lang": "en"
+        },
+        {
+          "term": "foods",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "snacks",
+      "terms": [
+        {
+          "term": "snacks",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "coffee",
+      "terms": [
+        {
+          "term": "coffee",
+          "lang": "en"
+        },
+        {
+          "term": "kahvi",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "dog-food",
+      "terms": [
+        {
+          "term": "dog food",
+          "lang": "en"
+        },
+        {
+          "term": "dog",
+          "lang": "en"
+        },
+        {
+          "term": "food",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cat-litter",
+      "terms": [
+        {
+          "term": "cat litter",
+          "lang": "en"
+        },
+        {
+          "term": "cat",
+          "lang": "en"
+        },
+        {
+          "term": "litter",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cages",
+      "terms": [
+        {
+          "term": "cages",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "bird-food",
+      "terms": [
+        {
+          "term": "bird food",
+          "lang": "en"
+        },
+        {
+          "term": "bird",
+          "lang": "en"
+        },
+        {
+          "term": "food",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "aquariums",
+      "terms": [
+        {
+          "term": "aquariums",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "pet-care-products",
+      "terms": [
+        {
+          "term": "pet care products",
+          "lang": "en"
+        },
+        {
+          "term": "pet",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "diapers",
+      "terms": [
+        {
+          "term": "diapers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-everyday-wear",
+      "terms": [
+        {
+          "term": "everyday wear",
+          "lang": "en"
+        },
+        {
+          "term": "kids everyday wear",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "everyday",
+          "lang": "en"
+        },
+        {
+          "term": "wear",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "educational-toys",
+      "terms": [
+        {
+          "term": "educational toys",
+          "lang": "en"
+        },
+        {
+          "term": "educational",
+          "lang": "en"
+        },
+        {
+          "term": "toys",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-furniture",
+      "terms": [
+        {
+          "term": "kids’ furniture",
+          "lang": "en"
+        },
+        {
+          "term": "kids furniture",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "furniture",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "safety-gates",
+      "terms": [
+        {
+          "term": "safety gates",
+          "lang": "en"
+        },
+        {
+          "term": "safety",
+          "lang": "en"
+        },
+        {
+          "term": "gates",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "school-supplies",
+      "terms": [
+        {
+          "term": "school supplies",
+          "lang": "en"
+        },
+        {
+          "term": "school",
+          "lang": "en"
+        },
+        {
+          "term": "supplies",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fitness-equipment",
+      "terms": [
+        {
+          "term": "fitness equipment",
+          "lang": "en"
+        },
+        {
+          "term": "fitness",
+          "lang": "en"
+        },
+        {
+          "term": "equipment",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sports-running-shoes",
+      "terms": [
+        {
+          "term": "running shoes",
+          "lang": "en"
+        },
+        {
+          "term": "sports running shoes",
+          "lang": "en"
+        },
+        {
+          "term": "sports",
+          "lang": "en"
+        },
+        {
+          "term": "running",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "bicycles",
+      "terms": [
+        {
+          "term": "bicycles",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "skiing",
+      "terms": [
+        {
+          "term": "skiing",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "swimming",
+      "terms": [
+        {
+          "term": "swimming",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tents",
+      "terms": [
+        {
+          "term": "tents",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "protein-supplements",
+      "terms": [
+        {
+          "term": "protein supplements",
+          "lang": "en"
+        },
+        {
+          "term": "protein",
+          "lang": "en"
+        },
+        {
+          "term": "supplements",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "novels",
+      "terms": [
+        {
+          "term": "novels",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "wellness-nonfiction",
+      "terms": [
+        {
+          "term": "wellness",
+          "lang": "en"
+        },
+        {
+          "term": "wellness nonfiction",
+          "lang": "en"
+        },
+        {
+          "term": "nonfiction",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "school-books",
+      "terms": [
+        {
+          "term": "school books",
+          "lang": "en"
+        },
+        {
+          "term": "school",
+          "lang": "en"
+        },
+        {
+          "term": "books",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "picture-books",
+      "terms": [
+        {
+          "term": "picture books",
+          "lang": "en"
+        },
+        {
+          "term": "picture",
+          "lang": "en"
+        },
+        {
+          "term": "books",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "manga",
+      "terms": [
+        {
+          "term": "manga",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "magazines",
+      "terms": [
+        {
+          "term": "magazines",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "digital-books-category",
+      "terms": [
+        {
+          "term": "digital books",
+          "lang": "en"
+        },
+        {
+          "term": "digital books category",
+          "lang": "en"
+        },
+        {
+          "term": "digital",
+          "lang": "en"
+        },
+        {
+          "term": "books",
+          "lang": "en"
+        },
+        {
+          "term": "category",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "colored-pencils",
+      "terms": [
+        {
+          "term": "colored pencils",
+          "lang": "en"
+        },
+        {
+          "term": "colored",
+          "lang": "en"
+        },
+        {
+          "term": "pencils",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "yarns",
+      "terms": [
+        {
+          "term": "yarns",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "diy-kits",
+      "terms": [
+        {
+          "term": "diy kits",
+          "lang": "en"
+        },
+        {
+          "term": "diy",
+          "lang": "en"
+        },
+        {
+          "term": "kits",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "board-games",
+      "terms": [
+        {
+          "term": "board games",
+          "lang": "en"
+        },
+        {
+          "term": "board",
+          "lang": "en"
+        },
+        {
+          "term": "games",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "guitars",
+      "terms": [
+        {
+          "term": "guitars",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "3d-printing",
+      "terms": [
+        {
+          "term": "3d printing",
+          "lang": "en"
+        },
+        {
+          "term": "3d",
+          "lang": "en"
+        },
+        {
+          "term": "printing",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "printer-paper",
+      "terms": [
+        {
+          "term": "printer paper",
+          "lang": "en"
+        },
+        {
+          "term": "printer",
+          "lang": "en"
+        },
+        {
+          "term": "paper",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "pens",
+      "terms": [
+        {
+          "term": "pens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "folders",
+      "terms": [
+        {
+          "term": "folders",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "inks",
+      "terms": [
+        {
+          "term": "inks",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "calculators",
+      "terms": [
+        {
+          "term": "calculators",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "pos-supplies",
+      "terms": [
+        {
+          "term": "pos supplies",
+          "lang": "en"
+        },
+        {
+          "term": "pos",
+          "lang": "en"
+        },
+        {
+          "term": "supplies",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "all-purpose-cleaners",
+      "terms": [
+        {
+          "term": "all-purpose cleaners",
+          "lang": "en"
+        },
+        {
+          "term": "all purpose cleaners",
+          "lang": "en"
+        },
+        {
+          "term": "purpose",
+          "lang": "en"
+        },
+        {
+          "term": "cleaners",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "laundry-gels",
+      "terms": [
+        {
+          "term": "laundry gels",
+          "lang": "en"
+        },
+        {
+          "term": "laundry",
+          "lang": "en"
+        },
+        {
+          "term": "gels",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mops",
+      "terms": [
+        {
+          "term": "mops",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "disinfectants",
+      "terms": [
+        {
+          "term": "disinfectants",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "eco-products",
+      "terms": [
+        {
+          "term": "eco products",
+          "lang": "en"
+        },
+        {
+          "term": "eco",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "digital-services",
+      "terms": [
+        {
+          "term": "digital services",
+          "lang": "en"
+        },
+        {
+          "term": "digital",
+          "lang": "en"
+        },
+        {
+          "term": "services",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "software-license-keys",
+      "terms": [
+        {
+          "term": "software licenses",
+          "lang": "en"
+        },
+        {
+          "term": "software license keys",
+          "lang": "en"
+        },
+        {
+          "term": "software",
+          "lang": "en"
+        },
+        {
+          "term": "license",
+          "lang": "en"
+        },
+        {
+          "term": "keys",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "digital-templates",
+      "terms": [
+        {
+          "term": "templates",
+          "lang": "en"
+        },
+        {
+          "term": "digital templates",
+          "lang": "en"
+        },
+        {
+          "term": "digital",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "online-courses",
+      "terms": [
+        {
+          "term": "online courses",
+          "lang": "en"
+        },
+        {
+          "term": "online",
+          "lang": "en"
+        },
+        {
+          "term": "courses",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "e-gift-cards",
+      "terms": [
+        {
+          "term": "e-gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "e gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fashion-gift-cards",
+      "terms": [
+        {
+          "term": "fashion",
+          "lang": "en"
+        },
+        {
+          "term": "fashion gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "experience-packages",
+      "terms": [
+        {
+          "term": "experience packages",
+          "lang": "en"
+        },
+        {
+          "term": "experience",
+          "lang": "en"
+        },
+        {
+          "term": "packages",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "b2b-gift-cards",
+      "terms": [
+        {
+          "term": "b2b gift cards",
+          "lang": "en"
+        },
+        {
+          "term": "b2b",
+          "lang": "en"
+        },
+        {
+          "term": "gift",
+          "lang": "en"
+        },
+        {
+          "term": "cards",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-winter-boots",
+      "terms": [
+        {
+          "term": "winter boots",
+          "lang": "en"
+        },
+        {
+          "term": "kids winter boots",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "winter",
+          "lang": "en"
+        },
+        {
+          "term": "boots",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "personal-hygiene",
+      "terms": [
+        {
+          "term": "personal hygiene",
+          "lang": "en"
+        },
+        {
+          "term": "personal",
+          "lang": "en"
+        },
+        {
+          "term": "hygiene",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "supplements",
+      "terms": [
+        {
+          "term": "supplements",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "nail-tools",
+      "terms": [
+        {
+          "term": "nail tools",
+          "lang": "en"
+        },
+        {
+          "term": "nail",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "womens-boots",
+      "terms": [
+        {
+          "term": "boots",
+          "lang": "en"
+        },
+        {
+          "term": "womens boots",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-trousers-jeans",
+      "terms": [
+        {
+          "term": "trousers & jeans",
+          "lang": "en"
+        },
+        {
+          "term": "mens trousers jeans",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        },
+        {
+          "term": "trousers",
+          "lang": "en"
+        },
+        {
+          "term": "jeans",
+          "lang": "en"
+        },
+        {
+          "term": "miesten housut",
+          "lang": "fi"
+        },
+        {
+          "term": "miesten farkut",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "running-apparel",
+      "terms": [
+        {
+          "term": "running apparel",
+          "lang": "en"
+        },
+        {
+          "term": "running",
+          "lang": "en"
+        },
+        {
+          "term": "apparel",
+          "lang": "en"
+        },
+        {
+          "term": "juoksuvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "scented-candles",
+      "terms": [
+        {
+          "term": "scented candles",
+          "lang": "en"
+        },
+        {
+          "term": "scented",
+          "lang": "en"
+        },
+        {
+          "term": "candles",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "eye-makeup",
+      "terms": [
+        {
+          "term": "eye makeup",
+          "lang": "en"
+        },
+        {
+          "term": "eye",
+          "lang": "en"
+        },
+        {
+          "term": "makeup",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "styling-products",
+      "terms": [
+        {
+          "term": "styling products",
+          "lang": "en"
+        },
+        {
+          "term": "styling",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "body-care",
+      "terms": [
+        {
+          "term": "body care",
+          "lang": "en"
+        },
+        {
+          "term": "body",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "jewelry-sets",
+      "terms": [
+        {
+          "term": "jewelry sets",
+          "lang": "en"
+        },
+        {
+          "term": "jewelry",
+          "lang": "en"
+        },
+        {
+          "term": "sets",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "smartwatches",
+      "terms": [
+        {
+          "term": "smartwatches",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "sleepwear",
+      "terms": [
+        {
+          "term": "sleepwear",
+          "lang": "en"
+        },
+        {
+          "term": "yövaatteet",
+          "lang": "fi"
+        },
+        {
+          "term": "univaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "mens-formal-shoes",
+      "terms": [
+        {
+          "term": "formal shoes",
+          "lang": "en"
+        },
+        {
+          "term": "mens formal shoes",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        },
+        {
+          "term": "formal",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "hand-tools",
+      "terms": [
+        {
+          "term": "hand tools",
+          "lang": "en"
+        },
+        {
+          "term": "hand",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "insulation",
+      "terms": [
+        {
+          "term": "insulation",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "office-chairs",
+      "terms": [
+        {
+          "term": "office chairs",
+          "lang": "en"
+        },
+        {
+          "term": "office",
+          "lang": "en"
+        },
+        {
+          "term": "chairs",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "winter-wear",
+      "terms": [
+        {
+          "term": "winter wear",
+          "lang": "en"
+        },
+        {
+          "term": "winter",
+          "lang": "en"
+        },
+        {
+          "term": "wear",
+          "lang": "en"
+        },
+        {
+          "term": "talvivaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "earrings",
+      "terms": [
+        {
+          "term": "earrings",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "winter-tyres",
+      "terms": [
+        {
+          "term": "winter tyres",
+          "lang": "en"
+        },
+        {
+          "term": "winter",
+          "lang": "en"
+        },
+        {
+          "term": "tyres",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "hats-gloves",
+      "terms": [
+        {
+          "term": "hats & gloves",
+          "lang": "en"
+        },
+        {
+          "term": "hats gloves",
+          "lang": "en"
+        },
+        {
+          "term": "hats",
+          "lang": "en"
+        },
+        {
+          "term": "gloves",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "travel-organizers",
+      "terms": [
+        {
+          "term": "travel organizers",
+          "lang": "en"
+        },
+        {
+          "term": "travel",
+          "lang": "en"
+        },
+        {
+          "term": "organizers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "shoulder-bags",
+      "terms": [
+        {
+          "term": "shoulder bags",
+          "lang": "en"
+        },
+        {
+          "term": "shoulder",
+          "lang": "en"
+        },
+        {
+          "term": "bags",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kids-small-bags",
+      "terms": [
+        {
+          "term": "small bags",
+          "lang": "en"
+        },
+        {
+          "term": "kids small bags",
+          "lang": "en"
+        },
+        {
+          "term": "kids",
+          "lang": "en"
+        },
+        {
+          "term": "small",
+          "lang": "en"
+        },
+        {
+          "term": "bags",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "chairs",
+      "terms": [
+        {
+          "term": "chairs",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "wardrobes",
+      "terms": [
+        {
+          "term": "wardrobes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "armchairs",
+      "terms": [
+        {
+          "term": "armchairs",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kitchen-tools",
+      "terms": [
+        {
+          "term": "kitchen tools",
+          "lang": "en"
+        },
+        {
+          "term": "kitchen",
+          "lang": "en"
+        },
+        {
+          "term": "tools",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "table-lamps",
+      "terms": [
+        {
+          "term": "table lamps",
+          "lang": "en"
+        },
+        {
+          "term": "table",
+          "lang": "en"
+        },
+        {
+          "term": "lamps",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "robot-vacuums",
+      "terms": [
+        {
+          "term": "robot vacuums",
+          "lang": "en"
+        },
+        {
+          "term": "robot",
+          "lang": "en"
+        },
+        {
+          "term": "vacuums",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "stand-mixers",
+      "terms": [
+        {
+          "term": "stand mixers",
+          "lang": "en"
+        },
+        {
+          "term": "stand",
+          "lang": "en"
+        },
+        {
+          "term": "mixers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "kettles",
+      "terms": [
+        {
+          "term": "kettles",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-backpacks",
+      "terms": [
+        {
+          "term": "backpacks",
+          "lang": "en"
+        },
+        {
+          "term": "mens backpacks",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "fish",
+      "terms": [
+        {
+          "term": "fish",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "cheese",
+      "terms": [
+        {
+          "term": "cheese",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tops-tshirts",
+      "terms": [
+        {
+          "term": "tops & t-shirts",
+          "lang": "en"
+        },
+        {
+          "term": "tops tshirts",
+          "lang": "en"
+        },
+        {
+          "term": "tops",
+          "lang": "en"
+        },
+        {
+          "term": "tshirts",
+          "lang": "en"
+        },
+        {
+          "term": "topit",
+          "lang": "fi"
+        },
+        {
+          "term": "t-paidat",
+          "lang": "fi"
+        },
+        {
+          "term": "tpaidat",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "rice",
+      "terms": [
+        {
+          "term": "rice",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "everyday-kidswear",
+      "terms": [
+        {
+          "term": "everyday kidswear",
+          "lang": "en"
+        },
+        {
+          "term": "everyday",
+          "lang": "en"
+        },
+        {
+          "term": "kidswear",
+          "lang": "en"
+        },
+        {
+          "term": "jokapäiväiset lastenvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "tea",
+      "terms": [
+        {
+          "term": "tea",
+          "lang": "en"
+        },
+        {
+          "term": "tee",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "washing-machines",
+      "terms": [
+        {
+          "term": "washing machines",
+          "lang": "en"
+        },
+        {
+          "term": "washing",
+          "lang": "en"
+        },
+        {
+          "term": "machines",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "chargers",
+      "terms": [
+        {
+          "term": "chargers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "security-cameras",
+      "terms": [
+        {
+          "term": "security cameras",
+          "lang": "en"
+        },
+        {
+          "term": "security",
+          "lang": "en"
+        },
+        {
+          "term": "cameras",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "lenses",
+      "terms": [
+        {
+          "term": "lenses",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "speakers",
+      "terms": [
+        {
+          "term": "speakers",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "tablets",
+      "terms": [
+        {
+          "term": "tablets",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "wallets",
+      "terms": [
+        {
+          "term": "wallets",
+          "lang": "en"
+        },
+        {
+          "term": "lompakot",
+          "lang": "fi"
+        },
+        {
+          "term": "lompakko",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "shoe-care-products",
+      "terms": [
+        {
+          "term": "care products",
+          "lang": "en"
+        },
+        {
+          "term": "shoe care products",
+          "lang": "en"
+        },
+        {
+          "term": "shoe",
+          "lang": "en"
+        },
+        {
+          "term": "care",
+          "lang": "en"
+        },
+        {
+          "term": "products",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "home-shoes",
+      "terms": [
+        {
+          "term": "home shoes",
+          "lang": "en"
+        },
+        {
+          "term": "home",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "kotikengät",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "indoor-training-shoes",
+      "terms": [
+        {
+          "term": "indoor training shoes",
+          "lang": "en"
+        },
+        {
+          "term": "indoor",
+          "lang": "en"
+        },
+        {
+          "term": "training",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "electronics-smartwatches",
+      "terms": [
+        {
+          "term": "smartwatches",
+          "lang": "en"
+        },
+        {
+          "term": "electronics smartwatches",
+          "lang": "en"
+        },
+        {
+          "term": "electronics",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "contact-lenses",
+      "terms": [
+        {
+          "term": "contact lenses",
+          "lang": "en"
+        },
+        {
+          "term": "contact",
+          "lang": "en"
+        },
+        {
+          "term": "lenses",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "medical-accessories",
+      "terms": [
+        {
+          "term": "accessories",
+          "lang": "en"
+        },
+        {
+          "term": "medical accessories",
+          "lang": "en"
+        },
+        {
+          "term": "medical",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "rainwear",
+      "terms": [
+        {
+          "term": "rainwear",
+          "lang": "en"
+        },
+        {
+          "term": "sadevaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "outdoor-apparel",
+      "terms": [
+        {
+          "term": "outdoor apparel",
+          "lang": "en"
+        },
+        {
+          "term": "outdoor",
+          "lang": "en"
+        },
+        {
+          "term": "apparel",
+          "lang": "en"
+        },
+        {
+          "term": "ulkoiluvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "schoolwear",
+      "terms": [
+        {
+          "term": "schoolwear",
+          "lang": "en"
+        },
+        {
+          "term": "kouluvaatteet",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "necklaces",
+      "terms": [
+        {
+          "term": "necklaces",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "womens-sandals",
+      "terms": [
+        {
+          "term": "sandals",
+          "lang": "en"
+        },
+        {
+          "term": "womens sandals",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "suits-blazers",
+      "terms": [
+        {
+          "term": "suits & blazers",
+          "lang": "en"
+        },
+        {
+          "term": "suits blazers",
+          "lang": "en"
+        },
+        {
+          "term": "suits",
+          "lang": "en"
+        },
+        {
+          "term": "blazers",
+          "lang": "en"
+        },
+        {
+          "term": "puvut",
+          "lang": "fi"
+        },
+        {
+          "term": "blazerit",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "womens-scarves",
+      "terms": [
+        {
+          "term": "scarves",
+          "lang": "en"
+        },
+        {
+          "term": "womens scarves",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-sneakers",
+      "terms": [
+        {
+          "term": "sneakers",
+          "lang": "en"
+        },
+        {
+          "term": "mens sneakers",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "mens-belts",
+      "terms": [
+        {
+          "term": "belts",
+          "lang": "en"
+        },
+        {
+          "term": "mens belts",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "socks-tights",
+      "terms": [
+        {
+          "term": "socks & tights",
+          "lang": "en"
+        },
+        {
+          "term": "socks tights",
+          "lang": "en"
+        },
+        {
+          "term": "socks",
+          "lang": "en"
+        },
+        {
+          "term": "tights",
+          "lang": "en"
+        },
+        {
+          "term": "sukat",
+          "lang": "fi"
+        },
+        {
+          "term": "sukkahousut",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "womens-trousers-jeans",
+      "terms": [
+        {
+          "term": "trousers & jeans",
+          "lang": "en"
+        },
+        {
+          "term": "womens trousers jeans",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        },
+        {
+          "term": "trousers",
+          "lang": "en"
+        },
+        {
+          "term": "jeans",
+          "lang": "en"
+        },
+        {
+          "term": "housut",
+          "lang": "fi"
+        },
+        {
+          "term": "farkut",
+          "lang": "fi"
+        },
+        {
+          "term": "naisten housut",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "mens-outerwear",
+      "terms": [
+        {
+          "term": "outerwear",
+          "lang": "en"
+        },
+        {
+          "term": "mens outerwear",
+          "lang": "en"
+        },
+        {
+          "term": "mens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "skirts",
+      "terms": [
+        {
+          "term": "skirts",
+          "lang": "en"
+        },
+        {
+          "term": "hameet",
+          "lang": "fi"
+        },
+        {
+          "term": "hame",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "womens-outerwear",
+      "terms": [
+        {
+          "term": "outerwear",
+          "lang": "en"
+        },
+        {
+          "term": "womens outerwear",
+          "lang": "en"
+        },
+        {
+          "term": "womens",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "code": "chair",
+      "terms": [
+        {
+          "term": "chair",
+          "lang": "en"
+        },
+        {
+          "term": "chairs",
+          "lang": "en"
+        },
+        {
+          "term": "tuoli",
+          "lang": "fi"
+        },
+        {
+          "term": "tuolit",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "table",
+      "terms": [
+        {
+          "term": "table",
+          "lang": "en"
+        },
+        {
+          "term": "tables",
+          "lang": "en"
+        },
+        {
+          "term": "pöytä",
+          "lang": "fi"
+        },
+        {
+          "term": "pöydät",
+          "lang": "fi"
+        },
+        {
+          "term": "poyata",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "lamp",
+      "terms": [
+        {
+          "term": "lamp",
+          "lang": "en"
+        },
+        {
+          "term": "lamps",
+          "lang": "en"
+        },
+        {
+          "term": "light",
+          "lang": "en"
+        },
+        {
+          "term": "lights",
+          "lang": "en"
+        },
+        {
+          "term": "valaisin",
+          "lang": "fi"
+        },
+        {
+          "term": "valaisimet",
+          "lang": "fi"
+        },
+        {
+          "term": "lamppu",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "sofa",
+      "terms": [
+        {
+          "term": "sofa",
+          "lang": "en"
+        },
+        {
+          "term": "sofas",
+          "lang": "en"
+        },
+        {
+          "term": "couch",
+          "lang": "en"
+        },
+        {
+          "term": "sohva",
+          "lang": "fi"
+        },
+        {
+          "term": "sohvat",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "bed",
+      "terms": [
+        {
+          "term": "bed",
+          "lang": "en"
+        },
+        {
+          "term": "beds",
+          "lang": "en"
+        },
+        {
+          "term": "sänky",
+          "lang": "fi"
+        },
+        {
+          "term": "sängyt",
+          "lang": "fi"
+        },
+        {
+          "term": "sanky",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "shelf",
+      "terms": [
+        {
+          "term": "shelf",
+          "lang": "en"
+        },
+        {
+          "term": "shelves",
+          "lang": "en"
+        },
+        {
+          "term": "hylly",
+          "lang": "fi"
+        },
+        {
+          "term": "hyllyt",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "jacket",
+      "terms": [
+        {
+          "term": "jacket",
+          "lang": "en"
+        },
+        {
+          "term": "jackets",
+          "lang": "en"
+        },
+        {
+          "term": "takki",
+          "lang": "fi"
+        },
+        {
+          "term": "takit",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "dress",
+      "terms": [
+        {
+          "term": "dress",
+          "lang": "en"
+        },
+        {
+          "term": "dresses",
+          "lang": "en"
+        },
+        {
+          "term": "mekko",
+          "lang": "fi"
+        },
+        {
+          "term": "mekot",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "shirt",
+      "terms": [
+        {
+          "term": "shirt",
+          "lang": "en"
+        },
+        {
+          "term": "shirts",
+          "lang": "en"
+        },
+        {
+          "term": "paita",
+          "lang": "fi"
+        },
+        {
+          "term": "paidat",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "trousers",
+      "terms": [
+        {
+          "term": "trousers",
+          "lang": "en"
+        },
+        {
+          "term": "pants",
+          "lang": "en"
+        },
+        {
+          "term": "housut",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "jeans",
+      "terms": [
+        {
+          "term": "jeans",
+          "lang": "en"
+        },
+        {
+          "term": "farkut",
+          "lang": "fi"
+        },
+        {
+          "term": "farkku",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "coat",
+      "terms": [
+        {
+          "term": "coat",
+          "lang": "en"
+        },
+        {
+          "term": "coats",
+          "lang": "en"
+        },
+        {
+          "term": "turkki",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "shoe",
+      "terms": [
+        {
+          "term": "shoe",
+          "lang": "en"
+        },
+        {
+          "term": "shoes",
+          "lang": "en"
+        },
+        {
+          "term": "kenkä",
+          "lang": "fi"
+        },
+        {
+          "term": "kengät",
+          "lang": "fi"
+        },
+        {
+          "term": "kengat",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "bag",
+      "terms": [
+        {
+          "term": "bag",
+          "lang": "en"
+        },
+        {
+          "term": "bags",
+          "lang": "en"
+        },
+        {
+          "term": "laukku",
+          "lang": "fi"
+        },
+        {
+          "term": "laukut",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "juice",
+      "terms": [
+        {
+          "term": "juice",
+          "lang": "en"
+        },
+        {
+          "term": "mehu",
+          "lang": "fi"
+        },
+        {
+          "term": "сок",
+          "lang": "ru"
+        }
+      ]
+    },
+    {
+      "code": "water",
+      "terms": [
+        {
+          "term": "water",
+          "lang": "en"
+        },
+        {
+          "term": "vesi",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "book",
+      "terms": [
+        {
+          "term": "book",
+          "lang": "en"
+        },
+        {
+          "term": "books",
+          "lang": "en"
+        },
+        {
+          "term": "kirja",
+          "lang": "fi"
+        },
+        {
+          "term": "kirjat",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "toy",
+      "terms": [
+        {
+          "term": "toy",
+          "lang": "en"
+        },
+        {
+          "term": "toys",
+          "lang": "en"
+        },
+        {
+          "term": "lelu",
+          "lang": "fi"
+        },
+        {
+          "term": "lelut",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "wood",
+      "terms": [
+        {
+          "term": "wood",
+          "lang": "en"
+        },
+        {
+          "term": "wooden",
+          "lang": "en"
+        },
+        {
+          "term": "puu",
+          "lang": "fi"
+        },
+        {
+          "term": "puinen",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "glass",
+      "terms": [
+        {
+          "term": "glass",
+          "lang": "en"
+        },
+        {
+          "term": "lasi",
+          "lang": "fi"
+        },
+        {
+          "term": "lasinen",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "metal",
+      "terms": [
+        {
+          "term": "metal",
+          "lang": "en"
+        },
+        {
+          "term": "metalli",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "leather",
+      "terms": [
+        {
+          "term": "leather",
+          "lang": "en"
+        },
+        {
+          "term": "nahka",
+          "lang": "fi"
+        },
+        {
+          "term": "nahkainen",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "scandinavian",
+      "terms": [
+        {
+          "term": "scandinavian",
+          "lang": "en"
+        },
+        {
+          "term": "nordic",
+          "lang": "en"
+        },
+        {
+          "term": "skandinaavinen",
+          "lang": "fi"
+        },
+        {
+          "term": "pohjoismainen",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "minimalist",
+      "terms": [
+        {
+          "term": "minimalist",
+          "lang": "en"
+        },
+        {
+          "term": "minimalistinen",
+          "lang": "fi"
+        },
+        {
+          "term": "minimalismi",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "kitchen",
+      "terms": [
+        {
+          "term": "kitchen",
+          "lang": "en"
+        },
+        {
+          "term": "keittiö",
+          "lang": "fi"
+        },
+        {
+          "term": "keittio",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "living room",
+      "terms": [
+        {
+          "term": "living room",
+          "lang": "en"
+        },
+        {
+          "term": "olohuone",
+          "lang": "fi"
+        }
+      ]
+    },
+    {
+      "code": "dining",
+      "terms": [
+        {
+          "term": "dining",
+          "lang": "en"
+        },
+        {
+          "term": "ruokailu",
+          "lang": "fi"
+        }
+      ]
+    }
+  ]
+}

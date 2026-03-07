@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "prisma:seed": "tsx prisma/seed.ts",
+    "prisma:seed-search-synonyms": "tsx prisma/seed-search-synonyms.ts",
+    "search-dictionary:generate": "tsx scripts/generate-search-dictionary.ts",
+    "search-dictionary:import": "tsx scripts/import-search-dictionary.ts",
+    "search-dictionary:refresh": "tsx scripts/generate-search-dictionary.ts && tsx scripts/import-search-dictionary.ts",
     "postinstall": "prisma generate"
   },
   "dependencies": {

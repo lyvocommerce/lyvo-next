@@ -19,10 +19,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  const [children, dbProducts] = await Promise.all([
-    getCategoryChildren(category.id),
-    getProductsByCategorySlug(slug),
-  ]);
+  const children = await getCategoryChildren(category.id);
+  const dbProducts =
+    children.length === 0 ? await getProductsByCategorySlug(slug) : [];
   const products = dbProducts.map(mapDbProductToProduct);
 
   return (

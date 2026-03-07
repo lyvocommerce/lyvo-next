@@ -5,7 +5,7 @@ import { ProductCard } from "@/components/design";
 import { useProducts } from "@/contexts/Products/ProductsContext";
 import { useSideMenu } from "@/contexts/SideMenu/SideMenuContext";
 import FiltersAndSearchBar from "@/components/layout/FiltersAndSearchBar";
-import SearchModal from "@/components/layout/SearchModal";
+import { SearchOverlay } from "@/components/search";
 import FiltersModal from "@/components/layout/FiltersModal";
 import CategoryTiles from "@/components/layout/CategoryTiles";
 
@@ -58,7 +58,7 @@ export default function LandingPage() {
         onFilters={handleFilters}
         onMenu={sideMenu?.openMenu}
       />
-      <SearchModal
+      <SearchOverlay
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
       />

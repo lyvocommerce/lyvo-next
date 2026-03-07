@@ -83,6 +83,17 @@ body {
   background-color: var(--tg-theme-hint-color) !important;
 }
 
+/* Dark theme: search overlay and input (fullscreen TWA) */
+[data-telegram-theme="dark"] .search-overlay-fullscreen {
+  background-color: var(--tg-theme-bg-color) !important;
+}
+[data-telegram-theme="dark"] .search-input-wrapper {
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+}
+[data-telegram-theme="dark"] .search-result-item {
+  background-color: var(--tg-theme-secondary-bg-color) !important;
+}
+
 /* Dark theme: bottom bar (menu, account, filters, search) */
 [data-telegram-theme="dark"] .filters-and-search-bar a,
 [data-telegram-theme="dark"] .filters-and-search-bar button {

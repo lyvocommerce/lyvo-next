@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { getActiveCategorySlugs } from "@/lib/categories";
 import type { NormalizedProduct } from "./types";
 import { resolveCategory } from "./resolve-category";
+import { resolveCategoryByRules } from "./category-rules";
 import { parseFakeStoreResponse } from "./parsers/fakestore";
 import { parseDummyJsonResponse } from "./parsers/dummyjson";
 
@@ -85,13 +86,22 @@ export async function loadCatalogForMerchant(merchantId: string): Promise<{
 /**
  * Resolve each product's category to a valid Category.slug from DB (or null).
  * Mutates rows in place. Call before ingestProducts so only valid slugs are persisted.
+ * Priority: keyword rules first, then resolveCategory (FEED_CATEGORY_TO_MENU_SLUG + aliases).
  */
 export async function resolveCategoriesForProducts(
   rows: NormalizedProduct[]
 ): Promise<void> {
   const validSlugs = await getActiveCategorySlugs();
   for (const row of rows) {
-    row.category = resolveCategory(row.category, validSlugs);
+    const ruleSlug = resolveCategoryByRules(
+      { title: row.title, description: row.description, category: row.category },
+      validSlugs
+    );
+    if (ruleSlug != null) {
+      row.category = ruleSlug;
+    } else {
+      row.category = resolveCategory(row.category, validSlugs);
+    }
   }
 }
 

@@ -5,6 +5,7 @@ import TelegramAuthProvider from "@/contexts/TelegramAuth/TelegramAuthProvider";
 import TelegramBackButton from "@/components/TelegramAuth/TelegramBackButton";
 import ProductsProvider from "@/contexts/Products/ProductsProvider";
 import { SideMenuProvider } from "@/contexts/SideMenu/SideMenuContext";
+import { OverlayBackProvider } from "@/contexts/OverlayBack/OverlayBackContext";
 import SideMenu from "@/components/layout/SideMenu";
 import PageTransition from "@/components/utils/PageTransition";
 import ContentSafeArea from "@/components/utils/ContentSafeArea";
@@ -31,13 +32,15 @@ export default function ConditionalProviders({
   return (
     <TelegramAuthProvider testMode={testMode}>
       <SideMenuProvider>
-        <TelegramBackButton />
-        <SideMenu />
-        <ProductsProvider>
-        <PageTransition>
-          <ContentSafeArea>{children}</ContentSafeArea>
-        </PageTransition>
-      </ProductsProvider>
+        <OverlayBackProvider>
+          <TelegramBackButton />
+          <SideMenu />
+          <ProductsProvider>
+            <PageTransition>
+              <ContentSafeArea>{children}</ContentSafeArea>
+            </PageTransition>
+          </ProductsProvider>
+        </OverlayBackProvider>
       </SideMenuProvider>
     </TelegramAuthProvider>
   );

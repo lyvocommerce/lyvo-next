@@ -4,25 +4,29 @@ import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTelegramAuth } from "@/contexts/TelegramAuth/TelegramAuthContext";
 import { useSideMenu } from "@/contexts/SideMenu/SideMenuContext";
+import { useOverlayBack } from "@/contexts/OverlayBack/OverlayBackContext";
 
 /**
- * Syncs Telegram Mini App native header: shows "Back" when user is not on root or when side menu is open.
- * Hides it on "/" when menu is closed. Back click: closes menu if open, else router.back().
+ * Syncs Telegram Mini App native header: shows "Back" when user is not on root, when side menu is open,
+ * or when an overlay (e.g. search) is open. Back click: overlay close > menu back > router.back().
  */
 export default function TelegramBackButton() {
   const pathname = usePathname();
   const router = useRouter();
   const { webApp, isMiniApp } = useTelegramAuth();
   const sideMenu = useSideMenu();
+  const overlayBack = useOverlayBack();
   const handlerRef = useRef<() => void>(() => router.back());
 
   useEffect(() => {
-    if (sideMenu?.isOpen) {
+    if (overlayBack?.overlayBack) {
+      handlerRef.current = overlayBack.overlayBack;
+    } else if (sideMenu?.isOpen) {
       handlerRef.current = sideMenu.goBackInMenu;
     } else {
       handlerRef.current = () => router.back();
     }
-  }, [router, sideMenu?.isOpen, sideMenu?.goBackInMenu]);
+  }, [overlayBack?.overlayBack, sideMenu?.isOpen, sideMenu?.goBackInMenu, router]);
 
   useEffect(() => {
     if (!isMiniApp || !webApp) return;
@@ -31,7 +35,8 @@ export default function TelegramBackButton() {
 
     webApp.BackButton.onClick(handler);
 
-    const showBack = sideMenu?.isOpen || pathname !== "/";
+    const showBack =
+      !!overlayBack?.overlayBack || sideMenu?.isOpen || pathname !== "/";
     if (showBack) {
       webApp.BackButton.show();
     } else {
@@ -42,7 +47,7 @@ export default function TelegramBackButton() {
       webApp.BackButton.offClick(handler);
       webApp.BackButton.hide();
     };
-  }, [pathname, webApp, isMiniApp, sideMenu?.isOpen]);
+  }, [pathname, webApp, isMiniApp, sideMenu?.isOpen, overlayBack?.overlayBack]);
 
   return null;
 }

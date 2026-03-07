@@ -26,12 +26,17 @@ export default function SearchInput({
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (autoFocus && inputRef.current) {
-      const t = setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
-      return () => clearTimeout(t);
-    }
+    if (!autoFocus) return;
+    const el = inputRef.current;
+    if (!el) return;
+    const raf = requestAnimationFrame(() => {
+      el.focus();
+    });
+    const t = setTimeout(() => el.focus(), 50);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(t);
+    };
   }, [autoFocus]);
 
   return (

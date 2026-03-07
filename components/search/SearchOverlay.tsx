@@ -2,8 +2,6 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Cancel01Icon } from "@hugeicons/core-free-icons";
 import { useTelegramAuth } from "@/contexts/TelegramAuth/TelegramAuthContext";
 import { useProductSearch } from "@/hooks/useProductSearch";
 import SearchInput from "./SearchInput";
@@ -86,10 +84,10 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     return (
       <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          initial={{ opacity: 0, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: "100%" }}
+          transition={{ duration: 0.25, ease: "easeInOut" }}
           className="search-overlay search-overlay-fullscreen fixed inset-0 z-[100] flex flex-col bg-tg-bg"
           style={{
             top: offsetTop,
@@ -99,24 +97,19 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
             paddingTop: "env(safe-area-inset-top, 0px)",
           }}
         >
-          {/* Top bar: close button */}
+          {/* Tap-to-close empty area above content */}
           <div
-            className="flex items-center justify-between shrink-0 py-2 px-3 border-b border-tg-hint/10"
+            role="button"
+            tabIndex={0}
+            onClick={handleClose}
+            onKeyDown={(e) => e.key === "Enter" && handleClose()}
+            aria-label="Закрыть поиск"
+            className="shrink-0 min-h-[48px] cursor-pointer touch-manipulation"
             style={{
               paddingLeft: "max(12px, env(safe-area-inset-left))",
               paddingRight: "max(12px, env(safe-area-inset-right))",
             }}
-          >
-            <span className="text-tg-hint text-sm">Поиск</span>
-            <button
-              type="button"
-              onClick={handleClose}
-              aria-label="Закрыть"
-              className="p-2 -m-2 rounded-full text-tg-text hover:bg-tg-secondary active:opacity-80 transition-opacity touch-manipulation"
-            >
-              <HugeiconsIcon icon={Cancel01Icon} size={24} />
-            </button>
-          </div>
+          />
 
           {/* Scrollable results — takes all space above the input */}
           <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-contain">

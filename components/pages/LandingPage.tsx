@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProductCard } from "@/components/design";
 import { useProducts } from "@/contexts/Products/ProductsContext";
 import { useSideMenu } from "@/contexts/SideMenu/SideMenuContext";
+import { useOverlayBack } from "@/contexts/OverlayBack/OverlayBackContext";
 import FiltersAndSearchBar from "@/components/layout/FiltersAndSearchBar";
 import { SearchOverlay } from "@/components/search";
 import FiltersModal from "@/components/layout/FiltersModal";
@@ -12,8 +13,17 @@ import CategoryTiles from "@/components/layout/CategoryTiles";
 export default function LandingPage() {
   const { products, isLoading, error } = useProducts();
   const sideMenu = useSideMenu();
+  const overlayBack = useOverlayBack();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isSearchOpen || !overlayBack) return;
+    const unregister = overlayBack.registerOverlayBack(() =>
+      setIsSearchOpen(false)
+    );
+    return unregister;
+  }, [isSearchOpen, overlayBack]);
 
   const handleSearch = () => {
     setIsSearchOpen(true);

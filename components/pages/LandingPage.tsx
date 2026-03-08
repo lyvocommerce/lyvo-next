@@ -59,7 +59,7 @@ export default function LandingPage() {
           onClear={search.clear}
           onCancel={search.clear}
           onGoToSearchPage={handleGoToSearchPage}
-          placeholder="Поиск"
+          placeholder="Search"
         />
         {search.query.trim() ? (
           <div

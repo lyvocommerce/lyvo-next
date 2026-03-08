@@ -37,8 +37,8 @@ body {
     sans-serif;
   /* Top offset so content is not covered by Telegram native header; safe-area for notch/island per device */
   --tg-content-offset-top: 80px;
-  /* iOS-style search bar (light blue-gray) */
-  --search-bar-bg: #e8edf1;
+  /* Search bar: light gray fill */
+  --search-bar-bg: #F5F7FA;
   --search-bar-placeholder: #888888;
   --search-bar-icon: #666666;
   /* Category tile placeholder (for future image) */
@@ -46,7 +46,8 @@ body {
   --category-tile-label: #333333;
 }
 [data-telegram-theme="dark"] {
-  --search-bar-bg: var(--tg-theme-secondary-bg-color);
+  /* Dark theme: slightly lighter than bg so search bar is visible */
+  --search-bar-bg: #2d3035;
   --search-bar-placeholder: var(--tg-theme-hint-color);
   --search-bar-icon: var(--tg-theme-hint-color);
   --category-tile-bg: var(--tg-theme-secondary-bg-color);

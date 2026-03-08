@@ -33,7 +33,7 @@ export default function SearchResults({
       <div
         className={`flex items-center justify-center py-8 px-4 text-tg-hint text-sm ${className}`}
       >
-        Поиск…
+        Search…
       </div>
     );
   }
@@ -43,7 +43,7 @@ export default function SearchResults({
       <div
         className={`flex items-center justify-center py-8 px-4 text-tg-hint text-sm ${className}`}
       >
-        Введите запрос для поиска
+        Enter search query
       </div>
     );
   }
@@ -53,7 +53,7 @@ export default function SearchResults({
       <div
         className={`flex items-center justify-center py-8 px-4 text-tg-hint text-sm ${className}`}
       >
-        Ничего не найдено
+        No results found
       </div>
     );
   }

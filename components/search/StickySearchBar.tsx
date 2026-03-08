@@ -54,7 +54,7 @@ export default function StickySearchBar({
   onClear,
   onCancel,
   onGoToSearchPage,
-  placeholder = "Поиск",
+  placeholder = "Search",
 }: StickySearchBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -74,19 +74,21 @@ export default function StickySearchBar({
   return (
     <form
       onSubmit={handleSubmit}
-      className="sticky top-0 z-30 flex w-full items-center gap-2 bg-tg-bg border-b border-tg-hint/10 shrink-0"
+      className="sticky top-0 z-30 flex w-full items-center gap-2 bg-tg-bg shrink-0"
       style={{
         paddingTop: SEARCH_TOP_OFFSET,
         paddingLeft: "max(16px, env(safe-area-inset-left))",
         paddingRight: "max(16px, env(safe-area-inset-right))",
         paddingBottom: 12,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
       }}
     >
       <div
         className="sticky-search-bar-inner flex w-full flex-1 items-center gap-2 min-w-0 px-3"
         style={{
           height: 44,
-          borderRadius: 22,
+          borderRadius: 12,
           backgroundColor: "var(--search-bar-bg)",
         }}
       >
@@ -109,7 +111,7 @@ export default function StickySearchBar({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          aria-label="Поиск"
+          aria-label="Search"
           className="min-w-0 flex-1 bg-transparent outline-none text-base w-full placeholder:font-normal"
           style={{ color: "var(--tg-theme-text-color)" }}
         />
@@ -117,7 +119,7 @@ export default function StickySearchBar({
           <button
             type="button"
             onClick={onClear}
-            aria-label="Очистить"
+            aria-label="Clear"
             className="shrink-0 p-1 rounded-full text-tg-hint hover:bg-black/10 active:opacity-80 touch-manipulation"
           >
             <HugeiconsIcon icon={Cancel01Icon} size={20} />

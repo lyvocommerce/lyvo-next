@@ -142,7 +142,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
               value={query}
               onChange={setQuery}
               onClear={handleClear}
-              placeholder="Поиск"
+              placeholder="Search"
               autoFocus={true}
             />
           </div>
@@ -189,7 +189,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
               value={query}
               onChange={setQuery}
               onClear={handleClear}
-              placeholder="Поиск"
+              placeholder="Search"
               autoFocus={true}
             />
           </div>

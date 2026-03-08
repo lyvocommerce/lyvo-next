@@ -18,9 +18,9 @@ export default function SearchInput({
   value,
   onChange,
   onClear,
-  placeholder = "Поиск",
+  placeholder = "Search",
   autoFocus = true,
-  "aria-label": ariaLabel = "Поиск",
+  "aria-label": ariaLabel = "Search",
   className = "",
 }: SearchInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);

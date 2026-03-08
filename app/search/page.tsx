@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState, useRef } from "react";
+import type { Product } from "@/types/product";
 import BackToHomeLink from "@/components/utils/BackToHomeLink";
 import { SearchResults } from "@/components/search";
 

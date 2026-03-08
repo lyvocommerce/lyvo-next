@@ -25,6 +25,7 @@ export default function LandingPage() {
   const { isMiniApp } = useTelegramAuth();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [isSearchInputFocused, setIsSearchInputFocused] = useState(false);
 
   const search = useProductSearch();
 
@@ -52,13 +53,16 @@ export default function LandingPage() {
 
   if (isMiniApp) {
     return (
-      <main className="min-h-screen bg-tg-bg text-tg-text flex flex-col pb-24">
+      <main
+        className={`min-h-screen bg-tg-bg text-tg-text flex flex-col ${isSearchInputFocused ? "pb-6" : "pb-24"}`}
+      >
         <StickySearchBar
           value={search.query}
           onChange={search.setQuery}
           onClear={search.clear}
           onCancel={search.clear}
           onGoToSearchPage={handleGoToSearchPage}
+          onFocusChange={setIsSearchInputFocused}
           placeholder="Search"
         />
         {search.query.trim() ? (
@@ -82,7 +86,7 @@ export default function LandingPage() {
         ) : (
           <div className="flex-1 min-h-0 overflow-y-auto">
             <div className="max-w-4xl mx-auto py-3">
-              <div className="px-3">
+              <div className="px-0">
                 <CategoryTiles />
               </div>
               {isLoading && (
@@ -105,11 +109,13 @@ export default function LandingPage() {
             </div>
           </div>
         )}
-        <FiltersAndSearchBar
-          onFilters={handleFilters}
-          onMenu={sideMenu?.openMenu}
-          hideSearchIcon
-        />
+        {!isSearchInputFocused && (
+          <FiltersAndSearchBar
+            onFilters={handleFilters}
+            onMenu={sideMenu?.openMenu}
+            hideSearchIcon
+          />
+        )}
         <FiltersModal
           isOpen={isFiltersOpen}
           onClose={() => setIsFiltersOpen(false)}
@@ -121,7 +127,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text py-3 pb-24">
       <div className="max-w-4xl mx-auto">
-        <div className="px-3">
+        <div className="px-0">
           <CategoryTiles />
         </div>
         {isLoading && (

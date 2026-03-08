@@ -42,6 +42,8 @@ interface StickySearchBarProps {
   onCancel: () => void;
   /** Navigate to full search results page (e.g. on keyboard "Search" / Enter) */
   onGoToSearchPage?: (query: string) => void;
+  /** Called when search input focus changes (e.g. to hide bottom bar while keyboard is open) */
+  onFocusChange?: (focused: boolean) => void;
   placeholder?: string;
 }
 
@@ -54,12 +56,18 @@ export default function StickySearchBar({
   onClear,
   onCancel,
   onGoToSearchPage,
+  onFocusChange,
   placeholder = "Search",
 }: StickySearchBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = useState(false);
   const { user } = useTelegramAuth();
   const cancelLabel = getCancelLabel(user?.languageCode ?? "en");
+
+  const setFocused = (focused: boolean) => {
+    setIsFocused(focused);
+    onFocusChange?.(focused);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,8 +116,8 @@ export default function StickySearchBar({
           autoCapitalize="off"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
           placeholder={placeholder}
           aria-label="Search"
           className="min-w-0 flex-1 bg-transparent outline-none text-base w-full placeholder:font-normal"

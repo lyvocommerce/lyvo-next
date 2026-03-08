@@ -22,7 +22,7 @@ export default function CategoryTiles() {
       }}
     >
       <div
-        className="flex min-w-max"
+        className="flex min-w-max px-3"
         style={{ gap: TILE_GAP }}
       >
         {rootCategories.map((category) => (

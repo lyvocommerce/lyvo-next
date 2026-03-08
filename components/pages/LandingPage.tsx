@@ -82,16 +82,16 @@ export default function LandingPage() {
         ) : (
           <div className="flex-1 min-h-0 overflow-y-auto">
             <div className="max-w-4xl mx-auto py-3">
-              <div className="px-4">
+              <div className="px-3">
                 <CategoryTiles />
               </div>
               {isLoading && (
-                <div className="px-4 text-center py-12">
+                <div className="px-3 text-center py-12">
                   <p className="text-tg-hint">Loading products...</p>
                 </div>
               )}
               {error && (
-                <div className="px-4 text-center py-12">
+                <div className="px-3 text-center py-12">
                   <p className="text-red-500">{error}</p>
                 </div>
               )}
@@ -121,16 +121,16 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-tg-bg text-tg-text py-3 pb-24">
       <div className="max-w-4xl mx-auto">
-        <div className="px-4">
+        <div className="px-3">
           <CategoryTiles />
         </div>
         {isLoading && (
-          <div className="px-4 text-center py-12">
+          <div className="px-3 text-center py-12">
             <p className="text-tg-hint">Loading products...</p>
           </div>
         )}
         {error && (
-          <div className="px-4 text-center py-12">
+          <div className="px-3 text-center py-12">
             <p className="text-red-500">{error}</p>
           </div>
         )}

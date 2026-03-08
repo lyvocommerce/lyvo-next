@@ -23,7 +23,8 @@ export default function LandingPage() {
       setIsSearchOpen(false)
     );
     return unregister;
-  }, [isSearchOpen, overlayBack]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only re-run when isSearchOpen toggles; overlayBack ref would cause loop
+  }, [isSearchOpen]);
 
   const handleSearch = () => {
     setIsSearchOpen(true);

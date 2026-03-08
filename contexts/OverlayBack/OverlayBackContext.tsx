@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useMemo, ReactNode } from "react";
 
 export interface OverlayBackContextType {
   /** Current overlay back handler (e.g. close search). When set, Telegram Back should call it. */
@@ -28,8 +28,13 @@ export function OverlayBackProvider({ children }: OverlayBackProviderProps) {
     return () => setOverlayBack(null);
   }, []);
 
+  const value = useMemo(
+    () => ({ overlayBack, registerOverlayBack }),
+    [overlayBack, registerOverlayBack]
+  );
+
   return (
-    <OverlayBackContext.Provider value={{ overlayBack, registerOverlayBack }}>
+    <OverlayBackContext.Provider value={value}>
       {children}
     </OverlayBackContext.Provider>
   );

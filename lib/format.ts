@@ -27,3 +27,16 @@ export function productImageSrc(rawUrl: string): string {
   if (rawUrl.startsWith("/api/image?")) return rawUrl;
   return `/api/image?url=${encodeURIComponent(rawUrl)}`;
 }
+
+/**
+ * Category image URL. Category images are stored in Vercel Blob (or similar);
+ * use as-is for next/image with unoptimized when host is not in next.config.
+ */
+export function categoryImageSrc(imageUrl: string | null | undefined): string {
+  return imageUrl && imageUrl.trim() ? imageUrl : "";
+}
+
+/** Whether the URL is from Vercel Blob (needs unoptimized in next/image if not in remotePatterns). */
+export function isBlobStorageUrl(url: string): boolean {
+  return url.includes("blob.vercel-storage.com");
+}

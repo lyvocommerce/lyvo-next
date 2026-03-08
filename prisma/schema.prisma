@@ -12,6 +12,7 @@ model Category {
   name         String     @db.VarChar(255)
   slug         String     @unique @db.VarChar(255)
   description  String?    @default("")
+  imageUrl     String?    @map("image_url") @db.VarChar(2048)
   parentId     Int?       @map("parent_id")
   level        Int        @default(1)
   displayOrder Int        @default(0) @map("display_order")

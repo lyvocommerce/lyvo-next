@@ -21,6 +21,8 @@ The `categories` table has the following structure:
 - **createdAt**: Timestamp
 - **updatedAt**: Auto-updated timestamp
 
+*(A future `imageUrl` field for category images is planned; see docs/CATEGORY_IMAGES_ARCHITECTURE.md.)*
+
 ## Available Functions
 
 ### Server-side Functions (lib/categories.ts)
@@ -30,6 +32,12 @@ import {
   getAllCategories,
   getCategoriesTreeSync,
   getCategoryBySlug,
+  getRootCategories,
+  getCategoryChildren,
+  getCategoryPath,
+  getProductsByCategorySlug,
+  getProductsByCategorySlugAndDescendants,
+  getActiveCategorySlugs,
 } from "@/lib/categories";
 
 // Get all active categories
@@ -44,11 +52,20 @@ const category = await getCategoryBySlug("womens-clothing");
 // Get root level categories
 const roots = await getRootCategories();
 
-// Get children of a category
-const children = await getCategoryChildren(categoryId);
+// Get children of a category (pass parent category id)
+const children = await getCategoryChildren(category.id);
 
 // Get category breadcrumb path
-const path = await getCategoryPath(categoryId);
+const path = await getCategoryPath(category.id);
+
+// Get products in this category only (products.category = slug)
+const products = await getProductsByCategorySlug("womens-clothing");
+
+// Get products in this category and all descendant categories (e.g. "Show all products")
+const allProducts = await getProductsByCategorySlugAndDescendants("clothes");
+
+// Set of active slugs (for ingest/validation)
+const slugs = await getActiveCategorySlugs();
 ```
 
 ### Client-side Hook (useCategoriesContext)
@@ -93,8 +110,8 @@ npx prisma studio
 ### Re-seeding Database
 
 ```bash
-# Clear and re-populate categories
-pnpm prisma:seed
+# Seed categories (and any seed data)
+npm run prisma:seed
 ```
 
 ### Adding New Categories
@@ -108,7 +125,7 @@ pnpm prisma:seed
 **Option 2: Via Seed File**
 
 1. Edit `prisma/seed.ts`
-2. Run `pnpm prisma:seed`
+2. Run `npm run prisma:seed`
 
 **Option 3: Programmatically**
 
@@ -161,30 +178,35 @@ export default function CategoryMenu() {
 
 ### Category Page
 
+In Next.js App Router, `params` is a **Promise** in server components. Await it before use:
+
 ```typescript
 // app/category/[slug]/page.tsx
-import { getCategoryBySlug, getCategoryChildren } from '@/lib/categories';
+import { getCategoryBySlug, getCategoryChildren, getProductsByCategorySlug } from "@/lib/categories";
+import { notFound } from "next/navigation";
 
-export default async function CategoryPage({
-  params
-}: {
-  params: { slug: string }
-}) {
-  const category = await getCategoryBySlug(params.slug);
-  const children = category ? await getCategoryChildren(category.id) : [];
+interface CategoryPageProps {
+  params: Promise<{ slug: string }>;
+}
 
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { slug } = await params;
+  const category = await getCategoryBySlug(slug);
+
+  if (!category) notFound();
+
+  const children = await getCategoryChildren(category.id);
+  const dbProducts = children.length === 0 ? await getProductsByCategorySlug(slug) : [];
+  // ... map products and render
   return (
     <div>
-      <h1>{category?.name}</h1>
-      <p>{category?.description}</p>
-
+      <h1>{category.name}</h1>
+      {category.description && <p>{category.description}</p>}
       {children.length > 0 && (
         <div>
-          <h2>Subcategories:</h2>
+          <h2>Subcategories</h2>
           {children.map((child) => (
-            <a key={child.id} href={`/category/${child.slug}`}>
-              {child.name}
-            </a>
+            <a key={child.id} href={`/category/${child.slug}`}>{child.name}</a>
           ))}
         </div>
       )}

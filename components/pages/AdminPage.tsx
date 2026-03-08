@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@/components/design";
 
 type Health = {
@@ -286,13 +287,22 @@ export default function AdminPage() {
               <p className="px-3 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400">
                 Main
               </p>
-              <button className="w-full flex items-center justify-between rounded-xl bg-slate-900 text-white px-3 py-2.5 text-sm font-medium shadow-sm hover:bg-slate-800 transition-colors">
+              <Link
+                href="/admin"
+                className="w-full flex items-center justify-between rounded-xl bg-slate-900 text-white px-3 py-2.5 text-sm font-medium shadow-sm hover:bg-slate-800 transition-colors"
+              >
                 <span className="flex items-center gap-2">
                   <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                   Dashboard
                 </span>
                 <span className="rounded-full bg-white/10 px-2 text-[10px]">Live</span>
-              </button>
+              </Link>
+              <Link
+                href="/admin/categories"
+                className="w-full flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-slate-600 hover:bg-slate-100 transition-colors"
+              >
+                Category images
+              </Link>
             </div>
 
             <div className="space-y-1">

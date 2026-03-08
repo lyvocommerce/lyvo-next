@@ -1,7 +1,9 @@
 import { getCategoryBySlug, getCategoryChildren, getProductsByCategorySlug } from "@/lib/categories";
 import { mapDbProductToProduct } from "@/lib/catalog";
+import { categoryImageSrc, isBlobStorageUrl } from "@/lib/format";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import ProductCard from "@/components/design/ProductCard";
 import BackToHomeLink from "@/components/utils/BackToHomeLink";
 
@@ -46,14 +48,23 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 className="flex items-center gap-3 h-[56px] touch-manipulation active:opacity-90"
               >
                 <div
-                  className="flex-shrink-0 overflow-hidden rounded-lg"
+                  className="flex-shrink-0 overflow-hidden rounded-lg relative"
                   style={{
                     width: 56,
                     height: 56,
                     backgroundColor: "var(--category-tile-bg)",
                   }}
                 >
-                  {/* Placeholder for future category image */}
+                  {child.imageUrl ? (
+                    <Image
+                      src={categoryImageSrc(child.imageUrl)}
+                      alt=""
+                      width={56}
+                      height={56}
+                      className="object-contain w-full h-full"
+                      unoptimized={isBlobStorageUrl(child.imageUrl)}
+                    />
+                  ) : null}
                 </div>
                 <span
                   className="text-tg-text font-normal flex-1 min-w-0 line-clamp-2"

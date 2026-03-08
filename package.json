@@ -19,6 +19,7 @@
     "@hugeicons/react": "^1.1.5",
     "@prisma/client": "5.22.0",
     "@twa-dev/sdk": "^8.0.2",
+    "@vercel/blob": "^2.3.1",
     "framer-motion": "^12.23.24",
     "next": "^16.0.7",
     "react": "^19.2.1",

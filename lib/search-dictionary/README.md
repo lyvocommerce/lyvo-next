@@ -1,6 +1,11 @@
 # Search Dictionary
 
-System for automatic enrichment of search terms and synonyms for EN/FI.
+System for automatic enrichment of search terms and synonyms for EN/FI. Used by the search API to match queries in multiple languages (e.g. English and Finnish).
+
+## Requirements
+
+- Database with categories (run `npm run prisma:seed` if needed).
+- Prisma client generated (`npx prisma generate`).
 
 ## Components
 
@@ -25,7 +30,7 @@ npm run search-dictionary:refresh
 
 ## API
 
-- **POST /api/admin/search-dictionary/regenerate** — rebuild the dictionary from current categories and static data and write to DB (no request body).
+- **POST /api/admin/search-dictionary/regenerate** — rebuild the dictionary from current categories and static data and write to DB (no request body). Requires admin authentication (login at `/admin/login`).
 
 ## Prioritization rules
 

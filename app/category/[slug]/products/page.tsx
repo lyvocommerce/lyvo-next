@@ -4,8 +4,10 @@ import {
   getProductsByCategorySlugAndDescendants,
 } from "@/lib/categories";
 import { mapDbProductToProduct } from "@/lib/catalog";
+import { categoryImageSrc, isBlobStorageUrl } from "@/lib/format";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import ProductCard from "@/components/design/ProductCard";
 import BackToHomeLink from "@/components/utils/BackToHomeLink";
 import BackToCategoryLink from "@/components/utils/BackToCategoryLink";
@@ -55,13 +57,22 @@ export default async function CategoryProductsPage({
                 className="flex flex-col items-center touch-manipulation active:opacity-90"
               >
                 <div
-                  className="w-full aspect-square overflow-hidden transition-opacity"
+                  className="w-full aspect-square overflow-hidden transition-opacity relative"
                   style={{
                     borderRadius: TILE_RADIUS,
                     backgroundColor: "var(--category-tile-bg)",
                   }}
                 >
-                  {/* Placeholder for future category image */}
+                  {child.imageUrl ? (
+                    <Image
+                      src={categoryImageSrc(child.imageUrl)}
+                      alt=""
+                      fill
+                      className="object-contain"
+                      sizes="120px"
+                      unoptimized={isBlobStorageUrl(child.imageUrl)}
+                    />
+                  ) : null}
                 </div>
                 <p
                   className="mt-2 text-center font-normal leading-tight line-clamp-2 w-full px-0.5"

@@ -2,6 +2,8 @@
 
 import { useCategoriesContext } from "@/contexts/Categories/CategoriesProvider";
 import Link from "next/link";
+import Image from "next/image";
+import { categoryImageSrc, isBlobStorageUrl } from "@/lib/format";
 
 const TILE_SIZE = 88;
 const TILE_RADIUS = 16;
@@ -25,7 +27,9 @@ export default function CategoryTiles() {
         className="flex min-w-max px-3"
         style={{ gap: TILE_GAP }}
       >
-        {rootCategories.map((category) => (
+        {rootCategories.map((category) => {
+          const src = categoryImageSrc(category.imageUrl);
+          return (
           <Link
             key={category.id}
             href={`/category/${category.slug}`}
@@ -33,7 +37,7 @@ export default function CategoryTiles() {
             style={{ width: TILE_SIZE + 8 }}
           >
             <div
-              className="flex-shrink-0 overflow-hidden transition-opacity"
+              className="flex-shrink-0 overflow-hidden transition-opacity relative"
               style={{
                 width: TILE_SIZE,
                 height: TILE_SIZE,
@@ -41,7 +45,16 @@ export default function CategoryTiles() {
                 backgroundColor: "var(--category-tile-bg)",
               }}
             >
-              {/* Placeholder for future category image */}
+              {src ? (
+                <Image
+                  src={src}
+                  alt=""
+                  width={TILE_SIZE}
+                  height={TILE_SIZE}
+                  className="object-cover w-full h-full"
+                  unoptimized={isBlobStorageUrl(category.imageUrl ?? "")}
+                />
+              ) : null}
             </div>
             <p
               className="mt-2 text-left font-normal leading-tight line-clamp-2 mx-2"
@@ -54,7 +67,8 @@ export default function CategoryTiles() {
               {category.name}
             </p>
           </Link>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

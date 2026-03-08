@@ -3,8 +3,10 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { categoryImageSrc, isBlobStorageUrl } from "@/lib/format";
 import {
   Cancel01Icon,
   ArrowLeft02Icon,
@@ -220,14 +222,26 @@ export default function SideMenu() {
                   {rootCategories.map((cat) => {
                     const hasChildren =
                       getChildrenCategories(cat.id).length > 0;
+                    const imgSrc = categoryImageSrc(cat.imageUrl);
                     const content = (
                       <>
-                        <div className="side-menu-tile-bg w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden">
-                          <HugeiconsIcon
-                            icon={Folder01Icon}
-                            size={40}
-                            className="text-tg-text"
-                          />
+                        <div className="side-menu-tile-bg w-full aspect-square rounded-[18px] bg-[#F5F7FA] flex items-center justify-center overflow-hidden relative">
+                          {imgSrc ? (
+                            <Image
+                              src={imgSrc}
+                              alt=""
+                              fill
+                              className="object-cover"
+                              sizes="120px"
+                              unoptimized={isBlobStorageUrl(cat.imageUrl ?? "")}
+                            />
+                          ) : (
+                            <HugeiconsIcon
+                              icon={Folder01Icon}
+                              size={40}
+                              className="text-tg-text"
+                            />
+                          )}
                         </div>
                         <span className="mt-2 w-full text-left text-sm font-normal text-tg-text line-clamp-2">
                           {cat.name}

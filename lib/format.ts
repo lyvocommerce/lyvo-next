@@ -29,11 +29,14 @@ export function productImageSrc(rawUrl: string): string {
 }
 
 /**
- * Category image URL. Category images are stored in Vercel Blob (or similar);
- * use as-is for next/image with unoptimized when host is not in next.config.
+ * Category image URL. Category images are proxied via /api/image so they load
+ * in Telegram Mini App (WebView often blocks external domains like Vercel Blob).
  */
 export function categoryImageSrc(imageUrl: string | null | undefined): string {
-  return imageUrl && imageUrl.trim() ? imageUrl : "";
+  if (!imageUrl || !imageUrl.trim()) return "";
+  if (imageUrl.startsWith("/")) return imageUrl;
+  if (imageUrl.startsWith("/api/image?")) return imageUrl;
+  return `/api/image?url=${encodeURIComponent(imageUrl)}`;
 }
 
 /** Whether the URL is from Vercel Blob (needs unoptimized in next/image if not in remotePatterns). */

@@ -19,7 +19,8 @@ export async function GET(request: NextRequest) {
   }
 
   const allowed = await getAllowedImageHosts();
-  if (!allowed.has(parsed.hostname)) {
+  const isVercelBlob = parsed.hostname.includes("blob.vercel-storage.com");
+  if (!isVercelBlob && !allowed.has(parsed.hostname)) {
     return NextResponse.json(
       { error: "Host not allowed. Add this store domain in the admin panel." },
       { status: 403 }

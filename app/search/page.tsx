@@ -56,7 +56,7 @@ function SearchPageContent() {
         <div className="mb-6">
           <BackToHomeLink />
           <h1 className="text-xl font-bold text-tg-text mt-2">
-            Результаты поиска
+            Search results
             {q.trim() && (
               <span className="text-tg-hint font-normal ml-2">
                 «{q}»
@@ -66,7 +66,7 @@ function SearchPageContent() {
         </div>
         {!q.trim() ? (
           <p className="text-tg-hint text-sm py-8">
-            Введите запрос в строке поиска на главной и нажмите «Найти».
+            Enter a query in the search bar on the home page and tap Search.
           </p>
         ) : (
           <SearchResults
@@ -87,7 +87,7 @@ export default function SearchPage() {
       fallback={
         <main className="min-h-screen bg-tg-bg text-tg-text px-4 py-6">
           <div className="max-w-4xl mx-auto">
-            <p className="text-tg-hint">Загрузка…</p>
+            <p className="text-tg-hint">Loading…</p>
           </div>
         </main>
       }

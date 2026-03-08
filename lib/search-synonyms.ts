@@ -1,8 +1,8 @@
 import { prisma } from "@/lib/prisma";
 
 /**
- * Возвращает список терминов для поиска: исходный запрос + все термины из групп синонимов.
- * Если таблица синонимов недоступна (старый Prisma client / миграция не применена), возвращает только запрос.
+ * Returns the list of terms to search: original query plus all terms from synonym groups.
+ * If the synonyms table is unavailable (old Prisma client / migration not applied), returns only the query.
  */
 export async function getSearchTerms(query: string): Promise<string[]> {
   const normalized = query.trim().toLowerCase();

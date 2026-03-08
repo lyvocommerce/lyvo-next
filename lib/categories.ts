@@ -171,7 +171,7 @@ async function getDescendantSlugsRecursive(categoryId: number): Promise<string[]
 
 /**
  * Fetch products that belong to this category or any of its descendant categories.
- * Used for "Показать все товары" on root/level-1 category pages.
+ * Used for "Show all products" on root/level-1 category pages.
  */
 export async function getProductsByCategorySlugAndDescendants(
   slug: string,

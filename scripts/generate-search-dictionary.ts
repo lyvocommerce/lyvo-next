@@ -1,7 +1,7 @@
 /**
- * Генерация поискового словаря из БД (категории) и статического EN/FI словаря.
- * Запуск: npx tsx scripts/generate-search-dictionary.ts
- * Результат: data/search-dictionary.json (для импорта через scripts/import-search-dictionary.ts).
+ * Generate search dictionary from DB (categories) and static EN/FI dictionary.
+ * Run: npx tsx scripts/generate-search-dictionary.ts
+ * Output: data/search-dictionary.json (for import via scripts/import-search-dictionary.ts).
  */
 import { PrismaClient } from "@prisma/client";
 import * as fs from "fs";

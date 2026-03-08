@@ -42,7 +42,7 @@ export default async function CategoryProductsPage({
           <h1 className="text-3xl font-bold text-tg-text mt-1">
             {category.name}
           </h1>
-          <p className="text-tg-hint mt-1">Все товары</p>
+          <p className="text-tg-hint mt-1">All products</p>
         </div>
 
         {/* Level-2 subcategories: grid 3 per row, same style as main carousel */}
@@ -86,7 +86,7 @@ export default async function CategoryProductsPage({
         ) : (
           <div className="text-center py-12">
             <p className="text-tg-hint">
-              В этой категории пока нет товаров.
+              No products in this category yet.
             </p>
           </div>
         )}

@@ -1,5 +1,5 @@
 /**
- * Импорт сгенерированного словаря в БД (upsert). Вызывается из scripts и из API.
+ * Import generated dictionary into DB (upsert). Called from scripts and API.
  */
 import type { PrismaClient } from "@prisma/client";
 import type { SearchDictionaryExport } from "./types";

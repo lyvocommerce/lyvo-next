@@ -103,7 +103,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
             tabIndex={0}
             onClick={handleClose}
             onKeyDown={(e) => e.key === "Enter" && handleClose()}
-            aria-label="Закрыть поиск"
+            aria-label="Close search"
             className="shrink-0 min-h-[48px] cursor-pointer touch-manipulation"
             style={{
               paddingLeft: "max(12px, env(safe-area-inset-left))",
@@ -151,7 +151,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     );
   }
 
-  /* Web: bottom sheet по центру, высота ~70% экрана (iOS-style) */
+  /* Web: bottom sheet centered, height ~70% of viewport (iOS-style) */
   return (
     <AnimatePresence>
       <>

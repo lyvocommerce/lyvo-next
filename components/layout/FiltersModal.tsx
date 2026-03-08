@@ -9,11 +9,11 @@ interface FiltersModalProps {
 
 export default function FiltersModal({ isOpen, onClose }: FiltersModalProps) {
   const categories = [
-    "Одежда и обувь",
-    "Товары для дома",
-    "Электроника",
-    "Красота и здоровье",
-    "Спорт и хобби",
+    "Clothing & Shoes",
+    "Home & Living",
+    "Electronics",
+    "Beauty & Health",
+    "Sports & Hobbies",
   ];
 
   return (

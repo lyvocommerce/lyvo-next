@@ -1,7 +1,7 @@
 /**
- * Сиды для мультиязычного поиска (EN + FI).
- * Запуск: npx tsx prisma/seed-search-synonyms.ts
- * Использует upsert: можно запускать повторно.
+ * Seeds for multilingual search (EN + FI).
+ * Run: npx tsx prisma/seed-search-synonyms.ts
+ * Uses upsert: safe to run repeatedly.
  */
 import { PrismaClient } from "@prisma/client";
 

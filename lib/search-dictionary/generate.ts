@@ -1,5 +1,5 @@
 /**
- * Ядро генерации словаря: вызывается из scripts/generate-search-dictionary.ts и из API.
+ * Core dictionary generation: called from scripts/generate-search-dictionary.ts and API.
  */
 import type { PrismaClient } from "@prisma/client";
 import { CATEGORY_EN_TO_FI, STATIC_PRODUCT_CONCEPTS } from "./en-fi-concepts";

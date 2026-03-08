@@ -1,8 +1,8 @@
 /**
  * POST /api/admin/search-dictionary/regenerate
- * Перестраивает поисковый словарь из категорий БД и статического EN/FI словаря,
- * затем импортирует его в search_concept_groups и search_concept_terms.
- * Вызывать после добавления категорий или при обновлении статического словаря.
+ * Rebuilds the search dictionary from DB categories and static EN/FI dictionary,
+ * then imports it into search_concept_groups and search_concept_terms.
+ * Call after adding categories or when updating the static dictionary.
  */
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";

@@ -1,13 +1,13 @@
 /**
- * Статический словарь концептов EN/FI для поиска.
- * Используется при генерации словаря: категории из БД обогащаются FI-терминами из этого маппинга,
- * плюс добавляются продуктные типы, материалы и стили.
+ * Static EN/FI concept dictionary for search.
+ * Used when generating the dictionary: categories from DB are enriched with FI terms from this mapping,
+ * plus product types, materials and styles are added.
  */
 
 import type { ConceptTerm } from "./types";
 export type ConceptDefinition = { code: string; terms: ConceptTerm[] };
 
-/** Маппинг slug/названия категории (EN) → финские термины для поиска. */
+/** Mapping of category slug/name (EN) → Finnish search terms. */
 export const CATEGORY_EN_TO_FI: Record<string, string[]> = {
   clothes: ["vaatteet", "vaate"],
   shoes: ["kengät", "kengat", "kenkä"],
@@ -77,26 +77,26 @@ export const CATEGORY_EN_TO_FI: Record<string, string[]> = {
   watches: ["kellot", "kello"],
 };
 
-/** Дополнительные концепты: продуктные типы, материалы, стили (EN + FI). */
+/** Additional concepts: product types, materials, styles (EN + FI). */
 export const STATIC_PRODUCT_CONCEPTS: ConceptDefinition[] = [
-  // Мебель и освещение
+  // Furniture and lighting
   { code: "chair", terms: [{ term: "chair", lang: "en" }, { term: "chairs", lang: "en" }, { term: "tuoli", lang: "fi" }, { term: "tuolit", lang: "fi" }] },
   { code: "table", terms: [{ term: "table", lang: "en" }, { term: "tables", lang: "en" }, { term: "pöytä", lang: "fi" }, { term: "pöydät", lang: "fi" }, { term: "poyata", lang: "fi" }] },
   { code: "lamp", terms: [{ term: "lamp", lang: "en" }, { term: "lamps", lang: "en" }, { term: "light", lang: "en" }, { term: "lights", lang: "en" }, { term: "valaisin", lang: "fi" }, { term: "valaisimet", lang: "fi" }, { term: "lamppu", lang: "fi" }] },
   { code: "sofa", terms: [{ term: "sofa", lang: "en" }, { term: "sofas", lang: "en" }, { term: "couch", lang: "en" }, { term: "sohva", lang: "fi" }, { term: "sohvat", lang: "fi" }] },
   { code: "bed", terms: [{ term: "bed", lang: "en" }, { term: "beds", lang: "en" }, { term: "sänky", lang: "fi" }, { term: "sängyt", lang: "fi" }, { term: "sanky", lang: "fi" }] },
   { code: "shelf", terms: [{ term: "shelf", lang: "en" }, { term: "shelves", lang: "en" }, { term: "hylly", lang: "fi" }, { term: "hyllyt", lang: "fi" }] },
-  // Одежда
+  // Clothing
   { code: "jacket", terms: [{ term: "jacket", lang: "en" }, { term: "jackets", lang: "en" }, { term: "takki", lang: "fi" }, { term: "takit", lang: "fi" }] },
   { code: "dress", terms: [{ term: "dress", lang: "en" }, { term: "dresses", lang: "en" }, { term: "mekko", lang: "fi" }, { term: "mekot", lang: "fi" }] },
   { code: "shirt", terms: [{ term: "shirt", lang: "en" }, { term: "shirts", lang: "en" }, { term: "paita", lang: "fi" }, { term: "paidat", lang: "fi" }] },
   { code: "trousers", terms: [{ term: "trousers", lang: "en" }, { term: "pants", lang: "en" }, { term: "housut", lang: "fi" }] },
   { code: "jeans", terms: [{ term: "jeans", lang: "en" }, { term: "farkut", lang: "fi" }, { term: "farkku", lang: "fi" }] },
   { code: "coat", terms: [{ term: "coat", lang: "en" }, { term: "coats", lang: "en" }, { term: "turkki", lang: "fi" }, { term: "turkki", lang: "fi" }] },
-  // Обувь
+  // Footwear
   { code: "shoe", terms: [{ term: "shoe", lang: "en" }, { term: "shoes", lang: "en" }, { term: "kenkä", lang: "fi" }, { term: "kengät", lang: "fi" }, { term: "kengat", lang: "fi" }] },
   { code: "bag", terms: [{ term: "bag", lang: "en" }, { term: "bags", lang: "en" }, { term: "laukku", lang: "fi" }, { term: "laukut", lang: "fi" }] },
-  // Еда и напитки (расширение текущего сида)
+  // Food and drinks (extension of current seed)
   { code: "juice", terms: [{ term: "juice", lang: "en" }, { term: "mehu", lang: "fi" }, { term: "сок", lang: "ru" }] },
   { code: "milk", terms: [{ term: "milk", lang: "en" }, { term: "maito", lang: "fi" }] },
   { code: "bread", terms: [{ term: "bread", lang: "en" }, { term: "leipä", lang: "fi" }, { term: "leipa", lang: "fi" }] },
@@ -105,15 +105,15 @@ export const STATIC_PRODUCT_CONCEPTS: ConceptDefinition[] = [
   { code: "tea", terms: [{ term: "tea", lang: "en" }, { term: "tee", lang: "fi" }] },
   { code: "book", terms: [{ term: "book", lang: "en" }, { term: "books", lang: "en" }, { term: "kirja", lang: "fi" }, { term: "kirjat", lang: "fi" }] },
   { code: "toy", terms: [{ term: "toy", lang: "en" }, { term: "toys", lang: "en" }, { term: "lelu", lang: "fi" }, { term: "lelut", lang: "fi" }] },
-  // Материалы (полезные для поиска)
+  // Materials (useful for search)
   { code: "wood", terms: [{ term: "wood", lang: "en" }, { term: "wooden", lang: "en" }, { term: "puu", lang: "fi" }, { term: "puinen", lang: "fi" }] },
   { code: "glass", terms: [{ term: "glass", lang: "en" }, { term: "lasi", lang: "fi" }, { term: "lasinen", lang: "fi" }] },
   { code: "metal", terms: [{ term: "metal", lang: "en" }, { term: "metalli", lang: "fi" }] },
   { code: "leather", terms: [{ term: "leather", lang: "en" }, { term: "nahka", lang: "fi" }, { term: "nahkainen", lang: "fi" }] },
-  // Стили
+  // Styles
   { code: "scandinavian", terms: [{ term: "scandinavian", lang: "en" }, { term: "nordic", lang: "en" }, { term: "skandinaavinen", lang: "fi" }, { term: "pohjoismainen", lang: "fi" }] },
   { code: "minimalist", terms: [{ term: "minimalist", lang: "en" }, { term: "minimalistinen", lang: "fi" }, { term: "minimalismi", lang: "fi" }] },
-  // Назначение/комната
+  // Purpose/room
   { code: "kitchen", terms: [{ term: "kitchen", lang: "en" }, { term: "keittiö", lang: "fi" }, { term: "keittio", lang: "fi" }] },
   { code: "living room", terms: [{ term: "living room", lang: "en" }, { term: "olohuone", lang: "fi" }] },
   { code: "dining", terms: [{ term: "dining", lang: "en" }, { term: "ruokailu", lang: "fi" }] },

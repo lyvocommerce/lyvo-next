@@ -1,6 +1,6 @@
 /**
- * Стоп-слова для фильтрации при извлечении терминов из title/description.
- * Не создаём концепты для этих слов — они не несут поисковой ценности.
+ * Stopwords for filtering when extracting terms from title/description.
+ * We do not create concepts for these words — they have no search value.
  */
 export const STOPWORDS_EN = new Set([
   "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for", "of", "with", "by",
@@ -21,8 +21,8 @@ export const STOPWORDS_FI = new Set([
   "koko", "eri", "oma", "sama", "itse", "hyvin", "paljon", "vähän", "liian",
 ]);
 
-/** Минимальная длина токена для автоматического извлечения (исключает мусор). */
+/** Minimum token length for automatic extraction (filters out noise). */
 export const MIN_TERM_LENGTH = 2;
 
-/** Максимальная длина одного термина (длинные фразы не создаём как один термин). */
+/** Maximum length of a single term (we do not treat long phrases as one term). */
 export const MAX_TERM_LENGTH = 50;

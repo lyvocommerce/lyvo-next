@@ -1,9 +1,9 @@
 /**
- * Поиск товаров по названию и описанию (pg_trgm + ILIKE).
- * Поддержка синонимов EN/FI: запрос расширяется по таблице search_concept_terms.
+ * Product search by title and description (pg_trgm + ILIKE).
+ * EN/FI synonym support: query is expanded via search_concept_terms table.
  *
- * Интеграция AI-поиска (гибрид): добавить колонку embedding (pgvector), объединить
- * keyword_score с vector_score.
+ * AI search integration (hybrid): add embedding column (pgvector), combine
+ * keyword_score with vector_score.
  */
 import { Prisma } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
@@ -15,17 +15,17 @@ export const dynamic = "force-dynamic";
 
 const SIMILARITY_THRESHOLD = 0.2;
 
-/** Веса релевантности. Для гибрида с AI: добавить score от vector similarity. */
+/** Relevance weights. For AI hybrid: add score from vector similarity. */
 const TITLE_MATCH_WEIGHT = 2.0;
 const TITLE_SIMILARITY_WEIGHT = 1.0;
 const DESCRIPTION_MATCH_WEIGHT = 0.3;
 
-/** Экранирует строку для использования внутри regex (PostgreSQL). */
+/** Escape string for use inside regex (PostgreSQL). */
 function escapeRegex(s: string): string {
   return s.replace(/[\\.*+?^${}()|[\]-]/g, "\\$&");
 }
 
-/** Паттерн для совпадения целого слова (границы слова в PostgreSQL: \m и \M). */
+/** Pattern for whole-word match (word boundaries in PostgreSQL: \\m and \\M). */
 function wordBoundaryPattern(term: string): string {
   return "\\m" + escapeRegex(term) + "\\M";
 }
@@ -61,7 +61,7 @@ export async function GET(request: NextRequest) {
     const categoryFilter = categorySlug ? Prisma.sql`AND category = ${categorySlug}` : Prisma.sql``;
 
     try {
-      // Поиск: исходный запрос (similarity + ILIKE) ИЛИ совпадение по любому синониму.
+      // Search: original query (similarity + ILIKE) OR match on any synonym.
       const raw = await prisma.$queryRaw<
         Array<{
           id: string;
@@ -105,7 +105,7 @@ export async function GET(request: NextRequest) {
         pagination: { total: mapped.length },
       });
     } catch (pgError) {
-      // Если pg_trgm недоступен — поиск по подстроке (title + description) с учётом синонимов
+      // If pg_trgm is unavailable — substring search (title + description) with synonym expansion
       const msg = pgError instanceof Error ? pgError.message : String(pgError);
       if (!msg.includes("similarity") && !msg.includes("function")) {
         throw pgError;

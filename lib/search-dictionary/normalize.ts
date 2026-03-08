@@ -1,6 +1,6 @@
 import { STOPWORDS_EN, STOPWORDS_FI, MIN_TERM_LENGTH, MAX_TERM_LENGTH } from "./stopwords";
 
-/** Нормализация термина для поиска: lowercase, trim, одна пробельная подстрока. */
+/** Normalize term for search: lowercase, trim, single space substring. */
 export function normalizeTerm(raw: string): string {
   return raw
     .trim()
@@ -9,7 +9,7 @@ export function normalizeTerm(raw: string): string {
     .slice(0, MAX_TERM_LENGTH);
 }
 
-/** Проверка, что термин не стоп-слово и не слишком короткий. */
+/** Check that term is not a stopword and not too short. */
 export function isMeaningfulTerm(term: string, lang?: string): boolean {
   const t = normalizeTerm(term);
   if (t.length < MIN_TERM_LENGTH || t.length > MAX_TERM_LENGTH) return false;
@@ -17,7 +17,7 @@ export function isMeaningfulTerm(term: string, lang?: string): boolean {
   return !STOPWORDS_EN.has(t);
 }
 
-/** Уникальные нормализованные термины без стоп-слов и дублей. */
+/** Unique normalized terms without stopwords and duplicates. */
 export function dedupeTerms(terms: { term: string; lang: string }[]): { term: string; lang: string }[] {
   const seen = new Set<string>();
   const out: { term: string; lang: string }[] = [];

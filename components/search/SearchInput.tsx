@@ -69,7 +69,7 @@ export default function SearchInput({
         <button
           type="button"
           onClick={onClear}
-          aria-label="Очистить"
+          aria-label="Clear"
           className="shrink-0 p-1 rounded-full text-tg-hint hover:bg-black/10 dark:hover:bg-white/10 transition-colors touch-manipulation"
         >
           <HugeiconsIcon icon={Cancel01Icon} size={20} />

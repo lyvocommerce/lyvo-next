@@ -270,7 +270,7 @@ export default function AdminPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <div className="flex min-h-screen">
-        {/* Sidebar (static, как на макете) */}
+        {/* Sidebar (static, as per layout) */}
         <aside className="hidden md:flex w-64 flex-col border-r border-slate-200 bg-white/80 backdrop-blur-sm">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-200/70">
             <div className="h-9 w-9 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xs font-semibold">
@@ -425,7 +425,7 @@ export default function AdminPage() {
                       Merchants
                     </h2>
                     <p className="text-xs text-slate-500 mt-0.5">
-                      Список магазинов и количество их товаров.
+                      List of merchants and their product counts.
                     </p>
                   </div>
                 </div>
@@ -479,8 +479,8 @@ export default function AdminPage() {
                     Allowed image domains
                   </h2>
                   <p className="text-xs text-slate-500 mb-3">
-                    Домены из этого списка (и из URL магазинов) могут загружать
-                    изображения товаров.
+                    Domains in this list (and from merchant URLs) are allowed to
+                    load product images.
                   </p>
                   {loadingAllowedHosts ? (
                     <p className="text-sm text-slate-500">Loading…</p>
@@ -539,12 +539,12 @@ export default function AdminPage() {
                     Add new store
                   </h2>
                   <p className="text-xs text-slate-500 mb-3">
-                    Введите название, URL и загрузите JSON‑каталог (FakeStore или
-                    DummyJSON с{" "}
+                    Enter name, URL and upload a JSON catalog (FakeStore or
+                    DummyJSON with{" "}
                     <code className="rounded bg-slate-100 px-1 text-[11px]">
                       products
                     </code>
-                    ). Магазин и товары будут созданы автоматически.
+                    ). The merchant and products will be created automatically.
                   </p>
                   <form
                     onSubmit={handleAddStoreWithCatalog}
@@ -640,8 +640,8 @@ export default function AdminPage() {
                       Upload log
                     </h2>
                     <p className="text-xs text-slate-500 mt-0.5">
-                      История последней загрузки каталога. Скопируйте для поддержки,
-                      если что-то пошло не так.
+                      Log of the latest catalog upload. Copy for support
+                      if something went wrong.
                     </p>
                   </div>
                   <Button

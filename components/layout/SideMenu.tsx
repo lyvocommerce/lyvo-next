@@ -138,7 +138,7 @@ export default function SideMenu() {
 
             {/* Center: title */}
             {isMiniApp ? (
-              // In Telegram Mini App: show title only on nested levels; hide "Меню" on level 1
+              // In Telegram Mini App: show title only on nested levels; hide "Menu" on level 1
               currentParent ? (
                 <span
                   className="fixed left-0 right-0 text-center text-tg-text font-semibold truncate pointer-events-none z-0 px-12"
@@ -154,7 +154,7 @@ export default function SideMenu() {
             ) : (
               // In web version: center title within the side menu header only
               <span className="flex-1 text-center text-tg-text font-semibold truncate px-4">
-                {currentParent ? currentParent.name : "Меню"}
+                {currentParent ? currentParent.name : "Menu"}
               </span>
             )}
 
@@ -192,7 +192,7 @@ export default function SideMenu() {
                     rowGap: GRID_ROW_GAP,
                   }}
                 >
-                  {/* Главная */}
+                  {/* Home */}
                   <Link
                     href="/"
                     onClick={closeMenu}
@@ -212,7 +212,7 @@ export default function SideMenu() {
                         pathname === "/" ? "text-tg-link" : ""
                       }`}
                     >
-                      Главная
+                      Home
                     </span>
                   </Link>
 
@@ -259,7 +259,7 @@ export default function SideMenu() {
                     );
                   })}
 
-                  {/* Профиль */}
+                  {/* Profile */}
                   <Link
                     href="/user"
                     onClick={closeMenu}
@@ -277,7 +277,7 @@ export default function SideMenu() {
                         pathname === "/user" ? "text-tg-link" : ""
                       }`}
                     >
-                      Профиль
+                      Profile
                     </span>
                   </Link>
                 </div>

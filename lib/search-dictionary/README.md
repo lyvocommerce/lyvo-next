@@ -1,45 +1,45 @@
-# Поисковый словарь (Search Dictionary)
+# Search Dictionary
 
-Система автоматического обогащения поисковых терминов и синонимов для EN/FI.
+System for automatic enrichment of search terms and synonyms for EN/FI.
 
-## Компоненты
+## Components
 
-- **`en-fi-concepts.ts`** — статический маппинг: категории (slug → FI-термины) и продуктные концепты (chair, lamp, dress, wood, …).
-- **`stopwords.ts`** — стоп-слова EN/FI и лимиты длины терминов.
-- **`normalize.ts`** — нормализация и дедупликация терминов (word-boundary-совместимо).
-- **`generate.ts`** — ядро: выборка категорий из БД + статические концепты → объединённый словарь.
-- **`import-to-db.ts`** — upsert словаря в `search_concept_groups` и `search_concept_terms`.
+- **`en-fi-concepts.ts`** — static mapping: categories (slug → FI terms) and product concepts (chair, lamp, dress, wood, …).
+- **`stopwords.ts`** — EN/FI stopwords and term length limits.
+- **`normalize.ts`** — term normalization and deduplication (word-boundary compatible).
+- **`generate.ts`** — core: fetch categories from DB + static concepts → combined dictionary.
+- **`import-to-db.ts`** — upsert dictionary into `search_concept_groups` and `search_concept_terms`.
 
-## Скрипты
+## Scripts
 
 ```bash
-# Сгенерировать data/search-dictionary.json из БД и статики
+# Generate data/search-dictionary.json from DB and static data
 npm run search-dictionary:generate
 
-# Импортировать data/search-dictionary.json в БД
+# Import data/search-dictionary.json into DB
 npm run search-dictionary:import
 
-# Сгенерировать и сразу импортировать
+# Generate and import in one step
 npm run search-dictionary:refresh
 ```
 
 ## API
 
-- **POST /api/admin/search-dictionary/regenerate** — пересобрать словарь из текущих категорий и статики и записать в БД (без тела запроса).
+- **POST /api/admin/search-dictionary/regenerate** — rebuild the dictionary from current categories and static data and write to DB (no request body).
 
-## Правила приоритизации
+## Prioritization rules
 
-1. **Категории из БД** — для каждого slug создаётся группа с EN (name, slug, части slug) и FI из `CATEGORY_EN_TO_FI`.
-2. **Статические продуктные концепты** — типы товаров, материалы, стили с EN+FI; при совпадении `code` объединяются с категорией.
-3. Термины **нормализуются** (lowercase, trim), **фильтруются** стоп-словами и минимальной длиной, **дедуплицируются** в рамках группы.
-4. Не добавляются случайные слова из описаний товаров без явного маппинга — только категории и статический словарь.
+1. **Categories from DB** — for each slug a group is created with EN (name, slug, slug parts) and FI from `CATEGORY_EN_TO_FI`.
+2. **Static product concepts** — product types, materials, styles with EN+FI; when `code` matches they are merged with the category.
+3. Terms are **normalized** (lowercase, trim), **filtered** by stopwords and minimum length, **deduplicated** within each group.
+4. Random words from product descriptions are not added without an explicit mapping — only categories and the static dictionary.
 
-## Расширение
+## Extending
 
-- **Новые категории** — после добавления в БД выполнить `search-dictionary:refresh` или POST `regenerate`.
-- **Новые EN/FI концепты** — добавить в `STATIC_PRODUCT_CONCEPTS` или в `CATEGORY_EN_TO_FI` в `en-fi-concepts.ts`, затем перегенерировать.
+- **New categories** — after adding to DB run `search-dictionary:refresh` or POST `regenerate`.
+- **New EN/FI concepts** — add to `STATIC_PRODUCT_CONCEPTS` or `CATEGORY_EN_TO_FI` in `en-fi-concepts.ts`, then regenerate.
 
-## Формат data/search-dictionary.json
+## data/search-dictionary.json format
 
 ```json
 {

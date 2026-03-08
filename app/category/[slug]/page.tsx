@@ -79,7 +79,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               className="flex items-center justify-center w-full py-4 mt-4 rounded-xl bg-tg-button text-tg-button-text font-medium touch-manipulation active:opacity-90"
               style={{ fontSize: 15, lineHeight: "20px" }}
             >
-              Показать все товары
+              Show all products
             </Link>
           </div>
         )}

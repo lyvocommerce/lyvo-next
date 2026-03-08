@@ -38,18 +38,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
         {/* Subcategories: 40px placeholder left, 12px gap, text 15px/20px right */}
         {children.length > 0 && (
-          <div className="space-y-0 mb-10">
+          <div className="space-y-2 mb-10">
             {children.map((child) => (
               <Link
                 key={child.id}
                 href={`/category/${child.slug}`}
-                className="flex items-center gap-3 py-3 touch-manipulation active:opacity-90 border-b border-tg-section-bg last:border-b-0"
+                className="flex items-center gap-3 h-[56px] touch-manipulation active:opacity-90"
               >
                 <div
                   className="flex-shrink-0 overflow-hidden rounded-lg"
                   style={{
-                    width: 40,
-                    height: 40,
+                    width: 56,
+                    height: 56,
                     backgroundColor: "var(--category-tile-bg)",
                   }}
                 >
@@ -61,23 +61,15 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 >
                   {child.name}
                 </span>
-                <svg
-                  className="w-5 h-5 flex-shrink-0 text-tg-hint"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M9 5l7 7-7 7" />
-                </svg>
               </Link>
             ))}
             <Link
               href={`/category/${slug}/products`}
-              className="flex items-center justify-center w-full py-4 mt-4 rounded-xl bg-tg-button text-tg-button-text font-medium touch-manipulation active:opacity-90"
-              style={{ fontSize: 15, lineHeight: "20px" }}
+              className="flex items-center justify-center w-full py-3 px-6 mt-4 rounded-full bg-[#03A770]/75 backdrop-blur-md border border-[#03A770]/50 text-white font-semibold hover:bg-[#03A770]/60 touch-manipulation active:opacity-90 transition-all text-[17px]"
+              style={{
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+              }}
             >
               Show all products
             </Link>

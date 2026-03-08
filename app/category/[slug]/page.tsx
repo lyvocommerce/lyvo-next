@@ -36,43 +36,51 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           )}
         </div>
 
-        {/* Subcategories */}
+        {/* Subcategories: 40px placeholder left, 12px gap, text 15px/20px right */}
         {children.length > 0 && (
-          <div className="space-y-3 mb-10">
-            <h2 className="text-lg font-semibold text-tg-subtitle mb-4">
-              Subcategories
-            </h2>
+          <div className="space-y-0 mb-10">
             {children.map((child) => (
               <Link
                 key={child.id}
                 href={`/category/${child.slug}`}
-                className="block"
+                className="flex items-center gap-3 py-3 touch-manipulation active:opacity-90 border-b border-tg-section-bg last:border-b-0"
               >
-                <div className="bg-tg-section-bg hover:bg-tg-section-bg/80 transition-colors rounded-xl p-4 shadow-sm">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-tg-text font-medium">{child.name}</h3>
-                      {child.description && (
-                        <p className="text-tg-hint text-sm mt-1">
-                          {child.description}
-                        </p>
-                      )}
-                    </div>
-                    <svg
-                      className="w-5 h-5 text-tg-hint"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </div>
+                <div
+                  className="flex-shrink-0 overflow-hidden rounded-lg"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    backgroundColor: "var(--category-tile-bg)",
+                  }}
+                >
+                  {/* Placeholder for future category image */}
                 </div>
+                <span
+                  className="text-tg-text font-normal flex-1 min-w-0 line-clamp-2"
+                  style={{ fontSize: 15, lineHeight: "20px" }}
+                >
+                  {child.name}
+                </span>
+                <svg
+                  className="w-5 h-5 flex-shrink-0 text-tg-hint"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             ))}
+            <Link
+              href={`/category/${slug}/products`}
+              className="flex items-center justify-center w-full py-4 mt-4 rounded-xl bg-tg-button text-tg-button-text font-medium touch-manipulation active:opacity-90"
+              style={{ fontSize: 15, lineHeight: "20px" }}
+            >
+              Показать все товары
+            </Link>
           </div>
         )}
 

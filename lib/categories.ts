@@ -151,3 +151,39 @@ export async function getProductsByCategorySlug(
     take: limit,
   });
 }
+
+/**
+ * Get slug of a category and all its descendants (for "show all products").
+ */
+async function getDescendantSlugsRecursive(categoryId: number): Promise<string[]> {
+  const category = await prisma.category.findUnique({
+    where: { id: categoryId },
+  });
+  if (!category) return [];
+
+  const children = await getCategoryChildren(categoryId);
+  const slugs = [category.slug];
+  for (const child of children) {
+    slugs.push(...(await getDescendantSlugsRecursive(child.id)));
+  }
+  return slugs;
+}
+
+/**
+ * Fetch products that belong to this category or any of its descendant categories.
+ * Used for "Показать все товары" on root/level-1 category pages.
+ */
+export async function getProductsByCategorySlugAndDescendants(
+  slug: string,
+  limit = 100
+) {
+  const category = await getCategoryBySlug(slug);
+  if (!category) return [];
+
+  const slugs = await getDescendantSlugsRecursive(category.id);
+  return prisma.products.findMany({
+    where: { category: { in: slugs } },
+    orderBy: { created_at: "desc" },
+    take: limit,
+  });
+}

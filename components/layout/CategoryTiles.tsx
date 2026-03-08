@@ -14,11 +14,11 @@ export default function CategoryTiles() {
 
   return (
     <div
-      className="w-full overflow-x-auto overflow-y-hidden overscroll-x-contain pb-2"
+      className="w-full overflow-x-auto overflow-y-hidden overscroll-x-contain pb-6"
       style={{
-        marginTop: 28,
-        paddingLeft: "max(16px, env(safe-area-inset-left))",
-        paddingRight: "max(16px, env(safe-area-inset-right))",
+        marginTop: 0,
+        paddingLeft: 0,
+        paddingRight: 0,
       }}
     >
       <div

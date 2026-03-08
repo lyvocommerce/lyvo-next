@@ -37,6 +37,25 @@ body {
     sans-serif;
   /* Top offset so content is not covered by Telegram native header; safe-area for notch/island per device */
   --tg-content-offset-top: 80px;
+  /* iOS-style search bar (light blue-gray) */
+  --search-bar-bg: #e8edf1;
+  --search-bar-placeholder: #888888;
+  --search-bar-icon: #666666;
+  /* Category tile placeholder (for future image) */
+  --category-tile-bg: #ececec;
+  --category-tile-label: #333333;
+}
+[data-telegram-theme="dark"] {
+  --search-bar-bg: var(--tg-theme-secondary-bg-color);
+  --search-bar-placeholder: var(--tg-theme-hint-color);
+  --search-bar-icon: var(--tg-theme-hint-color);
+  --category-tile-bg: var(--tg-theme-secondary-bg-color);
+  --category-tile-label: var(--tg-theme-text-color);
+}
+
+/* Sticky search bar: iOS-style pill, placeholder color */
+.sticky-search-bar-inner input::placeholder {
+  color: var(--search-bar-placeholder);
 }
 
 /* Content area below Telegram header: safe-area-inset-top (device notch/status) + header height */

@@ -77,19 +77,24 @@ export default function StickySearchBar({
       className="sticky top-0 z-30 flex w-full items-center gap-2 bg-tg-bg border-b border-tg-hint/10 shrink-0"
       style={{
         paddingTop: SEARCH_TOP_OFFSET,
-        paddingLeft: "max(12px, env(safe-area-inset-left))",
-        paddingRight: "max(12px, env(safe-area-inset-right))",
-        paddingBottom: 10,
+        paddingLeft: "max(16px, env(safe-area-inset-left))",
+        paddingRight: "max(16px, env(safe-area-inset-right))",
+        paddingBottom: 12,
       }}
     >
       <div
-        className="flex w-full flex-1 items-center gap-2 min-w-0 rounded-xl bg-tg-secondary px-3"
-        style={{ height: 48 }}
+        className="sticky-search-bar-inner flex w-full flex-1 items-center gap-2 min-w-0 px-3"
+        style={{
+          height: 44,
+          borderRadius: 22,
+          backgroundColor: "var(--search-bar-bg)",
+        }}
       >
         <HugeiconsIcon
           icon={Search01Icon}
-          size={20}
-          className="shrink-0 text-tg-hint"
+          size={18}
+          className="shrink-0"
+          style={{ color: "var(--search-bar-icon)" }}
           aria-hidden
         />
         <input
@@ -105,7 +110,8 @@ export default function StickySearchBar({
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
           aria-label="Поиск"
-          className="min-w-0 flex-1 bg-transparent text-tg-text placeholder:text-tg-hint outline-none text-base w-full"
+          className="min-w-0 flex-1 bg-transparent outline-none text-base w-full placeholder:font-normal"
+          style={{ color: "var(--tg-theme-text-color)" }}
         />
         {value.length > 0 && (
           <button

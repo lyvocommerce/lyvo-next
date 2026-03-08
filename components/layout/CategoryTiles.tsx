@@ -3,24 +3,56 @@
 import { useCategoriesContext } from "@/contexts/Categories/CategoriesProvider";
 import Link from "next/link";
 
+const TILE_SIZE = 88;
+const TILE_RADIUS = 16;
+const TILE_GAP = 14;
+const LABEL_FONT_SIZE = 13;
+
 export default function CategoryTiles() {
   const { getRootCategories } = useCategoriesContext();
   const rootCategories = getRootCategories();
 
   return (
-    <div className="w-full overflow-x-auto pb-4 mb-6">
-      <div className="flex gap-3 min-w-max px-1">
+    <div
+      className="w-full overflow-x-auto overflow-y-hidden overscroll-x-contain pb-2"
+      style={{
+        marginTop: 28,
+        paddingLeft: "max(16px, env(safe-area-inset-left))",
+        paddingRight: "max(16px, env(safe-area-inset-right))",
+      }}
+    >
+      <div
+        className="flex min-w-max"
+        style={{ gap: TILE_GAP }}
+      >
         {rootCategories.map((category) => (
           <Link
             key={category.id}
             href={`/category/${category.slug}`}
-            className="flex-shrink-0"
+            className="flex-shrink-0 flex flex-col items-center touch-manipulation active:opacity-90"
+            style={{ width: TILE_SIZE + 8 }}
           >
-            <div className="bg-tg-section-bg hover:bg-tg-section-bg/80 transition-colors rounded-2xl px-6 py-4 min-w-[140px] text-center shadow-sm">
-              <p className="text-tg-text font-medium text-sm">
-                {category.name}
-              </p>
+            <div
+              className="flex-shrink-0 overflow-hidden transition-opacity"
+              style={{
+                width: TILE_SIZE,
+                height: TILE_SIZE,
+                borderRadius: TILE_RADIUS,
+                backgroundColor: "var(--category-tile-bg)",
+              }}
+            >
+              {/* Placeholder for future category image */}
             </div>
+            <p
+              className="mt-2 text-left font-normal leading-tight line-clamp-2 mx-2"
+              style={{
+                fontSize: LABEL_FONT_SIZE,
+                color: "var(--category-tile-label)",
+                maxWidth: TILE_SIZE + 16,
+              }}
+            >
+              {category.name}
+            </p>
           </Link>
         ))}
       </div>

@@ -9,12 +9,15 @@ interface FiltersAndSearchBarProps {
   onSearch?: () => void;
   onFilters?: () => void;
   onMenu?: () => void;
+  /** When true (e.g. Mini App with inline search), search icon is hidden */
+  hideSearchIcon?: boolean;
 }
 
 export default function FiltersAndSearchBar({
   onSearch,
   onFilters,
   onMenu,
+  hideSearchIcon,
 }: FiltersAndSearchBarProps) {
   const glassIconClasses =
     "flex items-center justify-center py-3 px-3 bg-white/10 backdrop-blur-md border border-white/40 text-black font-semibold hover:bg-white/20 transition-all rounded-full text-[17px]";
@@ -53,9 +56,11 @@ export default function FiltersAndSearchBar({
           >
             <HugeiconsIcon icon={FilterHorizontalIcon} size={25} />
           </GlassButton>
-          <GlassButton onClick={onSearch} variant="icon">
-            <HugeiconsIcon icon={SearchIcon} size={25} />
-          </GlassButton>
+          {!hideSearchIcon && onSearch && (
+            <GlassButton onClick={onSearch} variant="icon">
+              <HugeiconsIcon icon={SearchIcon} size={25} />
+            </GlassButton>
+          )}
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const TILE_SIZE = 88;
 const TILE_RADIUS = 16;
-const TILE_GAP = 14;
+const TILE_GAP = 5;
 const LABEL_FONT_SIZE = 13;
 
 export default function CategoryTiles() {
@@ -14,7 +14,7 @@ export default function CategoryTiles() {
 
   return (
     <div
-      className="w-full overflow-x-auto overflow-y-hidden overscroll-x-contain pb-6"
+      className="w-full overflow-x-auto overflow-y-hidden overscroll-x-contain pb-6 scrollbar-hide"
       style={{
         marginTop: 0,
         paddingLeft: 0,
